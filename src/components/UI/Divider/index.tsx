@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 type DividerProps = {
   className?: string;

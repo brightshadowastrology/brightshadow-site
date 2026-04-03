@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 interface CarouselIndicatorProps {
   count?: number;
@@ -16,10 +16,7 @@ export default function CarouselIndicator({
 }: CarouselIndicatorProps) {
   return (
     <div
-      className={cn(
-        "flex items-center gap-[var(--spacing-xs)]",
-        className,
-      )}
+      className={cn("flex items-center gap-[var(--spacing-xs)]", className)}
       role="tablist"
       aria-label="Carousel navigation"
     >
@@ -36,7 +33,9 @@ export default function CarouselIndicator({
               "w-[19px] h-[19px] rounded-full",
               "transition-colors duration-200",
               "focus-visible:outline-2 focus-visible:outline-[var(--border-action)] focus-visible:outline-offset-2",
-              isActive ? "bg-[var(--surface-action)]" : "bg-[var(--accent-100)]",
+              isActive
+                ? "bg-[var(--surface-action)]"
+                : "bg-[var(--accent-100)]",
               onDotClick ? "cursor-pointer" : "cursor-default",
             )}
           />

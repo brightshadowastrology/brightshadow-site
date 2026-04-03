@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import { useCart } from "@/context/CartContext";
 
 interface CartIconProps {

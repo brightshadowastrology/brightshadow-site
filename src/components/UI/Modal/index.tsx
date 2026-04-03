@@ -4,7 +4,7 @@ import React from "react";
 import { Dialog } from "radix-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 interface ModalProps {
   open: boolean;

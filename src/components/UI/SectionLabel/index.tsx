@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 interface SectionLabelProps {
   children: React.ReactNode;

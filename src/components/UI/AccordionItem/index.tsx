@@ -2,7 +2,7 @@
 
 import React from "react";
 import * as Accordion from "@radix-ui/react-accordion";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 export interface AccordionItemProps {
   value: string;
@@ -20,10 +20,7 @@ export function AccordionItem({
   return (
     <Accordion.Item
       value={value}
-      className={cn(
-        "border-t border-[var(--border-subtle)] w-full",
-        className,
-      )}
+      className={cn("border-t border-[var(--border-subtle)] w-full", className)}
     >
       <Accordion.Header>
         <Accordion.Trigger

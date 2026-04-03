@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import * as Form from "@radix-ui/react-form";
 import { type PropsWithChildren } from "react";
 
@@ -26,7 +26,10 @@ const Input: React.FC<PropsWithChildren<InputProps>> = ({
   const { required, name } = props;
 
   return (
-    <Form.Field className={cn("mb-[var(--spacing-xs)]", containerClassName)} name={name}>
+    <Form.Field
+      className={cn("mb-[var(--spacing-xs)]", containerClassName)}
+      name={name}
+    >
       <div className="flex items-center">
         <Form.Label className="mb-[var(--spacing-xs)] block font-body text-label uppercase tracking-[var(--tracking-label)] text-[var(--text-label)]">
           {label}

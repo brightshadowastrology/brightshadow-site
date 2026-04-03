@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import Link from "next/link";
 
 export function QuestionsCTA() {

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Navigation, { NavItem } from "./Navigation";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 interface LegalItem {
   label: string;

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cva, type VariantProps } from "cva";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 const cardVariants = cva({
   base: [

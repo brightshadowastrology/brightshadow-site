@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import {
   getLocalTimeZone,
   parseDate,
@@ -74,7 +74,9 @@ const InputDate = <T extends CalendarDate>({
     >
       <header
         className="flex w-full items-center"
-        style={{ margin: `0 var(--spacing-2xs) var(--spacing-xs) var(--spacing-2xs)` }}
+        style={{
+          margin: `0 var(--spacing-2xs) var(--spacing-xs) var(--spacing-2xs)`,
+        }}
       >
         <Button
           className="h-8 w-8 cursor-pointer p-0"

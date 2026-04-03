@@ -13,7 +13,7 @@ import {
 } from "react-aria-components";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import type { CalendarDate } from "@internationalized/date";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 const DEFAULT_TIMES = [
   "9:00 AM",

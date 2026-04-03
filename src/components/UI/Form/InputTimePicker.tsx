@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import { useEffect, useState } from "react";
 import { type TimeValue } from "react-aria";
 import {

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import CartIcon from "@/components/ui/CartIcon";
 
 export interface NavItem {

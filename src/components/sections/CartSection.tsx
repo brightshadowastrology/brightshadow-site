@@ -5,7 +5,7 @@ import { CartItem } from "@/components/ui/CartItem";
 import CheckoutForm from "@/components/ui/CheckoutForm";
 import { useCart } from "@/context/CartContext";
 import { type LineItem } from "@/lib/types";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

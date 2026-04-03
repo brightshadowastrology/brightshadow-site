@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import { SewingPinFilledIcon } from "@radix-ui/react-icons";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Input, { type InputProps } from "@/components/ui/Form/Input";

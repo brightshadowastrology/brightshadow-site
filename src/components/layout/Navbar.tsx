@@ -3,7 +3,7 @@ import Link from "next/link";
 import BrandLogo from "../ui/BrandLogo";
 import Navigation, { NavItem } from "./Navigation";
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 interface NavbarProps {
   logoSrc?: string;

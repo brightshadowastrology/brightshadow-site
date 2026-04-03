@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { Select } from "radix-ui";
 import type { ReactNode } from "react";

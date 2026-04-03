@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import BookingForm from "./BookingForm";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 interface BookingPageProps {
   params: Promise<{ serviceId: string }>;

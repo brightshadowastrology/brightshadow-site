@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import Input from "@/components/ui/Form/Input";
 import StripeCheckout from "@/components/ui/StripeCheckout";
 import { type LineItem } from "@/lib/types";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 import Divider from "../Divider";
 
 interface EmailFormFields {

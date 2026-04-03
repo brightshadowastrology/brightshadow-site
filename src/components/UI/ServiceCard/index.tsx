@@ -4,7 +4,7 @@ import Link from "next/link";
 import { cva, type VariantProps } from "cva";
 import { Button } from "@/components/ui/Button";
 import Divider from "@/components/ui/Divider";
-import { cn } from "@/shared/lib/css";
+import { cn } from "@/utilities/ui";
 
 const serviceCardVariants = cva({
   base: "flex flex-col items-center h-full [box-shadow:var(--shadow-card)]",
