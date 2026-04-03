@@ -1,0 +1,557 @@
+/* ============================================================
+   globals.css — Bright Shadow Studio
+   Next.js + Tailwind CSS
+   Generated from Figma variable collections:
+     1. Brand      — Raw palette values
+     2. Alias      — Semantic scale tokens
+     3. Mapped     — Role-based tokens (surface / text / border)
+     4. Responsive — Spacing, sizing & layout scales
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   1. BRAND COLLECTION
+   Raw, named palette values — the single source of truth.
+   Never reference these directly in components; use Alias
+   or Mapped tokens instead.
+   ============================================================ */
+:root {
+  /* — Primary (warm olive / dark green-grey) — */
+  --brand-primary-50: #f4f4ef;
+  --brand-primary-100: #e8e7df;
+  --brand-primary-200: #d4d2c2;
+  --brand-primary-300: #b8b59e;
+  --brand-primary-400: #9e9b7d;
+  --brand-primary-500: #86836a; /* mid */
+  --brand-primary-600: #626147;
+  --brand-primary-700: #50503b;
+  --brand-primary-800: #44432f;
+  --brand-primary-900: #39392e;
+  --brand-primary-950: #39392e; /* deepest — same as 900 per Figma */
+
+  /* — Neutral (warm greige) — */
+  --brand-neutral-50: #f9f7f3;
+  --brand-neutral-100: #f0ece4;
+  --brand-neutral-200: #e4dccf;
+  --brand-neutral-300: #d5cab8;
+  --brand-neutral-400: #c2b09a;
+  --brand-neutral-500: #ad9480;
+  --brand-neutral-600: #9a7b66;
+  --brand-neutral-700: #7d6050;
+  --brand-neutral-800: #5e4840;
+  --brand-neutral-900: #3d2e29;
+  --brand-neutral-950: #2e221c;
+
+  /* — Accent (golden amber) — */
+  --brand-accent-100: #f5edd0;
+  --brand-accent-200: #e9da9e;
+  --brand-accent-300: #e8c270;
+  --brand-accent-400: #ddb050;
+  --brand-accent-500: #cd9433; /* primary action gold */
+  --brand-accent-600: #b5742a;
+  --brand-accent-700: #9a5c22;
+  --brand-accent-800: #7a4519;
+  --brand-accent-900: #5e3210;
+
+  /* — Typography — */
+  --brand-font-header: "Lora", serif;
+  --brand-font-body: "Quicksand", sans-serif;
+
+  /* — Border widths — */
+  --brand-border-none: 0px;
+  --brand-border-sm: 0.5px;
+  --brand-border-md: 1px;
+  --brand-border-lg: 2px;
+}
+
+/* ============================================================
+   2. ALIAS COLLECTION
+   Named semantic scale tokens — references Brand values.
+   Use these when you need a specific step on a scale.
+   ============================================================ */
+:root {
+  /* Primary scale aliases */
+  --primary-50: var(--brand-primary-50);
+  --primary-100: var(--brand-primary-100);
+  --primary-200: var(--brand-primary-200);
+  --primary-300: var(--brand-primary-300);
+  --primary-400: var(--brand-primary-400);
+  --primary-500: var(--brand-primary-500);
+  --primary-600: var(--brand-primary-600);
+  --primary-700: var(--brand-primary-700);
+  --primary-800: var(--brand-primary-800);
+  --primary-900: var(--brand-primary-900);
+  --primary-950: var(--brand-primary-950);
+
+  /* Neutral scale aliases */
+  --neutral-50: var(--brand-neutral-50);
+  --neutral-100: var(--brand-neutral-100);
+  --neutral-200: var(--brand-neutral-200);
+  --neutral-300: var(--brand-neutral-300);
+  --neutral-400: var(--brand-neutral-400);
+  --neutral-500: var(--brand-neutral-500);
+  --neutral-600: var(--brand-neutral-600);
+  --neutral-700: var(--brand-neutral-700);
+  --neutral-800: var(--brand-neutral-800);
+  --neutral-900: var(--brand-neutral-900);
+  --neutral-950: var(--brand-neutral-950);
+
+  /* Accent scale aliases */
+  --accent-100: var(--brand-accent-100);
+  --accent-200: var(--brand-accent-200);
+  --accent-300: var(--brand-accent-300);
+  --accent-400: var(--brand-accent-400);
+  --accent-500: var(--brand-accent-500);
+  --accent-600: var(--brand-accent-600);
+  --accent-700: var(--brand-accent-700);
+  --accent-800: var(--brand-accent-800);
+  --accent-900: var(--brand-accent-900);
+
+  /* Typography aliases */
+  --font-header: var(--brand-font-header);
+  --font-body: var(--brand-font-body);
+
+  /* Font-size scale aliases (matching Figma token names) */
+  --h1-font-size: 42px;
+  --h2-font-size: 36px;
+  --h3-font-size: 28px;
+  --paragraph: 18px;
+  --small: 16px;
+  --label: 12px; /* maps to --spcacing/sm in Figma (label tracking) */
+
+  /* Font style composite aliases (as observed in Figma references) */
+  --font-style-header: var(--brand-font-header);
+  --font-style-body: var(--brand-font-body);
+
+  /* Border aliases */
+  --border-width-none: var(--brand-border-none);
+  --border-width-sm: var(--brand-border-sm);
+  --border-width-md: var(--brand-border-md);
+  --border-width-lg: var(--brand-border-lg);
+}
+
+/* ============================================================
+   3. MAPPED COLLECTION
+   Role-based design tokens — "what is this colour FOR?"
+   Components should only ever reference Mapped tokens.
+   ============================================================ */
+:root {
+  /* — Surface roles — */
+  --surface-page: var(--neutral-50); /* default page background          */
+  --surface-subtle: var(--neutral-100); /* slightly off-white panels        */
+  --surface-muted: var(--neutral-200); /* muted card / section backgrounds */
+  --surface-section-alt: var(
+    --primary-100
+  ); /* warm section backgrounds         */
+  --surface-section: var(--primary-200); /* card / offering backgrounds      */
+  --surface-dark: var(--primary-700); /* dark section (testimonials bg)   */
+  --surface-darkest: var(--primary-950); /* footer / deepest backgrounds     */
+  --surface-action: var(--accent-500); /* primary CTA background (#cd9433) */
+  --surface-action-hover: var(
+    --accent-600
+  ); /* primary CTA hover                */
+
+  /* — Text roles — */
+  --text-heading: var(--primary-950); /* main headings on light bg        */
+  --text-body: var(--neutral-800); /* body copy (warm brown, per Figma)*/
+  --text-muted: var(--primary-600); /* secondary / muted text           */
+  --text-on-dark: var(--neutral-100); /* text on dark surfaces            */
+  --text-on-dark-muted: var(
+    --primary-300
+  ); /* muted text on dark (footer copy) */
+  --text-action: white; /* text on action/CTA surface       */
+  --text-action-hover: white; /* text on action/CTA surface       */
+  --text-accent: var(--accent-600); /* accent-coloured highlight text   */
+  --text-label: var(--neutral-600); /* tracking labels / section labels */
+
+  /* — Border roles — */
+  --border-action: var(--accent-500); /* outlined button border           */
+  --border-subtle: var(--neutral-600); /* hairline section-label underline */
+  --border-divider: #d9d9d9; /* horizontal rule / dividers       */
+
+  /* — Icon roles — */
+  --icon-default: var(--text-body);
+  --icon-on-dark: var(--text-on-dark);
+  --icon-action: var(--accent-500);
+
+  /* — Status / feedback — */
+  --text-error: #b53a2f;
+  --text-disabled: var(--neutral-400);
+  --border-hover: var(--neutral-400);
+}
+
+/* ============================================================
+   4. RESPONSIVE COLLECTION
+   Spacing, layout, sizing tokens — tied to the 8-pt grid.
+   Token names match the Figma variable slugs exactly so
+   Tailwind's `theme.extend` can reference them.
+   ============================================================ */
+:root {
+  /* — Spacing scale (matching Figma --spcacing/* names) — */
+  --spacing-2xs: 4px; /* --spcacing/2xs  */
+  --spacing-xs: 8px; /* --spcacing/xs   */
+  --spacing-sm: 12px; /* --spcacing/sm   */
+  --spacing-md: 16px; /* --spcacing/md   */
+  --spacing-lg: 24px; /* --spcacing/lg   */
+  --spacing-xl: 32px; /* --spcacing/xl   */
+  --spacing-2xl: 48px; /* --spcacing/2xl  */
+  --spacing-xxl: 64px; /* --spcacing/xxl  */
+  --spacing-3xl: 80px; /* --spcacing/3xl  */
+
+  /* Figma's original (typo-preserved) aliases for compatibility */
+  --spcacing-2xs: var(--spacing-2xs);
+  --spcacing-xs: var(--spacing-xs);
+  --spcacing-sm: var(--spacing-sm);
+  --spcacing-md: var(--spacing-md);
+  --spcacing-lg: var(--spacing-lg);
+  --spcacing-xl: var(--spacing-xl);
+  --spcacing-2xl: var(--spacing-2xl);
+  --spcacing-xxl: var(--spacing-xxl);
+  --spcacing-3xl: var(--spacing-3xl);
+
+  /* — Layout — */
+  --gutter-size: 128px; /* page gutter / section padding (--gutter-size) */
+  --container-max: 1440px;
+  --content-max: 1179px; /* card grid content width */
+
+  /* — Responsive breakpoints (informational — use Tailwind's sm/md/lg/xl) — */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* — Shadow scale — */
+  --shadow-card: 10px 10px 20px 2px rgba(80, 80, 59, 0.25);
+
+  /* — Border-radius scale — */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 50px; /* card corners bottom-left */
+  --radius-2xl: 100px; /* card corners top-right / bottom-right */
+  --radius-hero: 169px; /* large image mask (Hero / About photo) */
+  --radius-full: 9999px;
+
+  /* — Typography sizing (responsive overrides go in @media blocks below) — */
+  --type-display: clamp(40px, 5vw, 64px); /* hero headline */
+  --type-h1: clamp(42px, 3vw, 42px);
+  --type-h2: clamp(36px, 2.5vw, 36px);
+  --type-h3: var(--h3-font-size);
+  --type-lg: 24px; /* between h3 and h2 — brand name, currency */
+  --type-body: var(--paragraph);
+  --type-small: var(--small);
+  --type-label: var(--label);
+  --type-price: 52px; /* large price display numbers */
+
+  /* — Line-height scale — */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.6;
+
+  /* — Letter-spacing scale — */
+  --tracking-tight: -0.05em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-label: 0.3em;
+}
+
+/* ============================================================
+   BASE LAYER — apply Mapped tokens to HTML elements
+   ============================================================ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--surface-page);
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    line-height: var(--leading-normal);
+  }
+
+  /* Headings */
+  h1 {
+    font-family: var(--font-header);
+    font-size: var(--type-h1);
+    line-height: var(--leading-tight);
+    color: var(--text-heading);
+    font-weight: 400; /* Lora is Roman weight */
+  }
+
+  h2 {
+    font-family: var(--font-header);
+    font-size: var(--type-h2);
+    line-height: var(--leading-snug);
+    color: var(--text-heading);
+    font-weight: 400;
+  }
+
+  h3 {
+    font-family: var(--font-header);
+    font-size: var(--type-h3);
+    line-height: var(--leading-snug);
+    color: var(--text-heading);
+    font-weight: 400;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-header);
+    font-size: var(--type-body);
+    line-height: var(--leading-normal);
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    line-height: var(--leading-relaxed);
+    color: var(--text-body);
+  }
+
+  a {
+    color: var(--text-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--surface-action-hover);
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--border-action);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--accent-300);
+    color: var(--primary-950);
+  }
+}
+
+/* ============================================================
+   PROSE
+   Rich-text / CMS content — re-applies list styles stripped
+   by Tailwind Preflight. Apply .prose to any wrapper that
+   renders Payload CMS / Lexical rich text output.
+   ============================================================ */
+@layer components {
+  .prose {
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    line-height: var(--leading-relaxed);
+  }
+
+  .prose h1 {
+    font-family: var(--font-header);
+    font-size: var(--type-h1);
+    line-height: var(--leading-tight);
+    color: var(--text-heading);
+    font-weight: 400;
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .prose h2 {
+    font-family: var(--font-header);
+    font-size: var(--type-h2);
+    line-height: var(--leading-snug);
+    color: var(--text-heading);
+    font-weight: 400;
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .prose h3 {
+    font-family: var(--font-header);
+    font-size: var(--type-h3);
+    line-height: var(--leading-snug);
+    color: var(--text-heading);
+    font-weight: 400;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    font-family: var(--font-header);
+    font-size: var(--type-body);
+    line-height: var(--leading-normal);
+    color: var(--text-heading);
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .prose p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .prose ul {
+    list-style: disc;
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .prose ol {
+    list-style: decimal;
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .prose li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .prose li > ul,
+  .prose li > ol {
+    margin-top: var(--spacing-xs);
+    margin-bottom: 0;
+  }
+
+  .prose a {
+    color: var(--text-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose a:hover {
+    color: var(--surface-action-hover);
+  }
+
+  .prose strong {
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  .prose em {
+    font-style: italic;
+  }
+
+  .prose blockquote {
+    border-left: var(--border-width-lg) solid var(--border-action);
+    padding-left: var(--spacing-lg);
+    margin-left: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .prose hr {
+    border: none;
+    border-top: var(--border-width-md) solid var(--border-divider);
+    margin: var(--spacing-2xl) 0;
+  }
+
+  .prose code {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.875em;
+    background-color: var(--surface-muted);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+  }
+
+  .prose pre {
+    background-color: var(--surface-dark);
+    color: var(--text-on-dark);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .prose pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE ADJUSTMENTS
+   Fluid type and spacing at smaller viewports.
+   ============================================================ */
+
+/* Tablet (≥ 768px) */
+@media (min-width: 768px) {
+  :root {
+    --gutter-size: 128px;
+  }
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  :root {
+    --gutter-size: 24px;
+    --spacing-xxl: 48px;
+    --spacing-3xl: 56px;
+    --type-display: clamp(32px, 8vw, 48px);
+    --type-h1: clamp(24px, 6vw, 32px);
+    --type-h2: clamp(20px, 5vw, 26px);
+  }
+}
