@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/UI/Button";
 
 const subtractImg = "/images/subtract.svg";
 
@@ -53,7 +53,9 @@ export default function Hero({ data }: HeroProps) {
         <h1 className="font-normal text-display leading-normal text-[color:var(--primary-950)] whitespace-pre-wrap">
           {headingBefore}
           <br />
-          <span className="text-[color:var(--surface-action)]">{headingAccent}</span>
+          <span className="text-[color:var(--surface-action)]">
+            {headingAccent}
+          </span>
           {headingAfter}
         </h1>
 
@@ -64,10 +66,14 @@ export default function Hero({ data }: HeroProps) {
 
           <div className="flex gap-[var(--spacing-md)] items-center">
             <Button variant="secondary" size="large" asChild>
-              <Link href={primaryButtonHref ?? "#how-it-works"}>{primaryButtonLabel}</Link>
+              <Link href={primaryButtonHref ?? "#how-it-works"}>
+                {primaryButtonLabel}
+              </Link>
             </Button>
             <Button size="large" asChild>
-              <Link href={secondaryButtonHref ?? "/booking"}>{secondaryButtonLabel}</Link>
+              <Link href={secondaryButtonHref ?? "/booking"}>
+                {secondaryButtonLabel}
+              </Link>
             </Button>
           </div>
         </div>

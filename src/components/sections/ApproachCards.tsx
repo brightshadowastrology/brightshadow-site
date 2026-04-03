@@ -1,5 +1,5 @@
-import Card from "@/components/ui/Card";
-import SectionLabel from "@/components/ui/SectionLabel";
+import Card from "@/components/UI/Card";
+import SectionLabel from "@/components/UI/SectionLabel";
 
 interface ApproachCard {
   id?: string | null;

@@ -4,14 +4,12 @@ import Link from "next/link";
 
 interface BrandLogoProps {
   className?: string;
-  logoSrc?: string;
   logoAlt?: string;
   href?: string;
 }
 
 export default function BrandLogo({
   className,
-  logoSrc = "/images/logo.svg",
   logoAlt = "Bright Shadow Studio",
   href = "/",
 }: BrandLogoProps) {
@@ -21,7 +19,7 @@ export default function BrandLogo({
       className={`flex items-center gap-[var(--spacing-xs)] no-underline ${className ?? ""}`}
     >
       <Image
-        src={logoSrc}
+        src="/images/logo.svg"
         alt={logoAlt}
         width={25}
         height={25}

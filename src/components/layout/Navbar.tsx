@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import BrandLogo from "../ui/BrandLogo";
+import BrandLogo from "../UI/BrandLogo";
 import Navigation, { NavItem } from "./Navigation";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/UI/Button";
 import { cn } from "@/utilities/ui";
 
 interface NavbarProps {

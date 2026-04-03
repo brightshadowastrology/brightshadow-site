@@ -1,5 +1,5 @@
-import SectionLabel from "@/components/ui/SectionLabel";
-import Card from "@/components/ui/Card";
+import SectionLabel from "@/components/UI/SectionLabel";
+import Card from "@/components/UI/Card";
 
 const imgAstro = "/images/tea.png";
 const imgReports = "/images/still_life_with_skull.png";

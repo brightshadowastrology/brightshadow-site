@@ -1,6 +1,6 @@
 import React from "react";
-import ServiceCardHorizontal from "@/components/ui/ServiceCardHorizontal";
-import SectionLabel from "../ui/SectionLabel";
+import ServiceCardHorizontal from "@/components/UI/ServiceCardHorizontal";
+import SectionLabel from "../UI/SectionLabel";
 
 const productImg = "/images/studio.jpg";
 

@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cva, type VariantProps } from "cva";
-import { Button } from "@/components/ui/Button";
-import Divider from "@/components/ui/Divider";
+import { Button } from "@/components/UI/Button";
+import Divider from "@/components/UI/Divider";
 import { cn } from "@/utilities/ui";
 
 const serviceCardVariants = cva({

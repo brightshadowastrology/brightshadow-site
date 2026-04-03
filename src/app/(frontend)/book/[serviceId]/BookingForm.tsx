@@ -3,14 +3,14 @@
 import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
 import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/Button";
-import Input from "@/components/ui/Form/Input";
-import BirthchartDataForm from "@/components/ui/BirthchartDataForm";
-import CalendarTimePicker from "@/components/ui/CalendarTimePicker";
+import { Button } from "@/components/UI/Button";
+import Input from "@/components/UI/Form/Input";
+import BirthchartDataForm from "@/components/UI/BirthchartDataForm";
+import CalendarTimePicker from "@/components/UI/CalendarTimePicker";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import type { CalendarDate } from "@internationalized/date";
 import type { TimeValue } from "react-aria";
-import type { PlaceDetails } from "@/components/ui/PlacesAutocomplete";
+import type { PlaceDetails } from "@/components/UI/PlacesAutocomplete";
 
 interface ContactFields {
   name: string;

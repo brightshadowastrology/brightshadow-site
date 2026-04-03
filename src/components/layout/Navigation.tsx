@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { cn } from "@/utilities/ui";
-import CartIcon from "@/components/ui/CartIcon";
+import CartIcon from "@/components/UI/CartIcon";
 
 export interface NavItem {
   label: string;

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
-import { AccordionItem, AccordionRoot } from "@/components/ui/AccordionItem";
+import SectionLabel from "@/components/UI/SectionLabel";
+import { AccordionItem, AccordionRoot } from "@/components/UI/AccordionItem";
 
 export interface FaqItem {
   value: string;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import SectionLabel from "@/components/ui/SectionLabel";
+import SectionLabel from "@/components/UI/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Blog — Bright Shadow Studio",

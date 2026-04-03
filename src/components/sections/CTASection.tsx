@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/UI/Button";
 
 interface CTASectionProps {
   line1?: string;

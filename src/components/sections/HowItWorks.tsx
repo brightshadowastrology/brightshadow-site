@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import SectionLabel from "@/components/ui/SectionLabel";
+import { Button } from "@/components/UI/Button";
+import SectionLabel from "@/components/UI/SectionLabel";
 
 // TODO: Replace with permanent local asset
 const artImg = "/images/studio.jpg";

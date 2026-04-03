@@ -1,6 +1,6 @@
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
-import ServiceCard from "@/components/ui/ServiceCard";
+import SectionLabel from "@/components/UI/SectionLabel";
+import ServiceCard from "@/components/UI/ServiceCard";
 
 interface ServiceItem {
   id: string;

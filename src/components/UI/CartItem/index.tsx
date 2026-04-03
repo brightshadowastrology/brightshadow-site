@@ -15,8 +15,8 @@ import {
   useCart,
 } from "@/context/CartContext";
 import { cn } from "@/utilities/ui";
-import { Modal } from "@/components/ui/Modal";
-import BirthchartDataForm from "@/components/ui/BirthchartDataForm";
+import { Modal } from "@/components/UI/Modal";
+import BirthchartDataForm from "@/components/UI/BirthchartDataForm";
 import { Time } from "@internationalized/date";
 import { MONTHS } from "@/shared/lib/constants";
 

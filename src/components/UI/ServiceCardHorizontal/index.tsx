@@ -5,9 +5,9 @@ import Image from "next/image";
 import * as Accordion from "@radix-ui/react-accordion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/UI/Button";
 import { cn } from "@/utilities/ui";
-import BirthchartDataForm from "@/components/ui/BirthchartDataForm";
+import BirthchartDataForm from "@/components/UI/BirthchartDataForm";
 import { useCart } from "@/context/CartContext";
 
 const MONTH_LABELS: Record<string, string> = {

@@ -1,4 +1,4 @@
-import Divider from "@/components/ui/Divider";
+import Divider from "@/components/UI/Divider";
 import { getSiteSettings } from "@/lib/payload-queries";
 import config from "@payload-config";
 import { RichText } from "@payloadcms/richtext-lexical/react";

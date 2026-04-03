@@ -7,7 +7,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import CarouselIndicator from "@/components/ui/CarouselIndicator";
+import CarouselIndicator from "@/components/UI/CarouselIndicator";
 
 const bgTexture = "/images/brushstrokes.jpg";
 

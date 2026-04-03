@@ -1,4 +1,4 @@
-import Divider from "@/components/ui/Divider";
+import Divider from "@/components/UI/Divider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
