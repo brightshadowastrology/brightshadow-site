@@ -9,7 +9,11 @@ export const revalidateHeader: GlobalAfterChangeHook = ({
   if (!context.disableRevalidate) {
     payload.logger.info(`Revalidating header`);
 
-    revalidateTag("global_header");
+    try {
+      revalidateTag("global_header");
+    } catch (_) {
+      // revalidateTag requires a Next.js request context; skip when running outside one (e.g. seed scripts)
+    }
   }
 
   return doc;

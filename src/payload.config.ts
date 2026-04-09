@@ -1,5 +1,5 @@
 import { buildConfig } from "payload";
-//import sharp from "sharp";
+import sharp from "sharp";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import path from "path";
 import { plugins } from "./plugins";
@@ -66,7 +66,7 @@ export default buildConfig({
   editor: defaultLexical,
   plugins,
   secret: process.env.PAYLOAD_SECRET ?? "",
-  //sharp,
+  sharp,
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },

@@ -475,7 +475,7 @@ export interface CallToActionBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: null;
+          appearance?: ('primary' | 'secondary') | null;
         };
         id?: string | null;
       }[]
@@ -1504,6 +1504,25 @@ export interface Header {
         id?: string | null;
       }[]
     | null;
+  cta: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
+    url?: string | null;
+    label: string;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('primary' | 'secondary') | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1554,6 +1573,16 @@ export interface HeaderSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  cta?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+        appearance?: T;
       };
   updatedAt?: T;
   createdAt?: T;

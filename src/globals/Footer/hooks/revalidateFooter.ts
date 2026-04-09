@@ -6,7 +6,11 @@ export const revalidateFooter: GlobalAfterChangeHook = ({ doc, req: { payload, c
   if (!context.disableRevalidate) {
     payload.logger.info(`Revalidating footer`)
 
-    revalidateTag('global_footer', 'max')
+    try {
+      revalidateTag('global_footer')
+    } catch (_) {
+      // revalidateTag requires a Next.js request context; skip when running outside one (e.g. seed scripts)
+    }
   }
 
   return doc
