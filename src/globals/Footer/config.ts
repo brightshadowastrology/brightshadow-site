@@ -25,6 +25,30 @@ export const Footer: GlobalConfig = {
         },
       },
     },
+    {
+      name: "legalItems",
+      type: "array",
+      fields: [
+        link({
+          appearances: false,
+        }),
+      ],
+      maxRows: 6,
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: "@/globals/Footer/RowLabel#RowLabel",
+        },
+      },
+    },
+    {
+      name: "copyright",
+      type: "text",
+      admin: {
+        description:
+          "Copyright text to display in the footer (e.g. '© 2024 Your Company')",
+      },
+    },
   ],
   hooks: {
     afterChange: [revalidateFooter],

@@ -1,11 +1,27 @@
-import { HeaderClient } from './Component.client'
-import { getCachedGlobal } from '@/utilities/getGlobals'
-import React from 'react'
+import React from "react";
+import Link from "next/link";
+import { getCachedGlobal } from "@/utilities/getGlobals";
 
-import type { Header } from '@/payload-types'
+import BrandLogo from "@/components/UI/BrandLogo";
+import { Button } from "@/components/UI/Button";
+import { HeaderNav } from "./Nav";
+
+import type { Header } from "@/payload-types";
 
 export async function Header() {
-  const headerData: Header = await getCachedGlobal('header', 1)()
+  const headerData: Header = await getCachedGlobal("header", 1)();
 
-  return <HeaderClient data={headerData} />
+  return (
+    <header className="container relative z-20">
+      <div className="py-8 flex justify-between items-center">
+        <BrandLogo />
+        <HeaderNav data={headerData} />
+        <Button asChild>
+          <Link href={headerData.cta?.url || "/services"}>
+            {headerData.cta?.label || "Contact Us"}
+          </Link>
+        </Button>
+      </div>
+    </header>
+  );
 }
