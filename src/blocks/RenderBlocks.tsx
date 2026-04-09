@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 import type { Page } from "@/payload-types";
 
-import { CallToActionBlock } from "@/blocks/CallToAction/Component";
-import { ContentBlock } from "@/blocks/Content/Component";
+import { CallToActionBlock } from "@/blocks/CallToActionBlock/Component";
+import { ContentBlock } from "@/blocks/ContentBlock/Component";
 import { MediaBlock } from "@/blocks/MediaBlock/Component";
 
 const blockComponents = {
@@ -13,7 +13,7 @@ const blockComponents = {
 };
 
 export const RenderBlocks: React.FC<{
-  blocks: Page["layout"][0][];
+  blocks: NonNullable<Page["layout"]>;
 }> = (props) => {
   const { blocks } = props;
 

@@ -2,8 +2,8 @@ import type { CollectionConfig } from "payload";
 
 import { authenticated } from "../../access/authenticated";
 import { authenticatedOrPublished } from "../../access/authenticatedOrPublished";
-import { CallToAction } from "../../blocks/CallToAction/config";
-import { Content } from "../../blocks/Content/config";
+import { CallToActionBlock } from "../../blocks/CallToActionBlock/config";
+import { ContentBlock } from "../../blocks/ContentBlock/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { hero } from "@/heros/config";
 import { slugField } from "payload";
@@ -70,8 +70,7 @@ export const Pages: CollectionConfig<"pages"> = {
             {
               name: "layout",
               type: "blocks",
-              blocks: [CallToAction, Content, MediaBlock],
-              required: true,
+              blocks: [CallToActionBlock, ContentBlock, MediaBlock],
               admin: {
                 initCollapsed: true,
               },

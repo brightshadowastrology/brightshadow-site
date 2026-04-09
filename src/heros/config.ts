@@ -1,12 +1,5 @@
 import type { Field } from "payload";
 
-import {
-  FixedToolbarFeature,
-  HeadingFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
-} from "@payloadcms/richtext-lexical";
-
 import { linkGroup } from "@/fields/linkGroup";
 
 export const hero: Field = {
@@ -31,19 +24,37 @@ export const hero: Field = {
       required: true,
     },
     {
-      name: "richText",
-      type: "richText",
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ];
-        },
-      }),
-      label: false,
+      name: "headingBefore",
+      type: "text",
+      label: "Heading (before accent)",
+      admin: {
+        condition: (_, { type } = {}) => type === "highImpact",
+      },
+    },
+    {
+      name: "headingAccent",
+      type: "text",
+      label: "Heading accent word",
+      admin: {
+        condition: (_, { type } = {}) => type === "highImpact",
+        description: "Rendered in the accent colour.",
+      },
+    },
+    {
+      name: "headingAfter",
+      type: "text",
+      label: "Heading (after accent)",
+      admin: {
+        condition: (_, { type } = {}) => type === "highImpact",
+      },
+    },
+    {
+      name: "bodyText",
+      type: "textarea",
+      label: "Body text",
+      admin: {
+        condition: (_, { type } = {}) => type === "highImpact",
+      },
     },
     linkGroup({
       overrides: {
@@ -57,7 +68,7 @@ export const hero: Field = {
         condition: (_, { type } = {}) => ["highImpact"].includes(type),
       },
       relationTo: "media",
-      required: true,
+      required: false,
     },
   ],
   label: false,

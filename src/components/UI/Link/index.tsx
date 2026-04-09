@@ -68,7 +68,10 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
         </Button>
       ) : (
         <Link
-          className={cn("uppercase", className)}
+          className={cn(
+            "uppercase hover:text-[color:var(--surface-action)]",
+            className,
+          )}
           href={href || url || ""}
           {...newTabProps}
         >
