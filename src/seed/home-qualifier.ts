@@ -10,7 +10,12 @@ export async function seedHomeQualifier(payload: Payload) {
   const statementBlock = {
     blockType: "statement" as const,
     topLabel: "IF YOU'RE...",
-    body: "going through a life transition and looking for clarity / need to build confidence as you make a big decision / looking to feel calmer and centered in your body /  longing to feel more connected to your creative spark",
+    conditions: [
+      { text: "going through a life transition and looking for clarity" },
+      { text: "need to build confidence as you make a big decision" },
+      { text: "looking to feel calmer and centered in your body" },
+      { text: "longing to feel more connected to your creative spark" },
+    ],
     bottomLabel: "...YOU'VE COME TO THE RIGHT PLACE",
   };
 

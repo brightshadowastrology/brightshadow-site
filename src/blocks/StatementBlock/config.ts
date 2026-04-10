@@ -10,9 +10,17 @@ export const StatementBlock: Block = {
       label: "Top Label",
     },
     {
-      name: "body",
-      type: "textarea",
-      label: "Body",
+      name: "conditions",
+      type: "array",
+      label: "Conditions",
+      fields: [
+        {
+          name: "text",
+          type: "text",
+          label: "Text",
+          required: true,
+        },
+      ],
     },
     {
       name: "bottomLabel",

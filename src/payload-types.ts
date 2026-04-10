@@ -574,7 +574,12 @@ export interface SplitContentBlock {
  */
 export interface StatementBlock {
   topLabel?: string | null;
-  body?: string | null;
+  conditions?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
   bottomLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -1129,7 +1134,12 @@ export interface SplitContentBlockSelect<T extends boolean = true> {
  */
 export interface StatementBlockSelect<T extends boolean = true> {
   topLabel?: T;
-  body?: T;
+  conditions?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   bottomLabel?: T;
   id?: T;
   blockName?: T;
