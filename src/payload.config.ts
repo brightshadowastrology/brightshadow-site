@@ -11,6 +11,10 @@ import { Categories } from "./collections/Categories";
 import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
 import { Posts } from "./collections/Posts";
+import { Testimonials } from "./collections/Testimonials";
+import { Services } from "./collections/Services";
+import { Products } from "./collections/Products";
+import { FAQItems } from "./collections/FAQItems";
 import { Users } from "./collections/Users";
 
 // Globals
@@ -51,7 +55,7 @@ export default buildConfig({
       ],
     },
   },
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, Testimonials, Services, Products, FAQItems],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   db: postgresAdapter({

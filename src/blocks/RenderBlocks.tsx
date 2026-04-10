@@ -7,6 +7,7 @@ import { ContentBlock } from "@/blocks/ContentBlock/Component";
 import { MediaBlock } from "@/blocks/MediaBlock/Component";
 import { SplitContentBlock } from "@/blocks/SplitContentBlock/Component";
 import { StatementBlock } from "@/blocks/StatementBlock/Component";
+import { TestimonialsBlock } from "@/blocks/TestimonialsBlock/Component";
 
 const blockComponents = {
   content: ContentBlock,
@@ -14,6 +15,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   splitContent: SplitContentBlock,
   statement: StatementBlock,
+  testimonials: TestimonialsBlock,
 };
 
 export const RenderBlocks: React.FC<{

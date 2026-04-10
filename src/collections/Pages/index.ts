@@ -7,6 +7,7 @@ import { ContentBlock } from "../../blocks/ContentBlock/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { SplitContentBlock } from "../../blocks/SplitContentBlock/config";
 import { StatementBlock } from "../../blocks/StatementBlock/config";
+import { TestimonialsBlock } from "../../blocks/TestimonialsBlock/config";
 import { hero } from "@/heros/config";
 import { slugField } from "payload";
 import { populatePublishedAt } from "../../hooks/populatePublishedAt";
@@ -72,7 +73,7 @@ export const Pages: CollectionConfig<"pages"> = {
             {
               name: "layout",
               type: "blocks",
-              blocks: [CallToActionBlock, ContentBlock, MediaBlock, SplitContentBlock, StatementBlock],
+              blocks: [CallToActionBlock, ContentBlock, MediaBlock, SplitContentBlock, StatementBlock, TestimonialsBlock],
               admin: {
                 initCollapsed: true,
               },

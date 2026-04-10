@@ -1,10 +1,5 @@
-import nextEnv from "@next/env";
-nextEnv.loadEnvConfig(process.cwd());
+import type { Payload } from "payload";
 
-const { getPayload } = await import("payload");
-const { default: config } = await import("@payload-config");
-
-// Helper: build a Lexical JSON doc from an array of paragraph strings
 function lexicalDoc(paragraphs: string[]) {
   return {
     root: {
@@ -35,243 +30,69 @@ function lexicalDoc(paragraphs: string[]) {
   };
 }
 
-async function seed() {
-  const payload = await getPayload({ config });
-
-  console.log("Removing existing data...");
-  await payload.db.deleteMany({ collection: "faq-items", where: {} });
-  await payload.db.deleteMany({ collection: "products", where: {} });
-  await payload.db.deleteMany({ collection: "services", where: {} });
-  await payload.db.deleteMany({ collection: "testimonials", where: {} });
-
-  console.log("Seeding globals...");
-
-  await payload.updateGlobal({
-    slug: "site-settings",
-    data: {
-      siteTitle: "Bright Shadow Studio",
-      metaDescription: "Astrology and therapeutic arts practices.",
-      navItems: [
-        { label: "ABOUT", href: "/about" },
-        { label: "SERVICES", href: "/services" },
-        { label: "SHOP", href: "/shop" },
-        { label: "BLOG", href: "/blog" },
-      ],
-      navbarCtaLabel: "BOOK AN APPOINTMENT",
-      navbarCtaHref: "/booking",
-      footerLegalLinks: [
-        { label: "TERMS AND CONDITIONS", href: "/terms" },
-        { label: "PRIVACY POLICY", href: "/privacy" },
-        { label: "FAQ", href: "/faq" },
-      ],
-      footerCopyright: "© 2025. Bright Shadow Studio. All Rights Reserved.",
+export async function seedTestimonialsCollection(payload: Payload): Promise<number[]> {
+  const testimonials = [
+    {
+      quote:
+        '"I have had a few astrology readings over the years, but this reading was on a whole other level."',
+      body: lexicalDoc([
+        "Her vast astrological knowledge is apparent and so much of the explanations rang true, but that is not what stood out the most for me. It was this unique ability to match the vast astrological knowledge with this extreme sense of   and empathy. It was such a powerful, beautiful reading.",
+        'The age old very important saying "Know Thyself" makes astrology so valuable to many, but this was more than just a reading for me, it was a heart opening.',
+        "I cannot recommend Singithi enough. Hands down the most holistic astrology reading I have had.",
+      ]),
+      author: "Lia",
+      order: 1,
     },
-  });
-
-  await payload.updateGlobal({
-    slug: "hero-section",
-    data: {
-      headingBefore: "Understand your stars, ",
-      headingAccent: "create",
-      headingAfter: " your future.",
-      body: "I use astrology and therapeutic arts practices to help you explore your cosmic design, heal the past, and open new possibilities.",
-      primaryButtonLabel: "HOW IT WORKS",
-      primaryButtonHref: "#how-it-works",
-      secondaryButtonLabel: "BOOK A CONSULTATION",
-      secondaryButtonHref: "/booking",
+    {
+      quote:
+        '"Singithi has a gift for making the complex feel personal and clear."',
+      body: lexicalDoc([
+        "I came in with so many questions about my chart and left with a genuine sense of direction. The session felt collaborative rather than just informational.",
+        "Highly recommend to anyone curious about astrology or at a crossroads in life.",
+      ]),
+      author: "Maya",
+      order: 2,
     },
-  });
-
-  await payload.updateGlobal({
-    slug: "how-it-works-section",
-    data: {
-      label: "How It Works",
-      heading:
-        "Bright Shadow Studio is a space for meaning-making, where astrology, art, and inner work meet.",
-      bodyParagraphs: [
-        {
-          text: "I believe insight alone doesn't create transformation. We change when understanding becomes felt, embodied, and expressed. My work brings together astrology and therapeutic art practices to help you move beyond interpretation and into lived experience.",
-        },
-        {
-          text: "Astrology offers a symbolic language for understanding the cycles, patterns, and potential in your chart. Art-making offers a way to enter into direct dialogue with — and evolve those symbols — through image, materiality, and creative process.",
-        },
-        {
-          text: "Together, they open a deeper conversation with yourself, and ultimately, illuminate pathways into the life you were always meant to live.",
-        },
-        {
-          text: "No art experience is required. Just your curiosity, imagination, and whatever materials you have on hand.",
-        },
-      ],
-      buttonLabel: "WORK WITH ME",
-      buttonHref: "/services",
+    {
+      quote: '"An experience that genuinely shifted something in me."',
+      body: lexicalDoc([
+        "I was sceptical going in, but Singithi's approach disarmed me immediately. She connected dots I had never seen before and the breathwork element was unexpectedly powerful.",
+        "I left feeling seen and grounded.",
+      ]),
+      author: "James",
+      order: 3,
     },
-  });
-
-  await payload.updateGlobal({
-    slug: "if-youre-section",
-    data: {
-      topLabel: "IF YOU'RE...",
-      conditions: [
-        { text: "going through a life transition and looking for clarity" },
-        { text: "need to build confidence as you make a big decision" },
-        { text: "looking to feel calmer and centered in your body" },
-        { text: "longing to feel more connected to your creative spark" },
-      ],
-      bottomLabel: "...YOU'VE COME TO THE RIGHT PLACE",
+    {
+      quote: '"The most grounded, thoughtful reading I have ever received."',
+      body: lexicalDoc([
+        "Singithi balances technical astrological knowledge with real warmth. She never projected — she asked great questions and held space beautifully.",
+        "I have already booked a follow-up session.",
+      ]),
+      author: "Priya",
+      order: 4,
     },
-  });
-
-  await payload.updateGlobal({
-    slug: "home-about-section",
-    data: {
-      label: "About Me",
-      heading: "Hi, I'm Singithi!",
-      paragraphs: [
-        {
-          text: "I'm an astrologer with a passion for helping people gain insight into their lives through the symbolic language of astrology. I have been practicing Western archetypal astrology for several years, and during this time, I have helped countless individuals find direction, purpose, and meaning in their lives.",
-        },
-        {
-          text: "My approach to astrology combines the psychological approach to Western astrology, which I blend with the ancient techniques of Hellenistic teaching to offer a comprehensive and personalized reading to each of my clients.",
-        },
-        {
-          text: "Whether you are seeking guidance on love and relationships, career and finances, health and wellness, or personal growth and spirituality, I am here to help.",
-        },
-      ],
-      buttonLabel: "Learn More",
-      buttonHref: "/about",
+    {
+      quote: '"I felt held and understood throughout the entire session."',
+      body: lexicalDoc([
+        "What struck me most was how Singithi wove together timing, natal themes, and reflective prompts into something that felt truly integrated.",
+        "It was not just a reading — it was a conversation with myself.",
+      ]),
+      author: "Sophie",
+      order: 5,
     },
-  });
+  ];
 
-  await payload.updateGlobal({
-    slug: "home-offerings-section",
-    data: {
-      label: "I Offer",
-      items: [
-        {
-          title: "Astrological consultations",
-          description:
-            "Each session is a blend of natal chart interpretation, timing techniques, breathwork, and art-making prompts. Just like you, each session is unique.",
-          href: "/services",
-        },
-        {
-          title: "Reports and Workbooks",
-          description:
-            "Want to explore your chart and timing on your own terms? My reports workbooks are generated from the details of your unique birth chart — giving you insights that belong specifically to you.",
-          href: "/shop",
-        },
-        {
-          title: "Coaching",
-          description:
-            "Each session is a unique blend of natal chart interpretation, timing techniques, breathwork, and art-making prompts. No two sessions are the same.",
-          href: "/services",
-        },
-      ],
-    },
-  });
+  const created = [];
+  for (const t of testimonials) {
+    const doc = await payload.create({ collection: "testimonials", data: t });
+    created.push(doc.id);
+  }
 
-  await payload.updateGlobal({
-    slug: "about-page-section",
-    data: {
-      label: "About Me",
-      heading: "Hi, I'm Singithi!",
-      paragraphs: [
-        {
-          text: "I'm an astrologer and artist with a passion for helping people gain deeper insight into their lives through the symbolic languages of both art and astrology.",
-        },
-        {
-          text: "I hold a BFA in Drawing and Painting from OCAD University, as well as certifications from the Canadian Institute of Art Therapy. On the astrology side, I've studied with luminaries of the Hellenistic astrology world including Chris Brennan. Since 2023, I've served as manager of my city's Astrology Meetup — helping organise gatherings for people who love to learn, share, and talk about astrology together. Currently, I'm in the process of working towards a Master's degree in Art Therapy.",
-        },
-        {
-          text: "A turbulent season in my own life revealed to me how astrology can be more than a source of philosophical curiosity — it can also offer solace, helping us weave coherent stories from what might otherwise feel like chaos. That's where Bright Shadow Astrology began. The name comes from the Sun-Pluto opposition in my own natal chart — a reminder that both light and shadow are essential parts of what it means to grow.",
-        },
-        {
-          text: "Founded in 2025, Bright Shadow Studio was born during a particularly turbulent time in the world — which felt like exactly the right moment for it.",
-        },
-      ],
-      buttonLabel: "WORK WITH ME",
-      buttonHref: "/services",
-    },
-  });
+  console.log(`Seeded ${created.length} testimonials.`);
+  return created;
+}
 
-  await payload.updateGlobal({
-    slug: "approach-section",
-    data: {
-      label: "My Approach",
-      cards: [
-        {
-          title: "Style",
-          description:
-            "My readings blend the psychological depth of archetypal astrology with the ancient techniques and philosophy of the Hellenistic tradition — offering each client a reading that is both personally precise and meaningfully grounded.",
-        },
-        {
-          title: "House System",
-          description:
-            "Given my Hellenistic background, I primarily work with the tropical zodiac and use whole sign houses as my primary house system. From time to time, however, I have been known to adapt my approach to quadrant house systems.",
-        },
-        {
-          title: "Philosophy",
-          description:
-            "In every consultation, I take a client-centred approach — one that encourages you to explore your own thoughts, feelings, and experiences in a space that is supportive, honest, and free of judgement.",
-        },
-      ],
-    },
-  });
-
-  await payload.updateGlobal({
-    slug: "home-page-settings",
-    data: {
-      ctaLine1: "Your birthchart is a map.",
-      ctaLine2: "Creative practice is how you navigate it.",
-      ctaLabel: "BOOK YOUR FIRST CONSULTATION",
-      ctaHref: "/booking",
-    },
-  });
-
-  await payload.updateGlobal({
-    slug: "about-page-settings",
-    data: {
-      ctaLine1: "Thank you for being here.",
-      ctaLine2: "I'd love to be part of your journey.",
-      ctaLabel: "BOOK YOUR FIRST CONSULTATION",
-      ctaHref: "/booking",
-    },
-  });
-
-  await payload.updateGlobal({
-    slug: "services-page-settings",
-    data: {
-      introLine1: "Clarity, creativity, and a map for what comes next.",
-      introLine2: "Choose your depth.",
-      ctaLine1: "Thank you for being here.",
-      ctaLine2: "I'd love to be part of your journey.",
-      ctaLabel: "BOOK YOUR FIRST CONSULTATION",
-      ctaHref: "/booking",
-    },
-  });
-
-  await payload.updateGlobal({
-    slug: "shop-page-settings",
-    data: {
-      introLine1: "Want to explore your chart on your own terms?",
-      introLine2:
-        "These workbooks are generated from the details of your unique birth chart — not generic astrology, but insights that belong specifically to you. Each one includes reflective prompts to help you move from intellectual understanding to something more personal and lived.",
-      ctaLine1: "Thank you for being here.",
-      ctaLine2: "I'd love to be part of your journey.",
-      ctaLabel: "BOOK YOUR FIRST CONSULTATION",
-      ctaHref: "/booking",
-    },
-  });
-
-  await payload.updateGlobal({
-    slug: "blog-page-settings",
-    data: {
-      heading: "Something is brewing.",
-      body: "Essays, reflections, and astrological insights are on their way. Check back soon.",
-    },
-  });
-
-  console.log("Seeding services...");
-
+export async function seedServicesCollection(payload: Payload): Promise<void> {
   const services = [
     {
       name: "The Quick Snapshot",
@@ -348,8 +169,10 @@ async function seed() {
     await payload.create({ collection: "services", data: svc });
   }
 
-  console.log("Seeding products...");
+  console.log(`Seeded ${services.length} services.`);
+}
 
+export async function seedProductsCollection(payload: Payload): Promise<void> {
   const products = [
     {
       name: "Yearly Transits Forecast",
@@ -400,8 +223,10 @@ async function seed() {
     await payload.create({ collection: "products", data: product });
   }
 
-  console.log("Seeding FAQ items...");
+  console.log(`Seeded ${products.length} products.`);
+}
 
+export async function seedFAQItemsCollection(payload: Payload): Promise<void> {
   const generalFaqs = [
     {
       question:
@@ -478,11 +303,5 @@ async function seed() {
     await payload.create({ collection: "faq-items", data: faq });
   }
 
-  console.log("Seed complete!");
-  process.exit(0);
+  console.log(`Seeded ${generalFaqs.length + shopFaqs.length} FAQ items.`);
 }
-
-seed().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
