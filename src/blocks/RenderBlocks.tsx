@@ -5,11 +5,15 @@ import type { Page } from "@/payload-types";
 import { CallToActionBlock } from "@/blocks/CallToActionBlock/Component";
 import { ContentBlock } from "@/blocks/ContentBlock/Component";
 import { MediaBlock } from "@/blocks/MediaBlock/Component";
+import { SplitContentBlock } from "@/blocks/SplitContentBlock/Component";
+import { StatementBlock } from "@/blocks/StatementBlock/Component";
 
 const blockComponents = {
   content: ContentBlock,
   cta: CallToActionBlock,
   mediaBlock: MediaBlock,
+  splitContent: SplitContentBlock,
+  statement: StatementBlock,
 };
 
 export const RenderBlocks: React.FC<{
@@ -30,7 +34,7 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="my-16" key={index}>
+                <div key={index}>
                   <Block {...block} />
                 </div>
               );

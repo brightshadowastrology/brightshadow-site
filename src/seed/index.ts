@@ -8,6 +8,9 @@ import { seedHeader } from "./header";
 import { seedFooter } from "./footer";
 import { seedHomeHero } from "./home-hero";
 import { seedHomeCTA } from "./home-cta";
+import { seedHomeHowItWorks } from "./home-how-it-works";
+import { seedHomeAbout } from "./home-about";
+import { seedHomeQualifier } from "./home-qualifier";
 
 async function seed() {
   const payload = await getPayload({ config });
@@ -27,6 +30,15 @@ async function seed() {
 
   console.log("Seeding home page hero...");
   await seedHomeHero(payload);
+
+  console.log("Seeding home page 'How It Works'...");
+  await seedHomeHowItWorks(payload);
+
+  console.log("Seeding home page qualifier block...");
+  await seedHomeQualifier(payload);
+
+  console.log("Seeding home page 'About'...");
+  await seedHomeAbout(payload);
 
   // console.log("Seeding home page CTA...");
   await seedHomeCTA(payload);

@@ -5,6 +5,8 @@ import { authenticatedOrPublished } from "../../access/authenticatedOrPublished"
 import { CallToActionBlock } from "../../blocks/CallToActionBlock/config";
 import { ContentBlock } from "../../blocks/ContentBlock/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
+import { SplitContentBlock } from "../../blocks/SplitContentBlock/config";
+import { StatementBlock } from "../../blocks/StatementBlock/config";
 import { hero } from "@/heros/config";
 import { slugField } from "payload";
 import { populatePublishedAt } from "../../hooks/populatePublishedAt";
@@ -70,7 +72,7 @@ export const Pages: CollectionConfig<"pages"> = {
             {
               name: "layout",
               type: "blocks",
-              blocks: [CallToActionBlock, ContentBlock, MediaBlock],
+              blocks: [CallToActionBlock, ContentBlock, MediaBlock, SplitContentBlock, StatementBlock],
               admin: {
                 initCollapsed: true,
               },
