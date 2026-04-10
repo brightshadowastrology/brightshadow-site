@@ -1,5 +1,5 @@
+import { defaultLexical } from "@/fields/defaultLexical";
 import type { CollectionConfig } from "payload";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
 
@@ -24,7 +24,7 @@ export const FAQItems: CollectionConfig = {
     {
       name: "answer",
       type: "richText",
-      editor: lexicalEditor({}),
+      editor: defaultLexical,
       required: true,
     },
     {
@@ -41,7 +41,8 @@ export const FAQItems: CollectionConfig = {
       type: "number",
       required: true,
       admin: {
-        description: "Display order within category (lower numbers appear first).",
+        description:
+          "Display order within category (lower numbers appear first).",
       },
     },
   ],

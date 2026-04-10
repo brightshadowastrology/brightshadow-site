@@ -1,5 +1,5 @@
+import { defaultLexical } from "@/fields/defaultLexical";
 import type { CollectionConfig } from "payload";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
 
@@ -65,7 +65,7 @@ export const Products: CollectionConfig = {
     {
       name: "description",
       type: "richText",
-      editor: lexicalEditor({}),
+      editor: defaultLexical,
       required: true,
     },
     {

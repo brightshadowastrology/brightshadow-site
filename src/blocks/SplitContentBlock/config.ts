@@ -1,11 +1,6 @@
 import type { Block } from "payload";
 
-import {
-  FixedToolbarFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
-} from "@payloadcms/richtext-lexical";
-
+import { defaultLexical } from "@/fields/defaultLexical";
 import { link } from "@/fields/link";
 
 export const SplitContentBlock: Block = {
@@ -26,13 +21,7 @@ export const SplitContentBlock: Block = {
       name: "bodyText",
       type: "richText",
       label: "Body Text",
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => [
-          ...rootFeatures,
-          FixedToolbarFeature(),
-          InlineToolbarFeature(),
-        ],
-      }),
+      editor: defaultLexical,
     },
     link({
       appearances: ["primary", "secondary"],

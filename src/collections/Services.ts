@@ -1,5 +1,5 @@
+import { defaultLexical } from "@/fields/defaultLexical";
 import type { CollectionConfig } from "payload";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
 
@@ -34,7 +34,7 @@ export const Services: CollectionConfig = {
     {
       name: "description",
       type: "richText",
-      editor: lexicalEditor({}),
+      editor: defaultLexical,
       required: true,
     },
     {
@@ -52,9 +52,7 @@ export const Services: CollectionConfig = {
       name: "page",
       type: "select",
       required: true,
-      options: [
-        { label: "Services", value: "services" },
-      ],
+      options: [{ label: "Services", value: "services" }],
     },
     {
       name: "order",
