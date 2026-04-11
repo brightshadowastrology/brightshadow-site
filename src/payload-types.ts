@@ -499,6 +499,7 @@ export interface ContentBlock {
                   blockType: 'richTextBlock';
                 }
               | CardBlock
+              | SectionLabelBlock
             )[]
           | null;
         id?: string | null;
@@ -506,6 +507,7 @@ export interface ContentBlock {
         blockType: 'column';
       }[]
     | null;
+  className?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'content';
@@ -524,6 +526,16 @@ export interface CardBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'card';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionLabelBlock".
+ */
+export interface SectionLabelBlock {
+  title: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sectionLabel';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -581,6 +593,7 @@ export interface SplitContentBlock {
    * When checked, the text content appears on the left and media on the right. Uncheck to reverse.
    */
   contentLeftSide?: boolean | null;
+  className?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'splitContent';
@@ -1277,11 +1290,13 @@ export interface ContentBlockSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     card?: T | CardBlockSelect<T>;
+                    sectionLabel?: T | SectionLabelBlockSelect<T>;
                   };
               id?: T;
               blockName?: T;
             };
       };
+  className?: T;
   id?: T;
   blockName?: T;
 }
@@ -1296,6 +1311,15 @@ export interface CardBlockSelect<T extends boolean = true> {
   imageSrc?: T;
   imageAlt?: T;
   className?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionLabelBlock_select".
+ */
+export interface SectionLabelBlockSelect<T extends boolean = true> {
+  title?: T;
   id?: T;
   blockName?: T;
 }
@@ -1328,6 +1352,7 @@ export interface SplitContentBlockSelect<T extends boolean = true> {
       };
   media?: T;
   contentLeftSide?: T;
+  className?: T;
   id?: T;
   blockName?: T;
 }

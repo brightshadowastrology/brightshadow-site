@@ -28,7 +28,6 @@ export default function ApproachCards({ data }: ApproachCardsProps) {
         {cards.map((card) => (
           <Card
             key={card.id ?? card.title}
-            variant="default"
             title={card.title}
             description={card.description}
           />

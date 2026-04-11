@@ -26,7 +26,7 @@ const buttonVariants = cva({
     },
     size: {
       default: "px-[var(--spacing-md)] py-[var(--spacing-xs)]",
-      large: "px-[var(--spacing-xl)] py-[var(--spacing-md)]",
+      large: "px-[var(--spacing-xl)] py-[var(--spacing-md)] h-[55px]",
     },
   },
   defaultVariants: {

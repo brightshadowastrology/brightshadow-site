@@ -9,7 +9,7 @@ const cardVariants = cva({
     "flex flex-col items-center",
     "bg-[var(--primary-200)]",
     "rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px]",
-    "w-full",
+    "w-full h-full",
     "transition-[transform,box-shadow] duration-300 ease-out",
   ],
   variants: {
@@ -38,7 +38,6 @@ interface CardProps extends VariantProps<typeof cardVariants> {
 }
 
 export default function Card({
-  variant = "default",
   title,
   description,
   href,
@@ -46,6 +45,7 @@ export default function Card({
   imageAlt = "",
   className,
 }: CardProps) {
+  const variant = imageSrc ? "with-image" : "default";
   const classes = cn(cardVariants({ variant, clickable: !!href }), className);
 
   const inner = (

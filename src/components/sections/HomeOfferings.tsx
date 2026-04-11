@@ -41,7 +41,6 @@ export default function HomeOfferings({ data }: HomeOfferingsProps) {
           {items.map((item, i) => (
             <Card
               key={item.id ?? item.title}
-              variant="with-image"
               title={item.title}
               description={item.description}
               imageSrc={IMAGE_MAP[i]?.src ?? imgAstro}

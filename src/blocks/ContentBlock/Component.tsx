@@ -2,30 +2,40 @@ import { cn } from "@/utilities/ui";
 import React from "react";
 import RichText from "@/components/UI/RichText";
 import Card from "@/blocks/CardBlock/Component";
+import SectionLabel from "@/blocks/SectionLabelBlock/Component";
+import { block } from "sharp";
 
 type BlockItem = {
   blockType: string;
   [key: string]: unknown;
 };
 
-type Row = {
+type Column = {
   size?: "full" | "half" | "oneThird" | "twoThirds" | null;
   blocks?: BlockItem[] | null;
 };
 
 type ContentBlockProps = {
-  rows?: Row[] | null;
+  columns?: Column[] | null;
+  className?: string;
 };
 
 const colsSpanClasses: Record<string, string> = {
-  full: "12",
-  half: "6",
-  oneThird: "4",
-  twoThirds: "8",
+  full: "col-span-4 lg:col-span-12",
+  half: "col-span-4 lg:col-span-6",
+  oneThird: "col-span-4 lg:col-span-4",
+  twoThirds: "col-span-4 lg:col-span-8",
 };
 
 function renderBlock(block: BlockItem, index: number) {
   switch (block.blockType) {
+    case "sectionLabel":
+      return (
+        <SectionLabel
+          key={index}
+          {...(block as unknown as Parameters<typeof SectionLabel>[0])}
+        />
+      );
     case "richTextBlock":
       return (
         <RichText
@@ -46,30 +56,43 @@ function renderBlock(block: BlockItem, index: number) {
   }
 }
 
-export const ContentBlock: React.FC<ContentBlockProps> = ({ rows }) => {
+export const ContentBlock: React.FC<ContentBlockProps> = ({
+  columns,
+  className,
+}) => {
   return (
-    <section className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
-      {rows &&
-        rows.length > 0 &&
-        rows.map((row, index) => {
-          const { size, blocks } = row;
-          const span = colsSpanClasses[size ?? "oneThird"];
+    <section
+      className={cn(
+        "p-[var(--gutter-size)] bg-[var(--neutral-100)] grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-md)]",
+        className,
+      )}
+    >
+      {columns &&
+        columns.length > 0 &&
+        columns.map((col, index) => {
+          const { size, blocks } = col;
+          const spanClass = colsSpanClasses[size ?? "oneThird"];
 
-          console.log(
-            "Rendering column with size:",
-            size,
-            "which corresponds to span:",
-            span,
-          );
           return (
             <div
               key={index}
-              className={cn(
-                `col-span-4 lg:col-span-${span} gap-[var(--spacing-xl)] flex flex-col`,
-                { "md:col-span-2": size !== "full" },
-              )}
+              className={cn(spanClass, "gap-[var(--spacing-xl)] flex flex-col")}
             >
-              {blocks && blocks.map((block, i) => renderBlock(block, i))}
+              {blocks &&
+                blocks.map((block, i) => {
+                  if (block.blockType === "sectionLabel" && size === "full") {
+                    return (
+                      <div
+                        className="w-full flex justify-center pb-[var(--spacing-xl)]"
+                        key={i}
+                      >
+                        {renderBlock(block, i)}
+                      </div>
+                    );
+                  }
+
+                  return renderBlock(block, i);
+                })}
             </div>
           );
         })}

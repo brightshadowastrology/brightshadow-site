@@ -43,6 +43,11 @@ export const SplitContentBlock: Block = {
           "When checked, the text content appears on the left and media on the right. Uncheck to reverse.",
       },
     },
+    {
+      name: "className",
+      type: "text",
+      label: "Custom CSS Class (typically for background color)",
+    },
   ],
   labels: {
     plural: "Split Content Blocks",

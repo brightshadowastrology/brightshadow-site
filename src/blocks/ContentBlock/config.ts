@@ -2,6 +2,7 @@ import type { Block } from "payload";
 
 import { defaultLexical } from "@/fields/defaultLexical";
 import { CardBlock } from "@/blocks/CardBlock/config";
+import { SectionLabelBlock } from "@/blocks/SectionLabelBlock/config";
 
 const RichTextBlock: Block = {
   slug: "richTextBlock",
@@ -32,7 +33,7 @@ const ColumnBlock: Block = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [RichTextBlock, CardBlock],
+      blocks: [RichTextBlock, CardBlock, SectionLabelBlock],
     },
   ],
 };
@@ -48,6 +49,11 @@ export const ContentBlock: Block = {
       admin: {
         initCollapsed: true,
       },
+    },
+    {
+      name: "className",
+      type: "text",
+      label: "Custom CSS Class (typically for background color)",
     },
   ],
 };
