@@ -1,46 +1,75 @@
 import { cn } from "@/utilities/ui";
 import React from "react";
 import RichText from "@/components/UI/RichText";
+import Card from "@/blocks/CardBlock/Component";
 
-import type { ContentBlock as ContentBlockProps } from "@/payload-types";
+type BlockItem = {
+  blockType: string;
+  [key: string]: unknown;
+};
 
-import { CMSLink } from "@/components/UI/Link";
-import Divider from "@/components/UI/Divider";
+type Row = {
+  size?: "full" | "half" | "oneThird" | "twoThirds" | null;
+  blocks?: BlockItem[] | null;
+};
 
-export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
-  const { columns } = props;
+type ContentBlockProps = {
+  rows?: Row[] | null;
+};
 
-  const colsSpanClasses = {
-    full: "12",
-    half: "6",
-    oneThird: "4",
-    twoThirds: "8",
-  };
+const colsSpanClasses: Record<string, string> = {
+  full: "12",
+  half: "6",
+  oneThird: "4",
+  twoThirds: "8",
+};
 
+function renderBlock(block: BlockItem, index: number) {
+  switch (block.blockType) {
+    case "richTextBlock":
+      return (
+        <RichText
+          key={index}
+          data={block.content as Parameters<typeof RichText>[0]["data"]}
+          enableGutter={false}
+        />
+      );
+    case "card":
+      return (
+        <Card
+          key={index}
+          {...(block as unknown as Parameters<typeof Card>[0])}
+        />
+      );
+    default:
+      return null;
+  }
+}
+
+export const ContentBlock: React.FC<ContentBlockProps> = ({ rows }) => {
   return (
     <section className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
-      {columns &&
-        columns.length > 0 &&
-        columns.map((col, index) => {
-          const { enableDivider, enableLink, link, richText, size } = col;
+      {rows &&
+        rows.length > 0 &&
+        rows.map((row, index) => {
+          const { size, blocks } = row;
+          const span = colsSpanClasses[size ?? "oneThird"];
 
+          console.log(
+            "Rendering column with size:",
+            size,
+            "which corresponds to span:",
+            span,
+          );
           return (
             <div
-              className={cn(
-                `col-span-4 lg:col-span-${colsSpanClasses[size!]} gap-[var(--spacing-xl)] flex flex-col`,
-                {
-                  "md:col-span-2": size !== "full",
-                },
-              )}
               key={index}
+              className={cn(
+                `col-span-4 lg:col-span-${span} gap-[var(--spacing-xl)] flex flex-col`,
+                { "md:col-span-2": size !== "full" },
+              )}
             >
-              <div>
-                {richText && <RichText data={richText} enableGutter={false} />}
-
-                {enableLink && <CMSLink {...link} />}
-              </div>
-
-              {enableDivider && <Divider />}
+              {blocks && blocks.map((block, i) => renderBlock(block, i))}
             </div>
           );
         })}

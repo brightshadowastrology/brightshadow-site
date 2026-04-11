@@ -12,6 +12,7 @@ import { seedHomeHowItWorks } from "./home-how-it-works";
 import { seedHomeQualifier } from "./home-qualifier";
 import { seedHomeAbout } from "./home-about";
 import { seedHomeTestimonials } from "./home-testimonials";
+import { seedHomeOfferings } from "./home-offerings";
 import {
   seedFAQItemsCollection,
   seedProductsCollection,
@@ -49,8 +50,8 @@ async function seed() {
   // console.log("Seeding Terms & Conditions page...");
   // await seedTermsAndConditions(payload);
 
-  console.log("Seeding Privacy Policy page...");
-  await seedPrivacyPolicy(payload);
+  // console.log("Seeding Privacy Policy page...");
+  // await seedPrivacyPolicy(payload);
 
   //console.log("Seeding header...");
   // await seedHeader(payload);
@@ -60,6 +61,9 @@ async function seed() {
 
   // console.log("Seeding home page hero...");
   // await seedHomeHero(payload);
+
+  console.log("Seeding home page offerings...");
+  await seedHomeOfferings(payload);
 
   // console.log("Seeding home page 'How It Works'...");
   // await seedHomeHowItWorks(payload);

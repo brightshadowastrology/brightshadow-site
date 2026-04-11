@@ -1,56 +1,41 @@
-import type { Block, Field } from "payload";
+import type { Block } from "payload";
 
 import { defaultLexical } from "@/fields/defaultLexical";
-import { link } from "@/fields/link";
+import { CardBlock } from "@/blocks/CardBlock/config";
 
-const columnFields: Field[] = [
-  {
-    name: "size",
-    type: "select",
-    defaultValue: "oneThird",
-    options: [
-      {
-        label: "One Third",
-        value: "oneThird",
-      },
-      {
-        label: "Half",
-        value: "half",
-      },
-      {
-        label: "Two Thirds",
-        value: "twoThirds",
-      },
-      {
-        label: "Full",
-        value: "full",
-      },
-    ],
-  },
-  {
-    name: "richText",
-    type: "richText",
-    editor: defaultLexical,
-    label: false,
-  },
-  {
-    name: "enableDivider",
-    type: "checkbox",
-  },
-  {
-    name: "enableLink",
-    type: "checkbox",
-  },
-  link({
-    overrides: {
-      admin: {
-        condition: (_data, siblingData) => {
-          return Boolean(siblingData?.enableLink);
-        },
-      },
+const RichTextBlock: Block = {
+  slug: "richTextBlock",
+  fields: [
+    {
+      name: "content",
+      type: "richText",
+      editor: defaultLexical,
+      label: false,
     },
-  }),
-];
+  ],
+};
+
+const ColumnBlock: Block = {
+  slug: "column",
+  fields: [
+    {
+      name: "size",
+      type: "select",
+      defaultValue: "oneThird",
+      options: [
+        { label: "One Third", value: "oneThird" },
+        { label: "Half", value: "half" },
+        { label: "Two Thirds", value: "twoThirds" },
+        { label: "Full", value: "full" },
+      ],
+    },
+    {
+      name: "blocks",
+      type: "blocks",
+      blocks: [RichTextBlock, CardBlock],
+    },
+  ],
+};
 
 export const ContentBlock: Block = {
   slug: "content",
@@ -58,11 +43,11 @@ export const ContentBlock: Block = {
   fields: [
     {
       name: "columns",
-      type: "array",
+      type: "blocks",
+      blocks: [ColumnBlock],
       admin: {
         initCollapsed: true,
       },
-      fields: columnFields,
     },
   ],
 };

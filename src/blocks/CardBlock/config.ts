@@ -1,43 +1,36 @@
 import type { Block, Field } from "payload";
 
-import { defaultLexical } from "@/fields/defaultLexical";
-import { link } from "@/fields/link";
-
 export const cardFields: Field[] = [
-  {
-    name: "image",
-    type: "upload",
-    relationTo: "media",
-    required: false,
-  },
   {
     name: "title",
     type: "text",
     required: true,
   },
   {
-    name: "kicker",
+    name: "description",
+    type: "text",
+    required: true,
+  },
+  {
+    name: "href",
     type: "text",
     required: false,
   },
   {
-    name: "description",
-    type: "richText",
-    editor: defaultLexical,
+    name: "imageSrc",
+    type: "text",
+    required: false,
   },
   {
-    name: "enableLink",
-    type: "checkbox",
+    name: "imageAlt",
+    type: "text",
+    required: false,
   },
-  link({
-    overrides: {
-      admin: {
-        condition: (_data, siblingData) => {
-          return Boolean(siblingData?.enableLink);
-        },
-      },
-    },
-  }),
+  {
+    name: "className",
+    type: "text",
+    required: false,
+  },
 ];
 
 export const CardBlock: Block = {
