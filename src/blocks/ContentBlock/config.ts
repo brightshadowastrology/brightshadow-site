@@ -34,6 +34,10 @@ const columnFields: Field[] = [
     label: false,
   },
   {
+    name: "enableDivider",
+    type: "checkbox",
+  },
+  {
     name: "enableLink",
     type: "checkbox",
   },

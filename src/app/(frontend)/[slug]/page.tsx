@@ -42,7 +42,6 @@ type Args = {
 };
 
 export default async function Page({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode();
   const { slug = "home" } = await paramsPromise;
   // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug);
@@ -60,7 +59,13 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page;
 
   return (
-    <article>
+    <article
+      className={
+        page.slug === "terms-and-conditions" || page.slug === "privacy-policy"
+          ? "px-[var(--gutter-size)] pt-[var(--spacing-xl)] pb-[var(--gutter-size)] max-w-[var(--container-max)] flex flex-col mx-auto"
+          : ""
+      }
+    >
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />

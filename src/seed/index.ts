@@ -18,6 +18,8 @@ import {
   seedServicesCollection,
   seedTestimonialsCollection,
 } from "./seed-collections";
+import { seedTermsAndConditions } from "./termsAndConditions";
+import { seedPrivacyPolicy } from "./privacyPolicy";
 
 async function seed() {
   const payload = await getPayload({ config });
@@ -35,14 +37,20 @@ async function seed() {
   // }
   // console.log(`Deleted ${existingPages.docs.length} page(s).`);
 
-  console.log(
-    "Seeding collections. This may take a few moments, please wait... ",
-  );
+  // console.log(
+  //   "Seeding collections. This may take a few moments, please wait... ",
+  // );
 
-  await seedServicesCollection(payload);
-  await seedProductsCollection(payload);
-  await seedFAQItemsCollection(payload);
+  // await seedServicesCollection(payload);
+  // await seedProductsCollection(payload);
+  // await seedFAQItemsCollection(payload);
   //await seedTestimonialsCollection(payload);
+
+  // console.log("Seeding Terms & Conditions page...");
+  // await seedTermsAndConditions(payload);
+
+  console.log("Seeding Privacy Policy page...");
+  await seedPrivacyPolicy(payload);
 
   //console.log("Seeding header...");
   // await seedHeader(payload);
