@@ -3,7 +3,6 @@ import React from "react";
 import RichText from "@/components/UI/RichText";
 import Card from "@/blocks/CardBlock/Component";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
-import { block } from "sharp";
 
 type BlockItem = {
   blockType: string;

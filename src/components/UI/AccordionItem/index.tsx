@@ -1,13 +1,15 @@
 "use client";
 
 import React from "react";
+import RichText from "@/components/UI/RichText";
 import * as Accordion from "@radix-ui/react-accordion";
 import { cn } from "@/utilities/ui";
+import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 
 export interface AccordionItemProps {
   value: string;
   title: string;
-  children: React.ReactNode;
+  children: DefaultTypedEditorState;
   className?: string;
 }
 
@@ -60,7 +62,7 @@ export function AccordionItem({
             "text-[color:var(--neutral-700)]",
           )}
         >
-          {children}
+          <RichText data={children} />
         </div>
       </Accordion.Content>
     </Accordion.Item>
