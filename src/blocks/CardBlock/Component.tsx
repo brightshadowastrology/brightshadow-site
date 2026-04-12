@@ -1,5 +1,6 @@
 import React from "react";
-import Image from "next/image";
+import type { CardBlock as CardBlockProps } from "@/payload-types";
+import { Media } from "@/components/UI/Media";
 import Link from "next/link";
 import { cva, type VariantProps } from "cva";
 import { cn } from "@/utilities/ui";
@@ -28,31 +29,23 @@ const cardVariants = cva({
   },
 });
 
-interface CardProps extends VariantProps<typeof cardVariants> {
-  title: string;
-  description: string;
-  href?: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  className?: string;
-}
+interface CardProps extends VariantProps<typeof cardVariants>, CardBlockProps {}
 
 export default function Card({
   title,
   description,
+  media,
   href,
-  imageSrc,
-  imageAlt = "",
   className,
 }: CardProps) {
-  const variant = imageSrc ? "with-image" : "default";
-  const classes = cn(cardVariants({ variant, clickable: !!href }), className);
+  const variant = media ? "with-image" : "default";
+  const classes = cn(cardVariants({ variant, clickable: !!media }), className);
 
   const inner = (
     <>
-      {variant === "with-image" && imageSrc && (
+      {variant === "with-image" && media && (
         <div className="relative w-full h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px] shrink-0">
-          <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
+          <Media fill resource={media} imgClassName={cn("object-cover")} />
         </div>
       )}
 

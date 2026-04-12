@@ -520,8 +520,7 @@ export interface CardBlock {
   title: string;
   description: string;
   href?: string | null;
-  imageSrc?: string | null;
-  imageAlt?: string | null;
+  media: number | Media;
   className?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -1308,8 +1307,7 @@ export interface CardBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   href?: T;
-  imageSrc?: T;
-  imageAlt?: T;
+  media?: T;
   className?: T;
   id?: T;
   blockName?: T;

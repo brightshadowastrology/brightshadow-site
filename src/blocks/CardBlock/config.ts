@@ -17,14 +17,11 @@ export const cardFields: Field[] = [
     required: false,
   },
   {
-    name: "imageSrc",
-    type: "text",
-    required: false,
-  },
-  {
-    name: "imageAlt",
-    type: "text",
-    required: false,
+    name: "media",
+    type: "upload",
+    relationTo: "media",
+    required: true,
+    label: "Media",
   },
   {
     name: "className",
