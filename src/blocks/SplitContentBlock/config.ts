@@ -30,7 +30,7 @@ export const SplitContentBlock: Block = {
       name: "media",
       type: "upload",
       relationTo: "media",
-      required: true,
+      required: false,
       label: "Media",
     },
     {

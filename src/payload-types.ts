@@ -529,7 +529,7 @@ export interface CardBlock {
   title: string;
   description: string;
   href?: string | null;
-  media: number | Media;
+  media?: (number | null) | Media;
   className?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -606,7 +606,7 @@ export interface SplitContentBlock {
      */
     appearance?: ('primary' | 'secondary') | null;
   };
-  media: number | Media;
+  media?: (number | null) | Media;
   /**
    * When checked, the text content appears on the left and media on the right. Uncheck to reverse.
    */

@@ -20,7 +20,7 @@ export const cardFields: Field[] = [
     name: "media",
     type: "upload",
     relationTo: "media",
-    required: true,
+    required: false,
     label: "Media",
   },
   {
