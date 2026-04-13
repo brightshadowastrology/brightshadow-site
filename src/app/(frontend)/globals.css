@@ -422,6 +422,7 @@
     font-family: var(--font-body);
     font-size: var(--type-body);
     line-height: var(--leading-relaxed);
+    width: 100%;
   }
 
   .prose h1 {

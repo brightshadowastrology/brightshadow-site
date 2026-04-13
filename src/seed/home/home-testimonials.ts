@@ -1,5 +1,5 @@
 import type { Payload } from "payload";
-import { seedTestimonialsCollection } from "./seed-collections";
+import { seedTestimonialsCollection } from "../globals/seed-collections";
 
 export async function seedHomeTestimonials(payload: Payload) {
   const created = await seedTestimonialsCollection(payload);

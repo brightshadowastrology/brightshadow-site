@@ -4,6 +4,7 @@ import { authenticated } from "../../access/authenticated";
 import { authenticatedOrPublished } from "../../access/authenticatedOrPublished";
 import { CallToActionBlock } from "../../blocks/CallToActionBlock/config";
 import { ContentBlock } from "../../blocks/ContentBlock/config";
+import { DividerBlock } from "../../blocks/DividerBlock/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { SplitContentBlock } from "../../blocks/SplitContentBlock/config";
 import { StatementBlock } from "../../blocks/StatementBlock/config";
@@ -73,7 +74,7 @@ export const Pages: CollectionConfig<"pages"> = {
             {
               name: "layout",
               type: "blocks",
-              blocks: [CallToActionBlock, ContentBlock, MediaBlock, SplitContentBlock, StatementBlock, TestimonialsBlock],
+              blocks: [CallToActionBlock, ContentBlock, DividerBlock, MediaBlock, SplitContentBlock, StatementBlock, TestimonialsBlock],
               admin: {
                 initCollapsed: true,
               },

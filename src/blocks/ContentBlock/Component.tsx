@@ -3,6 +3,7 @@ import React from "react";
 import RichText from "@/components/UI/RichText";
 import Card from "@/blocks/CardBlock/Component";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
+import { Divider } from "@/blocks/DividerBlock/Component";
 
 type BlockItem = {
   blockType: string;
@@ -48,6 +49,13 @@ function renderBlock(block: BlockItem, index: number) {
         <Card
           key={index}
           {...(block as unknown as Parameters<typeof Card>[0])}
+        />
+      );
+    case "divider":
+      return (
+        <Divider
+          key={index}
+          className={block.className as string | undefined}
         />
       );
     default:

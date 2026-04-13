@@ -4,23 +4,23 @@ nextEnv.loadEnvConfig(process.cwd());
 const { getPayload } = await import("payload");
 const { default: config } = await import("@payload-config");
 
-import { seedHeader } from "./header";
-import { seedFooter } from "./footer";
-import { seedHomeHero } from "./home-hero";
-import { seedHomeCTA } from "./home-cta";
-import { seedHomeHowItWorks } from "./home-how-it-works";
-import { seedHomeQualifier } from "./home-qualifier";
-import { seedHomeAbout } from "./home-about";
-import { seedHomeTestimonials } from "./home-testimonials";
-import { seedHomeOfferings } from "./home-offerings";
+import { seedHeader } from "./globals/header";
+import { seedFooter } from "./globals/footer";
+import { seedHomeHero } from "./home/home-hero";
+import { seedHomeCTA } from "./home/home-cta";
+import { seedHomeHowItWorks } from "./home/home-how-it-works";
+import { seedHomeQualifier } from "./home/home-qualifier";
+import { seedHomeAbout } from "./home/home-about";
+import { seedHomeTestimonials } from "./home/home-testimonials";
+import { seedHomeOfferings } from "./home/home-offerings";
 import {
   seedFAQItemsCollection,
   seedProductsCollection,
   seedServicesCollection,
   seedTestimonialsCollection,
-} from "./seed-collections";
-import { seedTermsAndConditions } from "./termsAndConditions";
-import { seedPrivacyPolicy } from "./privacyPolicy";
+} from "./globals/seed-collections";
+import { seedTermsAndConditions } from "./legal/termsAndConditions";
+import { seedPrivacyPolicy } from "./legal/privacyPolicy";
 
 async function seed() {
   const payload = await getPayload({ config });
@@ -62,8 +62,8 @@ async function seed() {
   // console.log("Seeding home page hero...");
   // await seedHomeHero(payload);
 
-  console.log("Seeding home page offerings...");
-  await seedHomeOfferings(payload);
+  //console.log("Seeding home page offerings...");
+  //await seedHomeOfferings(payload);
 
   // console.log("Seeding home page 'How It Works'...");
   // await seedHomeHowItWorks(payload);

@@ -200,7 +200,15 @@ export interface Page {
     media?: (number | null) | Media;
   };
   layout?:
-    | (CallToActionBlock | ContentBlock | MediaBlock | SplitContentBlock | StatementBlock | TestimonialsBlock)[]
+    | (
+        | CallToActionBlock
+        | ContentBlock
+        | DividerBlock
+        | MediaBlock
+        | SplitContentBlock
+        | StatementBlock
+        | TestimonialsBlock
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -500,6 +508,7 @@ export interface ContentBlock {
                 }
               | CardBlock
               | SectionLabelBlock
+              | DividerBlock
             )[]
           | null;
         id?: string | null;
@@ -535,6 +544,16 @@ export interface SectionLabelBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'sectionLabel';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DividerBlock".
+ */
+export interface DividerBlock {
+  className?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'divider';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1227,6 +1246,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         cta?: T | CallToActionBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
+        divider?: T | DividerBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
         splitContent?: T | SplitContentBlockSelect<T>;
         statement?: T | StatementBlockSelect<T>;
@@ -1290,6 +1310,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
                         };
                     card?: T | CardBlockSelect<T>;
                     sectionLabel?: T | SectionLabelBlockSelect<T>;
+                    divider?: T | DividerBlockSelect<T>;
                   };
               id?: T;
               blockName?: T;
@@ -1318,6 +1339,15 @@ export interface CardBlockSelect<T extends boolean = true> {
  */
 export interface SectionLabelBlockSelect<T extends boolean = true> {
   title?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DividerBlock_select".
+ */
+export interface DividerBlockSelect<T extends boolean = true> {
+  className?: T;
   id?: T;
   blockName?: T;
 }

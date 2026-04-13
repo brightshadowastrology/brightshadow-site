@@ -2,6 +2,7 @@ import type { Block } from "payload";
 
 import { defaultLexical } from "@/fields/defaultLexical";
 import { CardBlock } from "@/blocks/CardBlock/config";
+import { DividerBlock } from "@/blocks/DividerBlock/config";
 import { SectionLabelBlock } from "@/blocks/SectionLabelBlock/config";
 
 const RichTextBlock: Block = {
@@ -33,7 +34,7 @@ const ColumnBlock: Block = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [RichTextBlock, CardBlock, SectionLabelBlock],
+      blocks: [RichTextBlock, CardBlock, SectionLabelBlock, DividerBlock],
     },
   ],
 };
