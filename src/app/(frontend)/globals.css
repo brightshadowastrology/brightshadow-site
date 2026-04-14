@@ -429,7 +429,7 @@
     font-family: var(--font-header);
     font-size: var(--type-h1);
     line-height: var(--leading-tight);
-    color: var(--text-heading);
+    /* color: var(--text-heading); */
     font-weight: 400;
     margin-top: var(--spacing-2xl);
     margin-bottom: var(--spacing-lg);
@@ -439,9 +439,9 @@
     font-family: var(--font-header);
     font-size: var(--type-h2);
     line-height: var(--leading-snug);
-    color: var(--text-heading);
+    /* color: var(--text-heading); */
     font-weight: 400;
-    margin-top: var(--spacing-2xl);
+    /* margin-top: var(--spacing-2xl); */
     margin-bottom: var(--spacing-md);
   }
 

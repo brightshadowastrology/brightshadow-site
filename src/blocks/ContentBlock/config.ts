@@ -1,6 +1,8 @@
 import type { Block } from "payload";
 
 import { defaultLexical } from "@/fields/defaultLexical";
+
+import { ServiceCardBlock } from "../ServiceCardBlock/config";
 import { CardBlock } from "@/blocks/CardBlock/config";
 import { DividerBlock } from "@/blocks/DividerBlock/config";
 import { SectionLabelBlock } from "@/blocks/SectionLabelBlock/config";
@@ -13,6 +15,11 @@ const RichTextBlock: Block = {
       type: "richText",
       editor: defaultLexical,
       label: false,
+    },
+    {
+      name: "className",
+      type: "text",
+      label: "Custom CSS Class (typically for text color or alignment)",
     },
   ],
 };
@@ -34,7 +41,13 @@ const ColumnBlock: Block = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [RichTextBlock, CardBlock, SectionLabelBlock, DividerBlock],
+      blocks: [
+        RichTextBlock,
+        CardBlock,
+        SectionLabelBlock,
+        DividerBlock,
+        ServiceCardBlock,
+      ],
     },
   ],
 };

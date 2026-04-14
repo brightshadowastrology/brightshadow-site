@@ -3,7 +3,8 @@ import React from "react";
 import RichText from "@/components/UI/RichText";
 import Card from "@/blocks/CardBlock/Component";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
-import { Divider } from "@/blocks/DividerBlock/Component";
+import { DividerBlock } from "@/blocks/DividerBlock/Component";
+import { ServiceCardBlock } from "@/blocks/ServiceCardBlock/Component";
 
 type BlockItem = {
   blockType: string;
@@ -53,9 +54,16 @@ function renderBlock(block: BlockItem, index: number) {
       );
     case "divider":
       return (
-        <Divider
+        <DividerBlock
           key={index}
           className={block.className as string | undefined}
+        />
+      );
+    case "serviceCard":
+      return (
+        <ServiceCardBlock
+          key={index}
+          {...(block as unknown as Parameters<typeof ServiceCardBlock>[0])}
         />
       );
     default:
@@ -70,7 +78,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
   return (
     <section
       className={cn(
-        "p-[var(--gutter-size)] bg-[var(--neutral-100)] grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-md)]",
+        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--gutter-size)] bg-[var(--neutral-100)] grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-md)]",
         className,
       )}
     >

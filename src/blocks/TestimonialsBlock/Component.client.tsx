@@ -10,6 +10,8 @@ import {
 import CarouselIndicator from "@/components/UI/CarouselIndicator";
 import type { Testimonial } from "@/payload-types";
 import RichText from "@/components/UI/RichText";
+import { SectionIcon } from "@radix-ui/react-icons";
+import SectionLabel from "../SectionLabelBlock/Component";
 
 const bgTexture = "/images/brushstrokes.jpg";
 
@@ -44,7 +46,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
           className="object-cover opacity-10 pointer-events-none"
         />
 
-        <div className="relative z-10 flex items-center justify-between px-[var(--spacing-xxl)] py-[var(--gutter-size)]">
+        <div className="relative z-10 flex items-center justify-between px-[var(--gutter-size)] py-[var(--spacing-3xl)]">
           {/* Prev arrow */}
           <button
             onClick={prev}
@@ -54,43 +56,50 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             <FontAwesomeIcon icon={faChevronLeft} className="text-2xl" />
           </button>
 
-          {/* Content — grid-stack keeps height fixed to the tallest slide */}
-          <div className="[display:grid] max-w-[75%] mx-auto w-full">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                aria-hidden={i !== activeIndex}
-                className={`[grid-area:1/1] flex flex-col gap-[var(--spacing-xl)] items-center justify-start transition-opacity duration-300 ${
-                  i === activeIndex
-                    ? "opacity-100"
-                    : "opacity-0 pointer-events-none select-none"
-                }`}
-              >
-                <h2 className="font-normal leading-normal text-[color:var(--neutral-200)] tracking-tight w-full">
-                  {t.quote}
-                </h2>
+          <div className="flex flex-col items-center justify-center max-w-[75%] mx-auto w-full">
+            <div className="w-full flex justify-center pb-[var(--spacing-xl)]">
+              <SectionLabel title="Testimonials" variant="dark" />
+            </div>
 
-                <div className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full [&_p]:text-[color:var(--neutral-200)] [&_p]:mb-4">
-                  {t.body && (
-                    <RichText
-                      data={t.body}
-                      enableGutter={false}
-                      enableProse={false}
-                      className="prose"
-                    />
-                  )}
+            {/* Content — grid-stack keeps height fixed to the tallest slide */}
+            <div className="[display:grid]">
+              <div className="w-full flex justify-center"></div>
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  aria-hidden={i !== activeIndex}
+                  className={`[grid-area:1/1] flex flex-col gap-[var(--spacing-xl)] items-center justify-start transition-opacity duration-300 ${
+                    i === activeIndex
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none select-none"
+                  }`}
+                >
+                  <h2 className="font-normal leading-normal text-[color:var(--neutral-200)] tracking-tight w-full">
+                    {t.quote}
+                  </h2>
+
+                  <div className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full [&_p]:text-[color:var(--neutral-200)] [&_p]:mb-4">
+                    {t.body && (
+                      <RichText
+                        data={t.body}
+                        enableGutter={false}
+                        enableProse={false}
+                        className="prose"
+                      />
+                    )}
+                  </div>
+                  <p className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full">
+                    - {t.author}
+                  </p>
+
+                  <CarouselIndicator
+                    count={total}
+                    activeIndex={activeIndex}
+                    onDotClick={setActiveIndex}
+                  />
                 </div>
-                <p className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full">
-                  - {t.author}
-                </p>
-
-                <CarouselIndicator
-                  count={total}
-                  activeIndex={activeIndex}
-                  onDotClick={setActiveIndex}
-                />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Next arrow */}

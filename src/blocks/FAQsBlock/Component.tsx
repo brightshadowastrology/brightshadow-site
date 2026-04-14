@@ -34,7 +34,7 @@ export const FAQsBlock: React.FC<FAQsBlockProps> = async ({
 
   return (
     <section className="w-full bg-[var(--neutral-100)] flex flex-col items-center justify-center pb-[var(--gutter-size)] pt-[var(--spacing-xl)] px-[var(--gutter-size)]">
-      <div className="flex flex-col gap-[var(--spacing-xxl)] items-center w-full max-w-[75%]">
+      <div className="flex flex-col gap-[var(--spacing-xxl)] items-center w-full">
         <SectionLabel title="FAQs" />
 
         <AccordionRoot type="single" collapsible className="w-full">

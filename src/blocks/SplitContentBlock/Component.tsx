@@ -31,10 +31,10 @@ export const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   );
 
   const textContent = (
-    <div className="flex flex-col justify-between flex-1 pt-[var(--spacing-xl)] pb-[var(--spacing-3xl)] px-[var(--gutter-size)]">
+    <div className="flex flex-col justify-between flex-1 pt-[var(--spacing-xl)] pb-[var(--gutter-size)] px-[var(--gutter-size)]">
       <SectionLabel>{eyebrow}</SectionLabel>
 
-      <div className="flex flex-col gap-[var(--spacing-xl)] mt-[var(--gutter-size)]">
+      <div className="flex flex-col gap-[var(--spacing-xl)] mt-[var(--spacing-3xl)]">
         <h2 className="font-normal leading-snug text-[color:var(--text-body)]">
           {intro}
         </h2>

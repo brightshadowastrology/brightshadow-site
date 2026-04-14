@@ -204,7 +204,9 @@ export interface Page {
         | CallToActionBlock
         | ContentBlock
         | DividerBlock
+        | FAQsBlock
         | MediaBlock
+        | ServiceCardBlock
         | SplitContentBlock
         | StatementBlock
         | TestimonialsBlock
@@ -502,6 +504,7 @@ export interface ContentBlock {
                     };
                     [k: string]: unknown;
                   } | null;
+                  className?: string | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'richTextBlock';
@@ -509,6 +512,7 @@ export interface ContentBlock {
               | CardBlock
               | SectionLabelBlock
               | DividerBlock
+              | ServiceCardBlock
             )[]
           | null;
         id?: string | null;
@@ -554,6 +558,102 @@ export interface DividerBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'divider';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardBlock".
+ */
+export interface ServiceCardBlock {
+  title: string;
+  price: number;
+  currency?: string | null;
+  duration?: string | null;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  link: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
+    url?: string | null;
+    label: string;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('primary' | 'secondary') | null;
+  };
+  media?: (number | null) | Media;
+  className?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'serviceCard';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQsBlock".
+ */
+export interface FAQsBlock {
+  /**
+   * Select specific FAQs to display. Leave empty to show all.
+   */
+  faqs?: (number | FaqItem)[] | null;
+  /**
+   * Filter FAQs by category. Leave empty to show all categories.
+   */
+  category?: ('general' | 'shop') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faqs';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faq-items".
+ */
+export interface FaqItem {
+  id: number;
+  question: string;
+  answer: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  category: 'general' | 'shop';
+  /**
+   * Display order within category (lower numbers appear first).
+   */
+  order: number;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -748,36 +848,6 @@ export interface Product {
   };
   /**
    * Display order (lower numbers appear first).
-   */
-  order: number;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "faq-items".
- */
-export interface FaqItem {
-  id: number;
-  question: string;
-  answer: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  category: 'general' | 'shop';
-  /**
-   * Display order within category (lower numbers appear first).
    */
   order: number;
   updatedAt: string;
@@ -1247,7 +1317,9 @@ export interface PagesSelect<T extends boolean = true> {
         cta?: T | CallToActionBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         divider?: T | DividerBlockSelect<T>;
+        faqs?: T | FAQsBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
+        serviceCard?: T | ServiceCardBlockSelect<T>;
         splitContent?: T | SplitContentBlockSelect<T>;
         statement?: T | StatementBlockSelect<T>;
         testimonials?: T | TestimonialsBlockSelect<T>;
@@ -1305,12 +1377,14 @@ export interface ContentBlockSelect<T extends boolean = true> {
                       | T
                       | {
                           content?: T;
+                          className?: T;
                           id?: T;
                           blockName?: T;
                         };
                     card?: T | CardBlockSelect<T>;
                     sectionLabel?: T | SectionLabelBlockSelect<T>;
                     divider?: T | DividerBlockSelect<T>;
+                    serviceCard?: T | ServiceCardBlockSelect<T>;
                   };
               id?: T;
               blockName?: T;
@@ -1348,6 +1422,41 @@ export interface SectionLabelBlockSelect<T extends boolean = true> {
  */
 export interface DividerBlockSelect<T extends boolean = true> {
   className?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardBlock_select".
+ */
+export interface ServiceCardBlockSelect<T extends boolean = true> {
+  title?: T;
+  price?: T;
+  currency?: T;
+  duration?: T;
+  description?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+        appearance?: T;
+      };
+  media?: T;
+  className?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQsBlock_select".
+ */
+export interface FAQsBlockSelect<T extends boolean = true> {
+  faqs?: T;
+  category?: T;
   id?: T;
   blockName?: T;
 }

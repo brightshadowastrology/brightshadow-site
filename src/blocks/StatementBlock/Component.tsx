@@ -9,7 +9,7 @@ export const StatementBlock: React.FC<StatementBlockProps> = ({
   bottomLabel,
 }) => {
   return (
-    <Section className="bg-[var(--primary-200)] flex flex-col items-start px-[var(--gutter-size)] py-[var(--spacing-2xl)]">
+    <Section className="bg-[var(--primary-200)] flex flex-col items-start px-[var(--gutter-size)] py-[var(--spacing-3xl)]">
       <div className="flex flex-col gap-[var(--spacing-xl)] items-start w-full">
         {/* Top label */}
         <p className="font-normal leading-normal text-[color:var(--primary-900)] tracking-[var(--tracking-label)] whitespace-nowrap">

@@ -1,6 +1,9 @@
 import type { TextFieldSingleValidation } from 'payload'
 import {
+  AlignFeature,
   BoldFeature,
+  FixedToolbarFeature,
+  InlineToolbarFeature,
   HeadingFeature,
   ItalicFeature,
   LinkFeature,
@@ -14,6 +17,7 @@ import {
 
 export const defaultLexical = lexicalEditor({
   features: [
+    AlignFeature(),
     ParagraphFeature(),
     HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
     UnderlineFeature(),
@@ -21,6 +25,8 @@ export const defaultLexical = lexicalEditor({
     ItalicFeature(),
     OrderedListFeature(),
     UnorderedListFeature(),
+    FixedToolbarFeature(),
+    InlineToolbarFeature(),
     LinkFeature({
       enabledCollections: ['pages', 'posts'],
       fields: ({ defaultFields }) => {

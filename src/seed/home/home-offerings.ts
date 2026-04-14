@@ -20,6 +20,16 @@ export async function seedHomeOfferings(payload: Payload) {
     columns: [
       {
         blockType: "column" as const,
+        size: "full" as const,
+        blocks: [
+          {
+            blockType: "sectionLabel" as const,
+            title: "Offerings",
+          },
+        ],
+      },
+      {
+        blockType: "column" as const,
         size: "oneThird" as const,
         blocks: [
           {

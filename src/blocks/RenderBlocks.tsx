@@ -4,11 +4,13 @@ import type { Page } from "@/payload-types";
 
 import { CallToActionBlock } from "@/blocks/CallToActionBlock/Component";
 import { ContentBlock } from "@/blocks/ContentBlock/Component";
-import Divider from "@/components/UI/Divider";
 import { MediaBlock } from "@/blocks/MediaBlock/Component";
 import { SplitContentBlock } from "@/blocks/SplitContentBlock/Component";
 import { StatementBlock } from "@/blocks/StatementBlock/Component";
 import { TestimonialsBlock } from "@/blocks/TestimonialsBlock/Component";
+import { ServiceCardBlock } from "@/blocks/ServiceCardBlock/Component";
+import { DividerBlock } from "@/blocks/DividerBlock/Component";
+import { FAQsBlock } from "@/blocks/FAQsBlock/Component";
 
 const blockComponents = {
   content: ContentBlock,
@@ -17,7 +19,9 @@ const blockComponents = {
   splitContent: SplitContentBlock,
   statement: StatementBlock,
   testimonials: TestimonialsBlock,
-  divider: Divider,
+  serviceCard: ServiceCardBlock,
+  divider: DividerBlock,
+  faqs: FAQsBlock,
 };
 
 export const RenderBlocks: React.FC<{

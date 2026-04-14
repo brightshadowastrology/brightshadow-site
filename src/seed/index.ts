@@ -17,9 +17,6 @@ import {
 import { seedTermsAndConditions } from "./legal/termsAndConditions";
 import { seedPrivacyPolicy } from "./legal/privacyPolicy";
 
-// About
-import { seedAboutPage } from "./about/index";
-
 // Home
 import { seedHomeHero } from "./home/home-hero";
 import { seedHomeCTA } from "./home/home-cta";
@@ -28,6 +25,12 @@ import { seedHomeQualifier } from "./home/home-qualifier";
 import { seedHomeAbout } from "./home/home-about";
 import { seedHomeTestimonials } from "./home/home-testimonials";
 import { seedHomeOfferings } from "./home/home-offerings";
+
+// About
+import { seedAboutPage } from "./about/index";
+
+// Services
+import { seedServicesPage } from "./services/index";
 
 async function seed() {
   const payload = await getPayload({ config });
@@ -87,8 +90,11 @@ async function seed() {
   // console.log("Seeding home page CTA...");
   // await seedHomeCTA(payload);
 
-  console.log("Seeding about page...");
-  await seedAboutPage(payload);
+  // console.log("Seeding about page...");
+  //await seedAboutPage(payload);
+
+  // console.log("Seeding services page...");
+  await seedServicesPage(payload);
 
   console.log("All seeds complete.");
   process.exit(0);
