@@ -11,6 +11,7 @@ import { TestimonialsBlock } from "@/blocks/TestimonialsBlock/Component";
 import { ServiceCardBlock } from "@/blocks/ServiceCardBlock/Component";
 import { DividerBlock } from "@/blocks/DividerBlock/Component";
 import { FAQsBlock } from "@/blocks/FAQsBlock/Component";
+import { ProductsBlock } from "@/blocks/ProductsBlock/Component";
 
 const blockComponents = {
   content: ContentBlock,
@@ -22,6 +23,7 @@ const blockComponents = {
   serviceCard: ServiceCardBlock,
   divider: DividerBlock,
   faqs: FAQsBlock,
+  products: ProductsBlock,
 };
 
 export const RenderBlocks: React.FC<{

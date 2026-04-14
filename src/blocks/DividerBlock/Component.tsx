@@ -4,10 +4,12 @@ type DividerProps = {
   className?: string;
 };
 
-export const DividerBlock: React.FC<DividerProps> = ({ className }) => {
+const Divider: React.FC<DividerProps> = ({ className }) => {
   return (
     <div
       className={cn("w-full border-t border-[var(--border-subtle)]", className)}
     />
   );
 };
+
+export default Divider;

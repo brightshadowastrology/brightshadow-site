@@ -32,6 +32,9 @@ import { seedAboutPage } from "./about/index";
 // Services
 import { seedServicesPage } from "./services/index";
 
+// Shop
+import { seedShopPage } from "./shop/index";
+
 async function seed() {
   const payload = await getPayload({ config });
 
@@ -94,7 +97,10 @@ async function seed() {
   //await seedAboutPage(payload);
 
   // console.log("Seeding services page...");
-  await seedServicesPage(payload);
+  //await seedServicesPage(payload);
+
+  console.log("Seeding shop products block...");
+  await seedShopPage(payload);
 
   console.log("All seeds complete.");
   process.exit(0);

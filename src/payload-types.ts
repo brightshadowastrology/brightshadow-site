@@ -206,6 +206,7 @@ export interface Page {
         | DividerBlock
         | FAQsBlock
         | MediaBlock
+        | ProductsBlock
         | ServiceCardBlock
         | SplitContentBlock
         | StatementBlock
@@ -513,6 +514,7 @@ export interface ContentBlock {
               | SectionLabelBlock
               | DividerBlock
               | ServiceCardBlock
+              | ProductsBlock
             )[]
           | null;
         id?: string | null;
@@ -607,6 +609,59 @@ export interface ServiceCardBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'serviceCard';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductsBlock".
+ */
+export interface ProductsBlock {
+  /**
+   * Select specific products to display. Leave empty to show all.
+   */
+  products?: (number | Product)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'products';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  name: string;
+  kicker: string;
+  stripeProductId: string;
+  stripePrices: {
+    stripePriceId: string;
+    label: string;
+    currency: string;
+    unitAmount: number;
+    interval?: string | null;
+    id?: string | null;
+  }[];
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  media?: (number | null) | Media;
+  /**
+   * Display order (lower numbers appear first).
+   */
+  order: number;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -807,45 +862,6 @@ export interface Service {
       }[]
     | null;
   page: 'services';
-  /**
-   * Display order (lower numbers appear first).
-   */
-  order: number;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
- */
-export interface Product {
-  id: number;
-  name: string;
-  kicker: string;
-  stripeProductId: string;
-  stripePrices: {
-    stripePriceId: string;
-    label: string;
-    currency: string;
-    unitAmount: number;
-    interval?: string | null;
-    id?: string | null;
-  }[];
-  description: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
   /**
    * Display order (lower numbers appear first).
    */
@@ -1319,6 +1335,7 @@ export interface PagesSelect<T extends boolean = true> {
         divider?: T | DividerBlockSelect<T>;
         faqs?: T | FAQsBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
+        products?: T | ProductsBlockSelect<T>;
         serviceCard?: T | ServiceCardBlockSelect<T>;
         splitContent?: T | SplitContentBlockSelect<T>;
         statement?: T | StatementBlockSelect<T>;
@@ -1385,6 +1402,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
                     sectionLabel?: T | SectionLabelBlockSelect<T>;
                     divider?: T | DividerBlockSelect<T>;
                     serviceCard?: T | ServiceCardBlockSelect<T>;
+                    products?: T | ProductsBlockSelect<T>;
                   };
               id?: T;
               blockName?: T;
@@ -1447,6 +1465,15 @@ export interface ServiceCardBlockSelect<T extends boolean = true> {
       };
   media?: T;
   className?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductsBlock_select".
+ */
+export interface ProductsBlockSelect<T extends boolean = true> {
+  products?: T;
   id?: T;
   blockName?: T;
 }
@@ -1736,6 +1763,7 @@ export interface ProductsSelect<T extends boolean = true> {
         id?: T;
       };
   description?: T;
+  media?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

@@ -7,11 +7,11 @@ interface SectionLabelProps {
   className?: string;
 }
 
-export default function SectionLabel({
+const SectionLabel: React.FC<SectionLabelProps> = ({
   title,
   variant = "default",
   className,
-}: SectionLabelProps) {
+}) => {
   const isDark = variant === "dark";
 
   const borderColor = isDark
@@ -45,4 +45,6 @@ export default function SectionLabel({
       </span>
     </div>
   );
-}
+};
+
+export default SectionLabel;

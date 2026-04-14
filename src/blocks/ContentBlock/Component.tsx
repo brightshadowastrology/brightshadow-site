@@ -3,8 +3,9 @@ import React from "react";
 import RichText from "@/components/UI/RichText";
 import Card from "@/blocks/CardBlock/Component";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
-import { DividerBlock } from "@/blocks/DividerBlock/Component";
-import { ServiceCardBlock } from "@/blocks/ServiceCardBlock/Component";
+import Divider from "@/blocks/DividerBlock/Component";
+import ServiceCard from "@/blocks/ServiceCardBlock/Component";
+import Products from "@/blocks/ProductsBlock/Component";
 
 type BlockItem = {
   blockType: string;
@@ -54,16 +55,23 @@ function renderBlock(block: BlockItem, index: number) {
       );
     case "divider":
       return (
-        <DividerBlock
+        <Divider
           key={index}
           className={block.className as string | undefined}
         />
       );
     case "serviceCard":
       return (
-        <ServiceCardBlock
+        <ServiceCard
           key={index}
-          {...(block as unknown as Parameters<typeof ServiceCardBlock>[0])}
+          {...(block as unknown as Parameters<typeof ServiceCard>[0])}
+        />
+      );
+    case "products":
+      return (
+        <Products
+          key={index}
+          {...(block as unknown as Parameters<typeof Products>[0])}
         />
       );
     default:

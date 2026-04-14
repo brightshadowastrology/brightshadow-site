@@ -59,7 +59,7 @@ function PriceDisplay({
   );
 }
 
-export const ServiceCardBlock: React.FC<ServiceCardProps> = ({
+const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   price,
   currency,
@@ -85,7 +85,7 @@ export const ServiceCardBlock: React.FC<ServiceCardProps> = ({
         </div>
       )}
 
-      <div className="flex flex-1 flex-col items-center justify-between w-full overflow-clip pb-[var(--spacing-xxl)] pt-[var(--spacing-xl)] px-[var(--spacing-xxl)]">
+      <div className="flex flex-1 flex-col items-center justify-between w-full overflow-clip pb-[var(--spacing-xxl)] pt-[var(--spacing-xl)] px-[var(--spacing-xl)]">
         <div className="flex flex-col items-center w-full overflow-clip gap-[var(--spacing-xl)]">
           <div className="flex flex-col items-center gap-4 w-full">
             <h3 className="font-normal leading-snug text-[color:var(--primary-600)] text-center whitespace-nowrap">
@@ -102,7 +102,7 @@ export const ServiceCardBlock: React.FC<ServiceCardProps> = ({
 
           <div className="flex flex-col gap-[var(--spacing-lg)] items-center w-full">
             <Divider />
-            <RichText data={description} />
+            <RichText data={description} enableGutter={false} />
           </div>
         </div>
 
@@ -114,3 +114,5 @@ export const ServiceCardBlock: React.FC<ServiceCardProps> = ({
     </div>
   );
 };
+
+export default ServiceCard;

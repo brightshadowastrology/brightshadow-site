@@ -69,6 +69,13 @@ export const Products: CollectionConfig = {
       required: true,
     },
     {
+      name: "media",
+      type: "upload",
+      relationTo: "media",
+      required: false,
+      label: "Media",
+    },
+    {
       name: "order",
       type: "number",
       required: true,

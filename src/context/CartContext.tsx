@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useReducer, useEffect } from "react";
+import type { Media, Product } from "@/payload-types";
 
 const STORAGE_KEY = "bss_cart";
 
@@ -10,25 +11,19 @@ export interface NatalData {
   location: string;
 }
 
-export interface CartItem {
-  id: string;
-  name: string;
-  kicker?: string;
-  price: number;
-  description?: string;
-  imageSrc?: string;
+export interface CartItem extends Product {
+  media?: Media;
   quantity: number;
-  natalData?: NatalData;
-  stripeProductId: string;
   stripePriceId: string;
+  natalData?: NatalData;
 }
 
 type CartAction =
   | { type: "ADD_ITEM"; payload: Omit<CartItem, "quantity"> }
-  | { type: "REMOVE_ITEM"; payload: { id: string } }
-  | { type: "INCREMENT"; payload: { id: string } }
-  | { type: "DECREMENT"; payload: { id: string } }
-  | { type: "UPDATE_NATAL_DATA"; payload: { id: string; natalData: NatalData } }
+  | { type: "REMOVE_ITEM"; payload: { id: number } }
+  | { type: "INCREMENT"; payload: { id: number } }
+  | { type: "DECREMENT"; payload: { id: number } }
+  | { type: "UPDATE_NATAL_DATA"; payload: { id: number; natalData: NatalData } }
   | { type: "CLEAR" };
 
 function cartReducer(state: CartItem[], action: CartAction): CartItem[] {
@@ -71,10 +66,10 @@ function cartReducer(state: CartItem[], action: CartAction): CartItem[] {
 interface CartContextValue {
   items: CartItem[];
   addItem: (item: Omit<CartItem, "quantity">) => void;
-  removeItem: (id: string) => void;
-  increment: (id: string) => void;
-  decrement: (id: string) => void;
-  updateNatalData: (id: string, natalData: NatalData) => void;
+  removeItem: (id: number) => void;
+  increment: (id: number) => void;
+  decrement: (id: number) => void;
+  updateNatalData: (id: number, natalData: NatalData) => void;
   clear: () => void;
 }
 
