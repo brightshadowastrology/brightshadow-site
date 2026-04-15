@@ -18,32 +18,33 @@ const BannerBlock: React.FC<BannerBlockProps> = ({
 }) => {
   return (
     <div className="flex flex-col gap-[var(--spacing-md)] pb-[var(--spacing-xl)] items-center text-center w-3/4 mx-auto">
-      <h2
+      <h3
         className={cn(
           "italic leading-normal text-[color:var(--primary-600)]",
           introLineClassName,
         )}
       >
         {introLine1}
-      </h2>
+      </h3>
+
       {introLineVariant === "large" ? (
-        <h1
+        <h2
           className={cn(
             "leading-normal text-[color:var(--primary-600)]",
             introLineClassName,
           )}
         >
           {introLine2}
-        </h1>
+        </h2>
       ) : introLineVariant === "small" ? (
-        <h3
+        <h2
           className={cn(
-            "leading-normal text-[color:var(--primary-600)]",
+            "leading-normal text-2xl text-[color:var(--primary-600)]",
             introLineClassName,
           )}
         >
           {introLine2}
-        </h3>
+        </h2>
       ) : (
         <p
           className={cn(

@@ -8,7 +8,12 @@ interface SectionProps {
 
 export function Section({ children, className }: SectionProps) {
   return (
-    <section className={cn("w-full overflow-hidden", className)}>
+    <section
+      className={cn(
+        "w-full overflow-hidden px-[var(--gutter-size)]",
+        className,
+      )}
+    >
       {children}
     </section>
   );

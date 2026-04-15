@@ -111,7 +111,18 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
                   if (block.blockType === "sectionLabel" && size === "full") {
                     return (
                       <div
-                        className="w-full flex justify-center pb-[var(--spacing-xl)]"
+                        className="w-full flex justify-center pb-[var(--spacing-lg)]"
+                        key={i}
+                      >
+                        {renderBlock(block, i)}
+                      </div>
+                    );
+                  }
+
+                  if (block.blockType === "richTextBlock" && size === "full") {
+                    return (
+                      <div
+                        className="w-full flex justify-center py-[var(--spacing-xl)]"
                         key={i}
                       >
                         {renderBlock(block, i)}

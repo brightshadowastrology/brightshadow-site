@@ -62,7 +62,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     <article
       className={
         page.slug === "terms-and-conditions" || page.slug === "privacy-policy"
-          ? "px-[var(--gutter-size)] pt-[var(--spacing-xl)] pb-[var(--gutter-size)] max-w-[var(--container-max)] flex flex-col mx-auto"
+          ? "px-[var(--gutter-size)] pb-[var(--gutter-size)] max-w-[var(--container-max)] flex flex-col mx-auto"
           : ""
       }
     >

@@ -18,7 +18,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
   bodyText,
 }) => {
   return (
-    <section className="w-full relative h-[80vh] bg-[var(--surface-page)]">
+    <section className="w-full relative h-[80vh] bg-[var(--surface-page)] mt-[var(--spacing-3xl)]">
       {/* Bottom beige  */}
       <div
         className="absolute bottom-[-1px] left-0 w-full pointer-events-none"

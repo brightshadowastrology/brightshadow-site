@@ -4,6 +4,7 @@ import { Media } from "@/components/Media";
 import Link from "next/link";
 import { cva, type VariantProps } from "cva";
 import { cn } from "@/utilities/ui";
+import Divider from "../DividerBlock/Component";
 
 const cardVariants = cva({
   base: [
@@ -44,7 +45,7 @@ export default function Card({
   const inner = (
     <>
       {variant === "with-image" && media && (
-        <div className="relative w-full h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px] shrink-0">
+        <div className="relative w-full min-h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px] shrink-0">
           <Media fill resource={media} imgClassName={cn("object-cover")} />
         </div>
       )}
@@ -53,6 +54,7 @@ export default function Card({
         <h3 className="font-normal leading-snug text-[color:var(--primary-600)] w-full">
           {title}
         </h3>
+
         <p className="font-normal leading-normal text-[color:var(--primary-600)] w-full">
           {description}
         </p>

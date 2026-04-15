@@ -12,8 +12,8 @@ export async function Header() {
   const navItems: typeof headerData.navItems = headerData?.navItems || [];
 
   return (
-    <header className="container relative z-20">
-      <div className="py-[var(--spacing-md)] flex justify-between items-center">
+    <header className="container absolute top-0 z-20">
+      <div className="px-[var(--spacing-xl)] py-[var(--spacing-md)] flex justify-between items-center">
         <BrandLogo />
 
         <Navigation navItems={navItems} variant="default" showCart={true} />

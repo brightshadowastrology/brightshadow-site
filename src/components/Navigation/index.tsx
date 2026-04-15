@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { cn } from "@/utilities/ui";
-import CartIcon from "@/components/CartIcon";
+import CartIcon from "./CartIcon";
 import type { Header as HeaderType } from "@/payload-types";
 import { CMSLink } from "@/components/Link";
 

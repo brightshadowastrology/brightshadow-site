@@ -56,19 +56,17 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   );
 
   return (
-    <Section
-      className={cn("bg-[var(--neutral-200)] flex min-h-[90vh]", className)}
-    >
+    <Section className={cn("bg-[var(--neutral-200)] min-h-[90vh]", className)}>
       {contentLeftSide ? (
-        <>
+        <div className="flex flex-col lg:flex-row">
           {textContent}
           {imageContent}
-        </>
+        </div>
       ) : (
-        <>
+        <div className="flex flex-col lg:flex-row">
           {imageContent}
           {textContent}
-        </>
+        </div>
       )}
     </Section>
   );

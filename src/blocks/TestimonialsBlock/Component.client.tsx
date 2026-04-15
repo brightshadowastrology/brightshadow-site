@@ -91,14 +91,16 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                   <p className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full">
                     - {t.author}
                   </p>
-
-                  <CarouselIndicator
-                    count={total}
-                    activeIndex={activeIndex}
-                    onDotClick={setActiveIndex}
-                  />
                 </div>
               ))}
+
+              <div className="flex justify-center">
+                <CarouselIndicator
+                  count={total}
+                  activeIndex={activeIndex}
+                  onDotClick={setActiveIndex}
+                />
+              </div>
             </div>
           </div>
 
