@@ -1,4 +1,4 @@
-import { MediaBlock } from "@/blocks/MediaBlock/Component";
+import MediaBlock from "@/blocks/MediaBlock/Component";
 import {
   DefaultNodeTypes,
   SerializedBlockNode,
@@ -15,7 +15,7 @@ import type {
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from "@/payload-types";
-import { CallToActionBlock } from "@/blocks/CallToActionBlock/Component";
+import CallToActionBlock from "@/blocks/CallToActionBlock/Component";
 import { cn } from "@/utilities/ui";
 
 type NodeTypes =

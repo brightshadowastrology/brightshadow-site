@@ -30,7 +30,7 @@ export default function Navbar({
         className,
       )}
     >
-      <BrandLogo logoSrc={logoSrc} />
+      <BrandLogo />
 
       <Navigation items={navItems} variant="default" />
 
