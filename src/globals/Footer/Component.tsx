@@ -2,9 +2,9 @@ import { getCachedGlobal } from "@/utilities/getGlobals";
 import React from "react";
 import Image from "next/image";
 
+import Navigation from "@/components/Navigation";
 import type { Footer } from "@/payload-types";
-
-import { CMSLink } from "@/components/UI/Link";
+import { CMSLink } from "@/components/Link";
 import { cn } from "@/utilities/ui";
 
 export async function Footer() {
@@ -23,17 +23,7 @@ export async function Footer() {
       )}
     >
       <div className="flex items-center justify-between w-full">
-        <nav className="flex flex-1 items-center gap-[var(--spacing-xl)]">
-          {navItems.map(({ link }, i) => {
-            return (
-              <CMSLink
-                className="text-[color:var(--neutral-100)]"
-                key={i}
-                {...link}
-              />
-            );
-          })}
-        </nav>
+        <Navigation navItems={navItems} variant="dark" showCart={false} />
 
         <Image
           src={"/images/logo.svg"}
@@ -43,7 +33,7 @@ export async function Footer() {
           className="block shrink-0"
         />
 
-        <nav className="flex flex-1 justify-end items-center gap-[var(--spacing-xl)]">
+        <nav className="flex justify-end items-center gap-[var(--spacing-xl)]">
           {legalItems.map(({ link }, i) => {
             return (
               <CMSLink

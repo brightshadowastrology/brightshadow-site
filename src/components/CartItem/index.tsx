@@ -74,7 +74,9 @@ export function CartItem({
     ? parseNatalDataToFormDefaults(item.natalData)
     : undefined;
 
-  const price = item.stripePrices[item.stripePrices.length - 1]?.unitAmount;
+  const price = item.stripePrices
+    ? item.stripePrices[item.stripePrices?.length - 1]?.unitAmount
+    : 0;
 
   return (
     <>

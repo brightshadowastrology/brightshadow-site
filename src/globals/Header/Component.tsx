@@ -1,26 +1,24 @@
-import React from "react";
-import Link from "next/link";
 import { getCachedGlobal } from "@/utilities/getGlobals";
 
-import BrandLogo from "@/components/UI/BrandLogo";
-import { Button } from "@/components/UI/Button";
-import { HeaderNav } from "./Nav";
+import BrandLogo from "@/components/BrandLogo";
+import Navigation from "@/components/Navigation";
 
+import { CMSLink } from "@/components/Link";
 import type { Header } from "@/payload-types";
 
 export async function Header() {
-  const headerData = await getCachedGlobal("header", 1)() as Header;
+  const headerData = (await getCachedGlobal("header", 1)()) as Header;
+
+  const navItems: typeof headerData.navItems = headerData?.navItems || [];
 
   return (
     <header className="container relative z-20">
-      <div className="py-8 flex justify-between items-center">
+      <div className="py-[var(--spacing-md)] flex justify-between items-center">
         <BrandLogo />
-        <HeaderNav data={headerData} />
-        <Button asChild>
-          <Link href={headerData.cta?.url || "/services"}>
-            {headerData.cta?.label || "Contact Us"}
-          </Link>
-        </Button>
+
+        <Navigation navItems={navItems} variant="default" showCart={true} />
+
+        {headerData.cta && <CMSLink size="default" {...headerData.cta} />}
       </div>
     </header>
   );

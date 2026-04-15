@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 
+import { Media } from "@/components/Media";
 import type { Page } from "@/payload-types";
 
-import { CMSLink } from "@/components/UI/Link";
+import { CMSLink } from "@/components/Link";
 import Image from "next/image";
 
 const subtractImg = "/images/subtract.svg";
@@ -31,6 +32,8 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
           unoptimized
           className="block w-full h-auto"
         />
+
+        {/* <Media fill resource={media} imgClassName={"object-cover"} /> */}
       </div>
 
       {/* Content */}
