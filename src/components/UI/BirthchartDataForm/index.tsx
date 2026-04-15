@@ -1,7 +1,7 @@
 "use client";
 
 import Dropdown from "@/components/UI/Dropdown";
-import * as constants from "@/shared/lib/constants";
+import { MONTHS } from "@/lib/constants";
 import { useForm, Controller } from "react-hook-form";
 import * as Form from "@radix-ui/react-form";
 import InputTimePicker from "@/components/UI/Form/InputTimePicker";
@@ -57,7 +57,7 @@ export default function BirthchartDataForm({
   } = useForm<BirthchartFormData>({
     defaultValues: {
       day: defaultValues?.day ?? today.getDate().toString(),
-      month: defaultValues?.month ?? constants.MONTHS[today.getMonth()].value,
+      month: defaultValues?.month ?? MONTHS[today.getMonth()].value,
       year: defaultValues?.year ?? today.getFullYear().toString(),
       time: defaultValues?.time ?? new Time(12, 0),
       place: defaultValues?.place ?? null,
@@ -101,7 +101,7 @@ export default function BirthchartDataForm({
             render={({ field }) => (
               <Dropdown
                 label="Month"
-                options={constants.MONTHS.map((m) => ({
+                options={MONTHS.map((m) => ({
                   label: m.label,
                   value: m.value,
                 }))}

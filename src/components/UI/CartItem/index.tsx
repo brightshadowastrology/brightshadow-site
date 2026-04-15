@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import { Media } from "@/components/UI/Media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -18,22 +18,7 @@ import { cn } from "@/utilities/ui";
 import { Modal } from "@/components/UI/Modal";
 import BirthchartDataForm from "@/components/UI/BirthchartDataForm";
 import { Time } from "@internationalized/date";
-import { MONTHS } from "@/shared/lib/constants";
-
-const MONTH_LABELS: Record<string, string> = {
-  "01": "January",
-  "02": "February",
-  "03": "March",
-  "04": "April",
-  "05": "May",
-  "06": "June",
-  "07": "July",
-  "08": "August",
-  "09": "September",
-  "10": "October",
-  "11": "November",
-  "12": "December",
-};
+import { MONTHS } from "@/lib/constants";
 
 function formatCurrency(amount: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -58,7 +43,7 @@ function parseNatalDataToFormDefaults(natalData: NatalData) {
     placeId: "",
     formattedAddress: natalData.location,
     displayName: natalData.location,
-    location: natalData.location,
+    location: null,
     timeZone: null,
     utcOffsetMinutes: null,
     addressComponents: [],
@@ -69,9 +54,9 @@ function parseNatalDataToFormDefaults(natalData: NatalData) {
 
 interface CartItemProps {
   item: CartItemType;
-  onRemove: (id: string) => void;
-  onIncrement: (id: string) => void;
-  onDecrement: (id: string) => void;
+  onRemove: (id: number) => void;
+  onIncrement: (id: number) => void;
+  onDecrement: (id: number) => void;
   className?: string;
 }
 
@@ -88,6 +73,8 @@ export function CartItem({
   const formDefaults = item.natalData
     ? parseNatalDataToFormDefaults(item.natalData)
     : undefined;
+
+  const price = item.stripePrices[item.stripePrices.length - 1]?.unitAmount;
 
   return (
     <>
@@ -117,13 +104,12 @@ export function CartItem({
         </button>
 
         {/* Image */}
-        {item.imageSrc ? (
+        {item.media ? (
           <div className="relative w-[160px] h-[160px] shrink-0 rounded-[var(--radius-md)] overflow-hidden">
-            <Image
-              src={item.imageSrc}
-              alt={item.name}
+            <Media
               fill
-              className="object-cover"
+              resource={item.media}
+              imgClassName={cn("object-cover")}
             />
           </div>
         ) : (
@@ -235,7 +221,7 @@ export function CartItem({
                       "text-[length:var(--type-lg)] font-semibold",
                     )}
                   >
-                    {formatCurrency(item.price * item.quantity)}
+                    {formatCurrency(price * item.quantity)}
                   </span>
                 </div>
               </div>
@@ -254,12 +240,14 @@ export function CartItem({
           <BirthchartDataForm
             defaultValues={formDefaults}
             onSubmit={async (data) => {
+              const month =
+                MONTHS.find((m) => m.value === data.month)?.label ?? data.month;
               const hour = data.time?.hour ?? 0;
               const minute = data.time?.minute ?? 0;
               const hour12 = hour % 12 === 0 ? 12 : hour % 12;
               const ampm = hour < 12 ? "AM" : "PM";
               const natalData: NatalData = {
-                date: `${data.day} ${MONTH_LABELS[data.month] ?? data.month} ${data.year}`,
+                date: `${data.day} ${month} ${data.year}`,
                 time: data.time
                   ? `${hour12}:${String(minute).padStart(2, "0")} ${ampm}`
                   : "",
