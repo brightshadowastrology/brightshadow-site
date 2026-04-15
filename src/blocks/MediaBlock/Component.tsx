@@ -18,7 +18,7 @@ type Props = MediaBlockProps & {
   disableInnerContainer?: boolean;
 };
 
-export const MediaBlock: React.FC<Props> = (props) => {
+const MediaBlock: React.FC<Props> = (props) => {
   const {
     captionClassName,
     className,
@@ -65,3 +65,5 @@ export const MediaBlock: React.FC<Props> = (props) => {
     </div>
   );
 };
+
+export default MediaBlock;

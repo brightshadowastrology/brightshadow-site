@@ -5,10 +5,10 @@ import { Section } from "@/components/UI/Section";
 import { Media } from "@/components/UI/Media";
 import { CMSLink } from "@/components/UI/Link";
 import RichText from "@/components/UI/RichText";
-import SectionLabel from "@/components/UI/SectionLabel";
+import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import { cn } from "@/utilities/ui";
 
-export const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
+const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   eyebrow,
   intro,
   bodyText,
@@ -32,7 +32,7 @@ export const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
 
   const textContent = (
     <div className="flex flex-col justify-between flex-1 pt-[var(--spacing-xl)] pb-[var(--gutter-size)] px-[var(--gutter-size)]">
-      <SectionLabel>{eyebrow}</SectionLabel>
+      <SectionLabel title={eyebrow || ""} />
 
       <div className="flex flex-col gap-[var(--spacing-xl)] mt-[var(--spacing-3xl)]">
         <h2 className="font-normal leading-snug text-[color:var(--text-body)]">
@@ -73,3 +73,5 @@ export const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
     </Section>
   );
 };
+
+export default SplitContentBlock;

@@ -3,7 +3,7 @@ import React from "react";
 import { Section } from "@/components/UI/Section";
 import type { StatementBlock as StatementBlockProps } from "@/payload-types";
 
-export const StatementBlock: React.FC<StatementBlockProps> = ({
+const StatementBlock: React.FC<StatementBlockProps> = ({
   topLabel,
   conditions,
   bottomLabel,
@@ -37,3 +37,5 @@ export const StatementBlock: React.FC<StatementBlockProps> = ({
     </Section>
   );
 };
+
+export default StatementBlock;

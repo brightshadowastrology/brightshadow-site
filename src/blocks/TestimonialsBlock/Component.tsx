@@ -8,7 +8,7 @@ type TestimonialsBlockProps = {
   testimonials?: (number | Testimonial)[] | null;
 };
 
-export const TestimonialsBlock: React.FC<TestimonialsBlockProps> = async ({
+const TestimonialsBlock: React.FC<TestimonialsBlockProps> = async ({
   testimonials: selected,
 }) => {
   let testimonials: Testimonial[] = [];
@@ -31,3 +31,5 @@ export const TestimonialsBlock: React.FC<TestimonialsBlockProps> = async ({
 
   return <TestimonialsCarousel testimonials={testimonials} />;
 };
+
+export default TestimonialsBlock;

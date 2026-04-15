@@ -6,6 +6,7 @@ import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import Divider from "@/blocks/DividerBlock/Component";
 import ServiceCard from "@/blocks/ServiceCardBlock/Component";
 import Products from "@/blocks/ProductsBlock/Component";
+import BannerBlock from "@/blocks/BannerBlock/Component";
 
 type BlockItem = {
   blockType: string;
@@ -74,15 +75,19 @@ function renderBlock(block: BlockItem, index: number) {
           {...(block as unknown as Parameters<typeof Products>[0])}
         />
       );
+    case "banner":
+      return (
+        <BannerBlock
+          key={index}
+          {...(block as unknown as Parameters<typeof BannerBlock>[0])}
+        />
+      );
     default:
       return null;
   }
 }
 
-export const ContentBlock: React.FC<ContentBlockProps> = ({
-  columns,
-  className,
-}) => {
+const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
   return (
     <section
       className={cn(
@@ -122,3 +127,5 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
     </section>
   );
 };
+
+export default ContentBlock;

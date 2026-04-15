@@ -10,10 +10,7 @@ type FAQsBlockProps = {
   category?: string;
 };
 
-export const FAQsBlock: React.FC<FAQsBlockProps> = async ({
-  faqs,
-  category,
-}) => {
+const FAQsBlock: React.FC<FAQsBlockProps> = async ({ faqs, category }) => {
   let filteredFaqs: FaqItem[] = [];
 
   if (faqs && faqs.length > 0) {
@@ -52,3 +49,5 @@ export const FAQsBlock: React.FC<FAQsBlockProps> = async ({
     </section>
   );
 };
+
+export default FAQsBlock;

@@ -64,11 +64,11 @@ export async function seedShopProducts(payload: Payload) {
         size: "full" as const,
         blocks: [
           {
-            blockType: "richTextBlock" as const,
-            content: lexicalDoc([
-              "Want to explore your chart on your own terms?",
+            blockType: "banner" as const,
+            size: "full" as const,
+            introLine1: "Want to explore your chart on your own terms?",
+            introLine2:
               "These workbooks are generated from the details of your unique birth chart — not generic astrology, but insights that belong specifically to you. Each one includes reflective prompts to help you move from intellectual understanding to something more personal and lived.",
-            ]),
           },
         ],
       },

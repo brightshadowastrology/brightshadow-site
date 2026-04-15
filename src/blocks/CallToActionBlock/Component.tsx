@@ -5,11 +5,7 @@ import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
 
 import { CMSLink } from "@/components/UI/Link";
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({
-  cta,
-  line1,
-  line2,
-}) => {
+const CallToActionBlock: React.FC<CTABlockProps> = ({ cta, line1, line2 }) => {
   return (
     <Section className="bg-[var(--neutral-200)] flex flex-col gap-[var(--spacing-xxl)] p-[var(--gutter-size)] items-center justify-center">
       <div className="flex flex-col gap-[var(--spacing-sm)] items-center text-center">
@@ -25,3 +21,5 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({
     </Section>
   );
 };
+
+export default CallToActionBlock;

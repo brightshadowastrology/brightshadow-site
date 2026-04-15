@@ -7,6 +7,7 @@ import { CardBlock } from "@/blocks/CardBlock/config";
 import { DividerBlock } from "@/blocks/DividerBlock/config";
 import { SectionLabelBlock } from "@/blocks/SectionLabelBlock/config";
 import { ProductsBlock } from "@/blocks/ProductsBlock/config";
+import { BannerBlock } from "@/blocks/BannerBlock/config";
 
 const RichTextBlock: Block = {
   slug: "richTextBlock",
@@ -49,6 +50,7 @@ const ColumnBlock: Block = {
         DividerBlock,
         ServiceCardBlock,
         ProductsBlock,
+        BannerBlock,
       ],
     },
   ],

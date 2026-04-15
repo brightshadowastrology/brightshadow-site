@@ -515,6 +515,7 @@ export interface ContentBlock {
               | DividerBlock
               | ServiceCardBlock
               | ProductsBlock
+              | BannerBlock
             )[]
           | null;
         id?: string | null;
@@ -662,6 +663,29 @@ export interface Product {
   order: number;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock".
+ */
+export interface BannerBlock {
+  introLine1?: string | null;
+  introLine2?: string | null;
+  /**
+   * Select a variant for Intro Line 1 to adjust its styling
+   */
+  introLineVariant?: ('default' | 'large' | 'small') | null;
+  /**
+   * Optional CSS class for styling Intro Line 1
+   */
+  introLineClassName?: string | null;
+  /**
+   * Optional CSS class for styling Intro Line 2
+   */
+  introLine2ClassName?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'banner';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1403,6 +1427,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
                     divider?: T | DividerBlockSelect<T>;
                     serviceCard?: T | ServiceCardBlockSelect<T>;
                     products?: T | ProductsBlockSelect<T>;
+                    banner?: T | BannerBlockSelect<T>;
                   };
               id?: T;
               blockName?: T;
@@ -1474,6 +1499,19 @@ export interface ServiceCardBlockSelect<T extends boolean = true> {
  */
 export interface ProductsBlockSelect<T extends boolean = true> {
   products?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock_select".
+ */
+export interface BannerBlockSelect<T extends boolean = true> {
+  introLine1?: T;
+  introLine2?: T;
+  introLineVariant?: T;
+  introLineClassName?: T;
+  introLine2ClassName?: T;
   id?: T;
   blockName?: T;
 }

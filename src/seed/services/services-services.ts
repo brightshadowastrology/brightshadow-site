@@ -63,11 +63,12 @@ export async function seedServicesServices(payload: Payload) {
         size: "full" as const,
         blocks: [
           {
-            blockType: "richTextBlock" as const,
-            content: lexicalDoc([
-              "Clarity, creativity, and a map for what comes next.",
-              "Choose your depth.",
-            ]),
+            blockType: "banner" as const,
+            size: "full" as const,
+            introLine1:
+              "Readings, art, and support to help you understand and work with your natal chart.",
+            introLine2:
+              "Whether you want a quick snapshot or a long-term relationship with your chart, we have a service for you.",
           },
         ],
       },
