@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Section } from "@/components/UI/Section";
+import { Section } from "@/components/Section";
 import type { StatementBlock as StatementBlockProps } from "@/payload-types";
 
 const StatementBlock: React.FC<StatementBlockProps> = ({

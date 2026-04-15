@@ -2,15 +2,15 @@
 
 import React, { useState } from "react";
 import { type Product } from "@/payload-types";
-import { Media } from "@/components/UI/Media";
+import { Media } from "@/components/Media";
 import * as Accordion from "@radix-ui/react-accordion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@/components/UI/Button";
+import { Button } from "@/components/Button";
 import { cn } from "@/utilities/ui";
-import BirthchartDataForm from "@/components/UI/BirthchartDataForm";
+import BirthchartDataForm from "@/components/BirthchartDataForm";
 import { useCart } from "@/context/CartContext";
-import RichText from "@/components/UI/RichText";
+import RichText from "@/components/RichText";
 
 const MONTH_LABELS: Record<string, string> = {
   "01": "January",

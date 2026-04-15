@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import type { FaqItem } from "@/payload-types";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
-import AccordionItem, { AccordionRoot } from "@/components/UI/AccordionItem";
+import AccordionItem, { AccordionRoot } from "@/components/AccordionItem";
 
 type FAQsBlockProps = {
   faqs?: (number | FaqItem)[] | null;

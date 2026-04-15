@@ -3,7 +3,7 @@
 import { cn } from "@/utilities/ui";
 import { SewingPinFilledIcon } from "@radix-ui/react-icons";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Input, { type InputProps } from "@/components/UI/Form/Input";
+import Input, { type InputProps } from "@/components/Form/Input";
 
 const PLACES_API_BASE = "https://places.googleapis.com/v1";
 

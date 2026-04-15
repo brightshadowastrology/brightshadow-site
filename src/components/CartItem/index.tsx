@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Media } from "@/components/UI/Media";
+import { Media } from "@/components/Media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -15,8 +15,8 @@ import {
   useCart,
 } from "@/context/CartContext";
 import { cn } from "@/utilities/ui";
-import { Modal } from "@/components/UI/Modal";
-import BirthchartDataForm from "@/components/UI/BirthchartDataForm";
+import { Modal } from "@/components/Modal";
+import BirthchartDataForm from "@/components/BirthchartDataForm";
 import { Time } from "@internationalized/date";
 import { MONTHS } from "@/lib/constants";
 

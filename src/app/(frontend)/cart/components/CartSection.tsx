@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/UI/Button";
-import { CartItem } from "@/components/UI/CartItem";
-import CheckoutForm from "@/components/UI/CheckoutForm";
+import { Button } from "@/components/Button";
+import { CartItem } from "@/components/CartItem";
+import CheckoutForm from "@/components/CheckoutForm";
 import { useCart } from "@/context/CartContext";
 import { type LineItem } from "@/lib/types";
 import { cn } from "@/utilities/ui";

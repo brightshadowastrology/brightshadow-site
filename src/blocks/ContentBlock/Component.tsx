@@ -1,6 +1,6 @@
 import { cn } from "@/utilities/ui";
 import React from "react";
-import RichText from "@/components/UI/RichText";
+import RichText from "@/components/RichText";
 import Card from "@/blocks/CardBlock/Component";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import Divider from "@/blocks/DividerBlock/Component";

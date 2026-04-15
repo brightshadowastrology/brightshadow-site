@@ -3,9 +3,9 @@
 import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
 import { useForm } from "react-hook-form";
-import { Button } from "@/components/UI/Button";
-import Input from "@/components/UI/Form/Input";
-import StripeCheckout from "@/components/UI/StripeCheckout";
+import { Button } from "@/components/Button";
+import Input from "@/components/Form/Input";
+import StripeCheckout from "@/components/StripeCheckout";
 import { type LineItem } from "@/lib/types";
 import { cn } from "@/utilities/ui";
 import Divider from "../Divider";

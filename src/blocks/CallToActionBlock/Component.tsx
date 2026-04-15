@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Section } from "@/components/UI/Section";
+import { Section } from "@/components/Section";
 import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
 
-import { CMSLink } from "@/components/UI/Link";
+import { CMSLink } from "@/components/Link";
 
 const CallToActionBlock: React.FC<CTABlockProps> = ({ cta, line1, line2 }) => {
   return (

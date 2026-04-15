@@ -1,16 +1,16 @@
 "use client";
 
-import Dropdown from "@/components/UI/Dropdown";
+import Dropdown from "@/components/Dropdown";
 import { MONTHS } from "@/lib/constants";
 import { useForm, Controller } from "react-hook-form";
 import * as Form from "@radix-ui/react-form";
-import InputTimePicker from "@/components/UI/Form/InputTimePicker";
+import InputTimePicker from "@/components/Form/InputTimePicker";
 import { Time } from "@internationalized/date";
 import { type TimeValue } from "react-aria";
-import { Button } from "@/components/UI/Button";
+import { Button } from "@/components/Button";
 import PlacesAutocomplete, {
   type PlaceDetails,
-} from "@/components/UI/PlacesAutocomplete";
+} from "@/components/PlacesAutocomplete";
 
 type BirthchartFormData = {
   day: string;

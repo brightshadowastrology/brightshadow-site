@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import RichText from "@/components/UI/RichText";
+import RichText from "@/components/RichText";
 import * as Accordion from "@radix-ui/react-accordion";
 import { cn } from "@/utilities/ui";
 import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";

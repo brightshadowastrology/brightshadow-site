@@ -1,7 +1,7 @@
-import Divider from "@/components/UI/Divider";
-import { CMSLink } from "@/components/UI/Link";
-import { Media } from "@/components/UI/Media";
-import RichText from "@/components/UI/RichText";
+import Divider from "@/components/Divider";
+import { CMSLink } from "@/components/Link";
+import { Media } from "@/components/Media";
+import RichText from "@/components/RichText";
 import type { ServiceCardBlock as ServiceCardBlockProps } from "@/payload-types";
 import { cn } from "@/utilities/ui";
 import { cva, type VariantProps } from "cva";

@@ -7,9 +7,9 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import CarouselIndicator from "@/components/UI/CarouselIndicator";
+import CarouselIndicator from "@/components/CarouselIndicator";
 import type { Testimonial } from "@/payload-types";
-import RichText from "@/components/UI/RichText";
+import RichText from "@/components/RichText";
 import { SectionIcon } from "@radix-ui/react-icons";
 import SectionLabel from "../SectionLabelBlock/Component";
 

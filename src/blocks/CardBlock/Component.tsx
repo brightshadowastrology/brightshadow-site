@@ -1,6 +1,6 @@
 import React from "react";
 import type { CardBlock as CardBlockProps } from "@/payload-types";
-import { Media } from "@/components/UI/Media";
+import { Media } from "@/components/Media";
 import Link from "next/link";
 import { cva, type VariantProps } from "cva";
 import { cn } from "@/utilities/ui";

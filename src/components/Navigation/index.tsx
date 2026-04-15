@@ -4,29 +4,19 @@ import React from "react";
 import Link from "next/link";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { cn } from "@/utilities/ui";
-import CartIcon from "@/components/UI/CartIcon";
-
-export interface NavItem {
-  label: string;
-  href: string;
-}
-
-const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { label: "ABOUT", href: "/about" },
-  { label: "SERVICES", href: "/services" },
-  { label: "SHOP", href: "/shop" },
-  { label: "BLOG", href: "/blog" },
-];
+import CartIcon from "@/components/CartIcon";
+import type { Header as HeaderType } from "@/payload-types";
+import { CMSLink } from "@/components/Link";
 
 interface NavigationProps {
-  items?: NavItem[];
+  navItems?: HeaderType["navItems"];
   variant?: "default" | "dark";
   className?: string;
   showCart?: boolean;
 }
 
 export default function Navigation({
-  items = DEFAULT_NAV_ITEMS,
+  navItems,
   variant = "default",
   className,
   showCart = true,
@@ -46,21 +36,22 @@ export default function Navigation({
           className,
         )}
       >
-        {items.map((item) => (
-          <NavigationMenu.Item key={item.href}>
-            <NavigationMenu.Link asChild>
-              <Link
-                href={item.href}
-                className={cn(
-                  "whitespace-nowrap hover:opacity-70 transition-opacity duration-200 no-underline",
-                  textColor,
-                )}
-              >
-                {item.label}
-              </Link>
-            </NavigationMenu.Link>
-          </NavigationMenu.Item>
-        ))}
+        {navItems?.map(({ link }: (typeof navItems)[number], i: number) => {
+          return (
+            <NavigationMenu.Item key={link.label}>
+              <NavigationMenu.Link asChild>
+                <CMSLink
+                  key={i}
+                  {...link}
+                  className={cn(
+                    "whitespace-nowrap hover:opacity-70 transition-opacity duration-200 no-underline",
+                    textColor,
+                  )}
+                />
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+          );
+        })}
 
         {showCart && (
           <NavigationMenu.Item>

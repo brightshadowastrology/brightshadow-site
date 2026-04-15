@@ -1,10 +1,10 @@
 import React from "react";
 
 import type { SplitContentBlock as SplitContentBlockProps } from "@/payload-types";
-import { Section } from "@/components/UI/Section";
-import { Media } from "@/components/UI/Media";
-import { CMSLink } from "@/components/UI/Link";
-import RichText from "@/components/UI/RichText";
+import { Section } from "@/components/Section";
+import { Media } from "@/components/Media";
+import { CMSLink } from "@/components/Link";
+import RichText from "@/components/RichText";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import { cn } from "@/utilities/ui";
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import Input from "@/components/UI/Form/Input";
+import Input from "@/components/Form/Input";
 
 export interface TextFieldProps {
   label?: string;
