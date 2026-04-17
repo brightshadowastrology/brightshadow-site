@@ -69,7 +69,7 @@ export default function BirthchartDataForm({
       className="flex w-full flex-col pt-[var(--spacing-lg)]"
       onSubmit={onSubmit ? handleSubmit(onSubmit) : undefined}
     >
-      <div className="flex w-full items-start gap-[var(--spacing-md)]">
+      <div className="flex flex-wrap w-full items-start gap-[var(--spacing-md)]">
         {/* Day */}
         <div className="w-[100px] flex-none">
           <Controller
@@ -119,7 +119,7 @@ export default function BirthchartDataForm({
         </div>
 
         {/* Year */}
-        <div className="w-[130px] flex-none">
+        <div className="w-full sm:w-[130px] sm:flex-none">
           <Controller
             name="year"
             control={control}
@@ -142,7 +142,7 @@ export default function BirthchartDataForm({
         </div>
 
         {/* Time */}
-        <div className="flex-1">
+        <div className="w-full sm:flex-1">
           <Controller
             name="time"
             control={control}
@@ -188,9 +188,14 @@ export default function BirthchartDataForm({
 
       {/* Submit Button */}
       {onSubmit && (
-        <Button type="submit" className="mt-[var(--spacing-xl)] w-full">
-          Submit
-        </Button>
+        <div className="w-full flex justify-start">
+          <Button
+            type="submit"
+            className="mt-[var(--spacing-xl)] w-full md:w-[300px]"
+          >
+            Submit
+          </Button>
+        </div>
       )}
     </Form.Root>
   );

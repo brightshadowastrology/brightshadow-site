@@ -12,13 +12,19 @@ export async function Header() {
   const navItems: typeof headerData.navItems = headerData?.navItems || [];
 
   return (
-    <header className="container absolute top-0 z-20">
-      <div className="px-[var(--spacing-xl)] py-[var(--spacing-md)] flex justify-between items-center">
+    <header className="w-full absolute top-0 z-20">
+      <div className="p-[var(--spacing-xs)] md:p-[var(--spacing-sm)] lg:px-[var(--spacing-xl)] lg:py-[var(--spacing-md)] flex justify-between items-center">
         <BrandLogo />
 
         <Navigation navItems={navItems} variant="default" showCart={true} />
 
-        {headerData.cta && <CMSLink size="default" {...headerData.cta} />}
+        {headerData.cta && (
+          <CMSLink
+            size="default"
+            {...headerData.cta}
+            className="hidden md:block"
+          />
+        )}
       </div>
     </header>
   );

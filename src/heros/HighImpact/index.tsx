@@ -6,6 +6,7 @@ import type { Page } from "@/payload-types";
 
 import { CMSLink } from "@/components/Link";
 import Image from "next/image";
+import { Section } from "@/components/Section";
 
 const subtractImg = "/images/subtract.svg";
 
@@ -18,7 +19,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
   bodyText,
 }) => {
   return (
-    <section className="w-full relative h-[80vh] bg-[var(--surface-page)] mt-[var(--spacing-3xl)]">
+    <Section className="relative h-screen lg:h-[80vh] bg-[var(--surface-page)] px-[var(--gutter-size)] mt-[var(--spacing-3xl)]">
       {/* Bottom beige  */}
       <div
         className="absolute bottom-[-1px] left-0 w-full pointer-events-none"
@@ -37,8 +38,8 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col gap-[var(--spacing-lg)] items-start max-w-[50%] pt-[var(--spacing-3xl)] ml-[10%]">
-        <h1 className="font-normal text-display leading-tight text-[color:var(--primary-950)] whitespace-pre-wrap">
+      <div className="relative z-10 flex flex-col gap-[var(--spacing-lg)] items-start w-full lg:max-w-[50%] pt-[var(--spacing-xl)] lg:pt-[var(--spacing-3xl)] lg:ml-[5%]">
+        <h1 className="w-full font-normal text-display leading-tight text-[color:var(--primary-950)] whitespace-pre-wrap text-center lg:text-left">
           {headingBefore}
           <br />
           <span className="text-[color:var(--surface-action)]">
@@ -49,20 +50,20 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
 
         <div className="flex flex-col gap-[var(--spacing-lg)] items-start">
           {bodyText && (
-            <p className="font-normal text-2xl leading-normal text-[color:var(--primary-950)] max-w-[75%]">
+            <p className="font-normal lg:text-2xl leading-normal text-[color:var(--primary-950)] w-full lg:max-w-[75%] text-center lg:text-left">
               {bodyText}
             </p>
           )}
 
           {Array.isArray(links) && links.length > 0 && (
-            <div className="flex gap-[var(--spacing-md)] items-center">
+            <div className="w-full flex flex-col md:flex-row lg:flex-row gap-[var(--spacing-md)] items-center">
               {links.map(({ link }, i) => (
-                <CMSLink key={i} {...link} />
+                <CMSLink key={i} {...link} className="w-full" />
               ))}
             </div>
           )}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

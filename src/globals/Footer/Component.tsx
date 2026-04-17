@@ -18,11 +18,11 @@ export async function Footer() {
       className={cn(
         "flex flex-col gap-[var(--spacing-xl)] items-center",
         "bg-[var(--surface-darkest)]",
-        "overflow-clip px-[112px] py-[var(--spacing-xl)]",
+        "overflow-clip px-[var(--gutter-size)] py-[var(--spacing-xl)]",
         "w-full",
       )}
     >
-      <div className="flex items-center justify-between w-full">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full  gap-[var(--spacing-lg)] md:gap-0">
         <Navigation navItems={navItems} variant="dark" showCart={false} />
 
         <Image
@@ -33,11 +33,11 @@ export async function Footer() {
           className="block shrink-0"
         />
 
-        <nav className="flex justify-end items-center gap-[var(--spacing-xl)]">
+        <nav className="flex justify-end items-center gap-[var(--spacing-xs)] md:gap-[var(--spacing-sm)] lg:gap-[var(--spacing-xl)]">
           {legalItems.map(({ link }, i) => {
             return (
               <CMSLink
-                className="text-[color:var(--neutral-100)]"
+                className="w-fit text-[color:var(--neutral-100)] whitespace-nowrap"
                 key={i}
                 {...link}
               />
@@ -50,12 +50,13 @@ export async function Footer() {
 
       <p
         className={cn(
+          "flex flex-col md:flex-row",
           "font-normal",
-          "text-[color:var(--primary-300)]",
-          "whitespace-nowrap",
+          "text-[color:var(--primary-300)] text-center",
         )}
       >
-        {footerData?.copyright || "© 2024 Your Company"}
+        <span>{footerData?.copyright || "© 2024 Your Company"}</span>
+        <span>{` All Rights Reserved.`}</span>
       </p>
     </footer>
   );

@@ -61,9 +61,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         )}
       >
         <Accordion.Item value="item">
-          <Accordion.Header className="flex items-stretch">
+          <Accordion.Header className="flex flex-col lg:flex-row items-stretch w-full">
             {product.media && (
-              <div className="relative w-[195px] shrink-0 self-stretch overflow-hidden">
+              <div className="relative w-full h-48 lg:h-auto lg:w-[20%] shrink-0 self-stretch overflow-hidden">
                 <Media
                   resource={product.media}
                   fill
@@ -76,8 +76,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
             <Accordion.Trigger
               className={cn(
                 "flex flex-1 items-center justify-between",
-                "px-[var(--spacing-xl)]",
-                "min-h-[195px] cursor-pointer text-left",
+                "p-[var(--spacing-lg)] md:px-[var(--spacing-xl)]",
+                "min-h-[20vh] md:min-h-[10vh] cursor-pointer text-left",
                 "group",
               )}
             >
@@ -122,7 +122,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           >
             <div
               className={cn(
-                "relative overflow-hidden h-[50vh]",
+                "relative overflow-hidden min-h-[50vh] md:min-h-[30vh]",
                 "border-t border-[var(--border-divider)]",
                 "flex flex-col justify-between",
                 "px-[var(--spacing-xl)] pt-[var(--spacing-xl)] pb-[var(--spacing-2xl)]",
@@ -139,6 +139,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
                 onClick={() => {
                   setShowForm(true);
                 }}
+                className="w-full md:w-[300px]"
               >
                 {`Add to Cart`}
               </Button>
@@ -164,9 +165,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
                     <h3 className="font-normal text-[color:var(--primary-600)] leading-snug">
                       Enter Birth Information
                     </h3>
-                    <p className="text-[color:var(--primary-500)] text-sm leading-snug">
-                      {product.name}
-                    </p>
                   </div>
                   <button
                     aria-label="Close form"

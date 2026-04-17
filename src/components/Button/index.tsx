@@ -9,12 +9,12 @@ const buttonVariants = cva({
     "font-normal leading-none uppercase",
     "whitespace-nowrap cursor-pointer",
     "transition-colors duration-200",
+    "min-w-[200px]",
     "focus-visible:outline-2 focus-visible:outline-[var(--border-action)] focus-visible:outline-offset-2",
   ],
   variants: {
     variant: {
       primary: [
-        "max-w-[300px]",
         "bg-[var(--surface-action)] hover:bg-[var(--surface-action-hover)]",
         "text-[color:var(--text-action)] hover:text-[color:var(--text-action-hover)] text-base",
       ],
@@ -25,8 +25,8 @@ const buttonVariants = cva({
       ],
     },
     size: {
-      default: "px-[var(--spacing-md)] py-[var(--spacing-xs)]",
-      large: "px-[var(--spacing-xl)] py-[var(--spacing-md)] h-[55px]",
+      default: "px-[var(--spacing-sm)] py-[var(--spacing-xs)]",
+      large: "px-[var(--spacing-md)] py-[var(--spacing-sm)] h-[50px]",
     },
   },
   defaultVariants: {

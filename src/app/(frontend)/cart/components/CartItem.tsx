@@ -82,7 +82,7 @@ export function CartItem({
     <>
       <div
         className={cn(
-          "relative flex flex-row gap-[var(--spacing-md)]",
+          "relative flex flex-col md:flex-row gap-[var(--spacing-md)]",
           "bg-[var(--surface-subtle)]",
           "rounded-[var(--radius-lg)]",
           "[box-shadow:var(--shadow-card)]",
@@ -152,7 +152,7 @@ export function CartItem({
               <div className="pl-[var(--spacing-xs)]">
                 {item.kicker && <p>{item.kicker}</p>}
 
-                <div className="flex justify-between items-end mt-4 mb-4">
+                <div className="flex flex-col justify-start items-start md:flex-row md:justify-between md:items-end mt-4 mb-4">
                   <div>
                     <p className={"bold text-[color:var(--text-muted)]"}>
                       Natal Data:{" "}
@@ -165,6 +165,7 @@ export function CartItem({
                     onClick={() => setEditOpen(true)}
                     aria-label="Edit birth data"
                     className={cn(
+                      "pt-2 md:pt-0",
                       "flex items-center gap-[var(--spacing-2xs)]",
                       "text-[length:var(--type-label)] uppercase tracking-[var(--tracking-label)]",
                       "text-[color:var(--text-muted)] hover:text-[color:var(--surface-action)]",

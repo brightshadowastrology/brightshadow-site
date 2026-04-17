@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CarouselIndicator from "@/components/CarouselIndicator";
+import RichText from "@/components/RichText";
+import { Section } from "@/components/Section";
+import type { Testimonial } from "@/payload-types";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import CarouselIndicator from "@/components/CarouselIndicator";
-import type { Testimonial } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { SectionIcon } from "@radix-ui/react-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import React, { useState } from "react";
 import SectionLabel from "../SectionLabelBlock/Component";
 
 const bgTexture = "/images/brushstrokes.jpg";
@@ -34,7 +34,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
   }
 
   return (
-    <section className="w-full flex flex-col">
+    <Section className="flex flex-col">
       <div className="relative w-full bg-[var(--surface-dark)] overflow-hidden">
         {/* Background texture */}
         <Image
@@ -56,7 +56,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             <FontAwesomeIcon icon={faChevronLeft} className="text-2xl" />
           </button>
 
-          <div className="flex flex-col items-center justify-center max-w-[75%] mx-auto w-full">
+          <div className="flex flex-col items-center justify-center max-w-[75%] mx-auto">
             <div className="w-full flex justify-center pb-[var(--spacing-xl)]">
               <SectionLabel title="Testimonials" variant="dark" />
             </div>
@@ -94,7 +94,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                 </div>
               ))}
 
-              <div className="flex justify-center">
+              <div className="flex justify-center pt-[var(--spacing-lg)]">
                 <CarouselIndicator
                   count={total}
                   activeIndex={activeIndex}
@@ -114,6 +114,6 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
           </button>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

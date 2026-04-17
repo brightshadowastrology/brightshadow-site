@@ -20,21 +20,31 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   const imageContent = (
     <div
       className={cn(
-        "relative w-1/2 shrink-0 overflow-hidden",
+        "h-[50vh] lg:h-full shrink-0 overflow-hidden mt-[var(--spacing-xl)] md:mt-0",
         contentLeftSide
-          ? "rounded-tl-[200px] rounded-bl-[50px]"
-          : "rounded-tr-[200px] rounded-br-[50px]",
+          ? "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[0px] lg:rounded-tl-[200px] lg:rounded-bl-[50px] lg:rounded-br-[0px]"
+          : "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[200px] lg:rounded-tl-[0px] lg:rounded-bl-[0px] lg:rounded-br-[50px]",
       )}
     >
-      <Media fill resource={media} imgClassName={cn("object-cover")} />
+      <Media resource={media} imgClassName={cn("object-cover")} />
     </div>
   );
 
   const textContent = (
-    <div className="flex flex-col justify-between flex-1 pt-[var(--spacing-xl)] pb-[var(--gutter-size)] px-[var(--gutter-size)]">
-      <SectionLabel title={eyebrow || ""} />
+    <div
+      className={cn(
+        "h-full",
+        "flex flex-col justify-between",
+        "pt-[var(--spacing-xl)] pb-[var(--spacing-3xl)] md:pb-[var(--gutter-size)] px-[var(--gutter-size)]",
+      )}
+    >
+      <div className="flex justify-center lg:justify-start">
+        <SectionLabel title={eyebrow || ""} />
+      </div>
 
-      <div className="flex flex-col gap-[var(--spacing-xl)] mt-[var(--spacing-3xl)]">
+      <div className="block md:hidden">{imageContent}</div>
+
+      <div className="flex flex-col gap-[var(--spacing-xl)] mt-[var(--spacing-xl)] md:mt-[var(--spacing-3xl)]">
         <h2 className="font-normal leading-snug text-[color:var(--text-body)]">
           {intro}
         </h2>
@@ -50,22 +60,26 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
           )}
         </div>
 
-        {link && <CMSLink {...link} />}
+        {link && (
+          <div className="flex justify-center lg:justify-start">
+            <CMSLink {...link} className="max-w-none w-full md:w-auto" />
+          </div>
+        )}
       </div>
     </div>
   );
 
   return (
-    <Section className={cn("bg-[var(--neutral-200)] min-h-[90vh]", className)}>
+    <Section className={cn("bg-[var(--neutral-200)] min-h-[80vh]", className)}>
       {contentLeftSide ? (
         <div className="flex flex-col lg:flex-row">
-          {textContent}
-          {imageContent}
+          <div className="flex-1">{textContent}</div>
+          <div className="flex-1 hidden md:block">{imageContent}</div>
         </div>
       ) : (
         <div className="flex flex-col lg:flex-row">
-          {imageContent}
-          {textContent}
+          <div className="flex-1 hidden md:block">{imageContent}</div>
+          <div className="flex-1">{textContent}</div>
         </div>
       )}
     </Section>

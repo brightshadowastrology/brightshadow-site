@@ -4,6 +4,8 @@ import config from "@payload-config";
 import type { FaqItem } from "@/payload-types";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import AccordionItem, { AccordionRoot } from "@/components/AccordionItem";
+import { cn } from "@/utilities/ui";
+import { Section } from "@/components/Section";
 
 type FAQsBlockProps = {
   faqs?: (number | FaqItem)[] | null;
@@ -30,8 +32,14 @@ const FAQsBlock: React.FC<FAQsBlockProps> = async ({ faqs, category }) => {
   if (!filteredFaqs.length) return null;
 
   return (
-    <section className="w-full bg-[var(--neutral-100)] flex flex-col items-center justify-center pb-[var(--gutter-size)] pt-[var(--spacing-xl)] px-[var(--gutter-size)]">
-      <div className="flex flex-col gap-[var(--spacing-xxl)] items-center w-full">
+    <Section
+      className={cn(
+        "bg-[var(--neutral-100)]",
+        "flex flex-col items-center justify-center",
+        "pb-[var(--gutter-size)] pt-[var(--spacing-xl)] px-[var(--gutter-size)]",
+      )}
+    >
+      <div className="flex flex-col gap-[var(--spacing-lg)] md:gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)] items-center w-full">
         <SectionLabel title="FAQs" />
 
         <AccordionRoot type="single" collapsible className="w-full">
@@ -46,7 +54,7 @@ const FAQsBlock: React.FC<FAQsBlockProps> = async ({ faqs, category }) => {
           ))}
         </AccordionRoot>
       </div>
-    </section>
+    </Section>
   );
 };
 

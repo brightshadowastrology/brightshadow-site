@@ -17,7 +17,7 @@ const StatementBlock: React.FC<StatementBlockProps> = ({
         </p>
 
         {/* Main flowing text */}
-        <h3 className="font-normal text-4xl leading-normal text-[color:var(--accent-600)]">
+        <h3 className="font-normal text-2xl md:text-4xl leading-normal text-[color:var(--accent-600)]">
           {conditions &&
             conditions.map((condition, i) => (
               <span key={condition.id ?? condition.text}>

@@ -26,7 +26,7 @@ type ContentBlockProps = {
 const colsSpanClasses: Record<string, string> = {
   full: "col-span-4 lg:col-span-12",
   half: "col-span-4 lg:col-span-6",
-  oneThird: "col-span-4 lg:col-span-4",
+  oneThird: "col-span-4 md:col-span-2 lg:col-span-4",
   twoThirds: "col-span-4 lg:col-span-8",
 };
 
@@ -91,7 +91,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
   return (
     <section
       className={cn(
-        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--gutter-size)] bg-[var(--neutral-100)] grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-md)]",
+        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--spacing-3xl)] md:pb-[var(--gutter-size)] bg-[var(--neutral-100)] grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
         className,
       )}
     >
@@ -111,7 +111,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
                   if (block.blockType === "sectionLabel" && size === "full") {
                     return (
                       <div
-                        className="w-full flex justify-center pb-[var(--spacing-lg)]"
+                        className="w-full flex justify-center md:pb-[var(--spacing-lg)]"
                         key={i}
                       >
                         {renderBlock(block, i)}
@@ -122,7 +122,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
                   if (block.blockType === "richTextBlock" && size === "full") {
                     return (
                       <div
-                        className="w-full flex justify-center py-[var(--spacing-xl)]"
+                        className="w-full flex justify-center py-[var(--spacing-xl)] md:py-[var(--spacing-2xl)]"
                         key={i}
                       >
                         {renderBlock(block, i)}
