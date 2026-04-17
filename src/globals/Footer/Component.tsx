@@ -56,7 +56,7 @@ export async function Footer() {
         )}
       >
         <span>{footerData?.copyright || "© 2024 Your Company"}</span>
-        <span>{` All Rights Reserved.`}</span>
+        {/* <span>{` All Rights Reserved.`}</span> */}
       </p>
     </footer>
   );

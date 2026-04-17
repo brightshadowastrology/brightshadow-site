@@ -60,13 +60,13 @@ export function CartSection() {
         /* Cart grid */
         <div
           className={cn(
-            "grid grid-cols-[40vw_1fr] gap-[var(--spacing-xl)]",
+            "grid grid-cols-1 md:grid-cols-[40vw_1fr] gap-[var(--spacing-xl)]",
             "px-[var(--gutter-size)] pb-[var(--spacing-3xl)]",
             "max-w-[var(--container-max)] mx-auto w-full",
           )}
         >
           {/* ── Left: item list ── */}
-          <div className="sticky top-[var(--spacing-xl)] self-start flex flex-col gap-[var(--spacing-md)]">
+          <div className="md:sticky top-[var(--spacing-xl)] self-start flex flex-col gap-[var(--spacing-md)]">
             {cartItems.map((item) => (
               <CartItem
                 key={item.id}

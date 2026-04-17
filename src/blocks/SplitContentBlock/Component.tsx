@@ -42,7 +42,9 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
         <SectionLabel title={eyebrow || ""} />
       </div>
 
-      <div className="block md:hidden">{imageContent}</div>
+      <div className="block md:pt-[var(--spacing-xl)] lg:hidden">
+        {imageContent}
+      </div>
 
       <div className="flex flex-col gap-[var(--spacing-xl)] mt-[var(--spacing-xl)] md:mt-[var(--spacing-3xl)]">
         <h2 className="font-normal leading-snug text-[color:var(--text-body)]">
@@ -74,11 +76,11 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
       {contentLeftSide ? (
         <div className="flex flex-col lg:flex-row">
           <div className="flex-1">{textContent}</div>
-          <div className="flex-1 hidden md:block">{imageContent}</div>
+          <div className="flex-1 hidden lg:block">{imageContent}</div>
         </div>
       ) : (
         <div className="flex flex-col lg:flex-row">
-          <div className="flex-1 hidden md:block">{imageContent}</div>
+          <div className="flex-1 hidden lg:block">{imageContent}</div>
           <div className="flex-1">{textContent}</div>
         </div>
       )}
