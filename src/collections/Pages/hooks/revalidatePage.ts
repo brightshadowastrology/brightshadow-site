@@ -20,7 +20,7 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
 
       try {
         revalidatePath(path);
-        revalidateTag("pages-sitemap");
+        revalidateTag("pages-sitemap", "max");
       } catch (_) {
         payload.logger.warn(`Skipping revalidation (no request context): ${path}`);
       }
@@ -35,7 +35,7 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
 
       try {
         revalidatePath(oldPath);
-        revalidateTag("pages-sitemap");
+        revalidateTag("pages-sitemap", "max");
       } catch (_) {
         payload.logger.warn(`Skipping revalidation (no request context): ${oldPath}`);
       }
@@ -52,7 +52,7 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({
     const path = doc?.slug === "home" ? "/" : `/${doc?.slug}`;
     try {
       revalidatePath(path);
-      revalidateTag("pages-sitemap");
+      revalidateTag("pages-sitemap", "max");
     } catch (_) {}
   }
 

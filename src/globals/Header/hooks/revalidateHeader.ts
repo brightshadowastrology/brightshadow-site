@@ -10,7 +10,7 @@ export const revalidateHeader: GlobalAfterChangeHook = ({
     payload.logger.info(`Revalidating header`);
 
     try {
-      revalidateTag("global_header");
+      revalidateTag("global_header", "max");
     } catch (_) {
       // revalidateTag requires a Next.js request context; skip when running outside one (e.g. seed scripts)
     }
