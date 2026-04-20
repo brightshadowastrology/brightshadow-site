@@ -81,6 +81,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             fill
             imgClassName="object-cover"
             htmlElement={null}
+            size="(max-width: 768px) 100vw, 33vw"
           />
         </div>
       )}

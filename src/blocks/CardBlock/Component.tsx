@@ -46,7 +46,7 @@ export default function Card({
     <>
       {variant === "with-image" && media && (
         <div className="relative w-full min-h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px] shrink-0">
-          <Media fill resource={media} imgClassName={cn("object-cover")} />
+          <Media fill resource={media} imgClassName={cn("object-cover")} size="(max-width: 768px) 100vw, 33vw" />
         </div>
       )}
 

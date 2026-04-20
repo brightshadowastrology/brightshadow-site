@@ -112,6 +112,7 @@ export function CartItem({
               fill
               resource={item.media}
               imgClassName={cn("object-cover")}
+              size="160px"
             />
           </div>
         ) : (

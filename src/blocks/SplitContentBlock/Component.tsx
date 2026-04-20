@@ -26,7 +26,7 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
           : "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[200px] lg:rounded-tl-[0px] lg:rounded-bl-[0px] lg:rounded-br-[50px]",
       )}
     >
-      <Media resource={media} imgClassName={cn("object-cover")} />
+      <Media resource={media} imgClassName={cn("object-cover")} size="(max-width: 1024px) 100vw, 50vw" />
     </div>
   );
 

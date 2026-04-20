@@ -47,6 +47,7 @@ const MediaBlock: React.FC<Props> = (props) => {
           imgClassName={cn("border rounded-[0.8rem]", imgClassName)}
           resource={media}
           src={staticImage}
+          size="(max-width: 768px) 100vw, 800px"
         />
       )}
       {caption && (

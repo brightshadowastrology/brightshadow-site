@@ -69,6 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
                   fill
                   imgClassName="object-cover"
                   htmlElement={null}
+                  size="(max-width: 1024px) 100vw, 20vw"
                 />
               </div>
             )}
