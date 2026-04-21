@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useReducer, useEffect } from "react";
-import type { Media, Product } from "@/payload-types";
+import type { Product } from "@/payload-types";
 
 const STORAGE_KEY = "bss_cart";
 
@@ -12,7 +12,7 @@ export interface NatalData {
 }
 
 export interface CartItem extends Product {
-  media?: Media;
+  media?: string;
   quantity: number;
   stripePriceId: string;
   natalData?: NatalData;

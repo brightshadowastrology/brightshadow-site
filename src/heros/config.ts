@@ -63,11 +63,11 @@ export const hero: Field = {
     }),
     {
       name: "media",
-      type: "upload",
+      type: "text",
       admin: {
         condition: (_, { type } = {}) => ["highImpact"].includes(type),
+        description: "Path to an image in the /public folder, e.g. /images/my-image.jpg",
       },
-      relationTo: "media",
       required: false,
     },
   ],

@@ -70,10 +70,12 @@ export const Products: CollectionConfig = {
     },
     {
       name: "media",
-      type: "upload",
-      relationTo: "media",
+      type: "text",
       required: false,
-      label: "Media",
+      label: "Media (public path)",
+      admin: {
+        description: "Path to an image in the /public folder, e.g. /images/my-image.jpg",
+      },
     },
     {
       name: "order",

@@ -2,7 +2,7 @@ import React from "react";
 
 import type { SplitContentBlock as SplitContentBlockProps } from "@/payload-types";
 import { Section } from "@/components/Section";
-import { Media } from "@/components/Media";
+import Image from "next/image";
 import { CMSLink } from "@/components/Link";
 import RichText from "@/components/RichText";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
@@ -20,13 +20,21 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   const imageContent = (
     <div
       className={cn(
-        "h-[50vh] lg:h-full shrink-0 overflow-hidden mt-[var(--spacing-xl)] md:mt-0",
+        "relative h-[50vh] lg:h-full shrink-0 overflow-hidden mt-[var(--spacing-xl)] md:mt-0",
         contentLeftSide
           ? "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[0px] lg:rounded-tl-[200px] lg:rounded-bl-[50px] lg:rounded-br-[0px]"
           : "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[200px] lg:rounded-tl-[0px] lg:rounded-bl-[0px] lg:rounded-br-[50px]",
       )}
     >
-      <Media resource={media} imgClassName={cn("object-cover")} size="(max-width: 1024px) 100vw, 50vw" />
+      {media && (
+        <Image
+          fill
+          src={media}
+          alt=""
+          className={cn("object-cover")}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      )}
     </div>
   );
 

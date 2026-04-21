@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { type Product } from "@/payload-types";
-import { Media } from "@/components/Media";
+import Image from "next/image";
 import * as Accordion from "@radix-ui/react-accordion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -64,12 +64,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           <Accordion.Header className="flex flex-col lg:flex-row items-stretch w-full">
             {product.media && (
               <div className="relative w-full h-48 lg:h-auto lg:w-[20%] shrink-0 self-stretch overflow-hidden">
-                <Media
-                  resource={product.media}
+                <Image
+                  src={product.media}
                   fill
-                  imgClassName="object-cover"
-                  htmlElement={null}
-                  size="(max-width: 1024px) 100vw, 20vw"
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 20vw"
+                  alt=""
                 />
               </div>
             )}
@@ -193,11 +193,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
                       };
                       addItem({
                         ...product,
-                        media:
-                          typeof product.media === "object" &&
-                          product.media !== null
-                            ? product.media
-                            : undefined,
+                        media: product.media ?? undefined,
                         stripePriceId:
                           product.stripePrices[0]?.stripePriceId ?? "",
                         natalData,

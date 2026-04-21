@@ -1,6 +1,6 @@
 import Divider from "@/components/Divider";
 import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
+import Image from "next/image";
 import RichText from "@/components/RichText";
 import type { ServiceCardBlock as ServiceCardBlockProps } from "@/payload-types";
 import { cn } from "@/utilities/ui";
@@ -76,12 +76,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     <div className={cn(serviceCardVariants({ variant }), className)}>
       {isImage && media && (
         <div className="relative w-full h-[200px] overflow-hidden rounded-tr-[100px] rounded-br-[100px] shrink-0">
-          <Media
-            resource={media}
+          <Image
+            src={media}
             fill
-            imgClassName="object-cover"
-            htmlElement={null}
-            size="(max-width: 768px) 100vw, 33vw"
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            alt=""
           />
         </div>
       )}

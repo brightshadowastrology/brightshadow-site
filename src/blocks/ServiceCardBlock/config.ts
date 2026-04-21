@@ -34,9 +34,12 @@ export const serviceCardFields: Field[] = [
   }),
   {
     name: "media",
-    type: "upload",
-    relationTo: "media",
+    type: "text",
     required: false,
+    label: "Media (public path)",
+    admin: {
+      description: "Path to an image in the /public folder, e.g. /images/my-image.jpg",
+    },
   },
   {
     name: "className",

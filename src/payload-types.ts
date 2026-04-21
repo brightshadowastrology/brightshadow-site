@@ -197,7 +197,10 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
-    media?: (number | null) | Media;
+    /**
+     * Path to an image in the /public folder, e.g. /images/my-image.jpg
+     */
+    media?: string | null;
   };
   layout?:
     | (
@@ -536,7 +539,10 @@ export interface CardBlock {
   title: string;
   description: string;
   href?: string | null;
-  media?: (number | null) | Media;
+  /**
+   * Path to an image in the /public folder, e.g. /images/my-image.jpg
+   */
+  media?: string | null;
   className?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -605,7 +611,10 @@ export interface ServiceCardBlock {
      */
     appearance?: ('primary' | 'secondary') | null;
   };
-  media?: (number | null) | Media;
+  /**
+   * Path to an image in the /public folder, e.g. /images/my-image.jpg
+   */
+  media?: string | null;
   className?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -656,7 +665,10 @@ export interface Product {
     };
     [k: string]: unknown;
   };
-  media?: (number | null) | Media;
+  /**
+   * Path to an image in the /public folder, e.g. /images/my-image.jpg
+   */
+  media?: string | null;
   /**
    * Display order (lower numbers appear first).
    */
@@ -785,7 +797,10 @@ export interface SplitContentBlock {
      */
     appearance?: ('primary' | 'secondary') | null;
   };
-  media?: (number | null) | Media;
+  /**
+   * Path to an image in the /public folder, e.g. /images/my-image.jpg
+   */
+  media?: string | null;
   /**
    * When checked, the text content appears on the left and media on the right. Uncheck to reverse.
    */

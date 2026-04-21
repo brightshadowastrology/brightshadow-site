@@ -1,10 +1,8 @@
-import React from "react";
 import type { CardBlock as CardBlockProps } from "@/payload-types";
-import { Media } from "@/components/Media";
-import Link from "next/link";
-import { cva, type VariantProps } from "cva";
 import { cn } from "@/utilities/ui";
-import Divider from "../DividerBlock/Component";
+import { cva, type VariantProps } from "cva";
+import Image from "next/image";
+import Link from "next/link";
 
 const cardVariants = cva({
   base: [
@@ -46,7 +44,13 @@ export default function Card({
     <>
       {variant === "with-image" && media && (
         <div className="relative w-full min-h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px] shrink-0">
-          <Media fill resource={media} imgClassName={cn("object-cover")} size="(max-width: 768px) 100vw, 33vw" />
+          <Image
+            fill
+            src={media}
+            alt=""
+            className={cn("object-cover")}
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
         </div>
       )}
 

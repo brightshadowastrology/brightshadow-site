@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Media } from "@/components/Media";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -108,11 +108,12 @@ export function CartItem({
         {/* Image */}
         {item.media ? (
           <div className="relative w-[160px] h-[160px] shrink-0 rounded-[var(--radius-md)] overflow-hidden">
-            <Media
+            <Image
               fill
-              resource={item.media}
-              imgClassName={cn("object-cover")}
-              size="160px"
+              src={item.media}
+              alt=""
+              className={cn("object-cover")}
+              sizes="160px"
             />
           </div>
         ) : (

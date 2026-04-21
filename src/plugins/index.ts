@@ -2,6 +2,7 @@ import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
 import { seoPlugin } from "@payloadcms/plugin-seo";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { Plugin } from "payload";
 import { revalidateRedirects } from "@/hooks/revalidateRedirects";
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
@@ -27,6 +28,13 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
 };
 
 export const plugins: Plugin[] = [
+  vercelBlobStorage({
+    enabled: true,
+    collections: {
+      media: true,
+    },
+    token: process.env.BLOB_READ_WRITE_TOKEN ?? "",
+  }),
   redirectsPlugin({
     collections: ["pages", "posts"],
     overrides: {
