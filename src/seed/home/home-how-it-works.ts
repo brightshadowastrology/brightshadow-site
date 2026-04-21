@@ -20,27 +20,6 @@ export async function seedHomeHowItWorks(payload: Payload) {
     return;
   }
 
-  // Upload the studio image
-  const imagePath = path.resolve(dirname, "../../public/images/studio.jpg");
-  const imageBuffer = fs.readFileSync(imagePath);
-  const imageBlob = new Blob([imageBuffer], { type: "image/jpeg" });
-  const imageFile = new File([imageBlob], "studio.jpg", {
-    type: "image/jpeg",
-  });
-
-  const uploadedMedia = await payload.create({
-    collection: "media",
-    data: {
-      alt: "Art supplies and paint brushes in the Bright Shadow Studio",
-    },
-    file: {
-      data: imageBuffer,
-      mimetype: "image/jpeg",
-      name: "studio.jpg",
-      size: imageBuffer.length,
-    },
-  });
-
   const howItWorksBlock = {
     blockType: "splitContent" as const,
     eyebrow: "How It Works",
@@ -124,7 +103,7 @@ export async function seedHomeHowItWorks(payload: Payload) {
       newTab: false,
       appearance: "primary" as const,
     },
-    media: uploadedMedia.id,
+    media: "/images/studio.jpg",
     contentLeftSide: true,
   };
 

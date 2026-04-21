@@ -20,23 +20,6 @@ export async function seedHomeAbout(payload: Payload) {
     return;
   }
 
-  // Upload the headshot image
-  const imagePath = path.resolve(dirname, "../../public/images/headshot.jpg");
-  const imageBuffer = fs.readFileSync(imagePath);
-
-  const uploadedMedia = await payload.create({
-    collection: "media",
-    data: {
-      alt: "Singithi Kandage, astrologer and founder of Bright Shadow Studio",
-    },
-    file: {
-      data: imageBuffer,
-      mimetype: "image/jpeg",
-      name: "headshot.jpg",
-      size: imageBuffer.length,
-    },
-  });
-
   const aboutBlock = {
     blockType: "splitContent" as const,
     eyebrow: "About Me",
@@ -104,7 +87,7 @@ export async function seedHomeAbout(payload: Payload) {
       newTab: false,
       appearance: "primary" as const,
     },
-    media: uploadedMedia.id,
+    media: "/images/headshot.jpg",
     contentLeftSide: false,
   };
 
