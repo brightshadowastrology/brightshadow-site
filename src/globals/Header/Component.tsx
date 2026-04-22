@@ -13,7 +13,7 @@ export async function Header() {
 
   return (
     <header className="w-full absolute top-0 z-20">
-      <div className="p-[var(--spacing-xs)] md:p-[var(--spacing-sm)] lg:px-[var(--spacing-xl)] lg:py-[var(--spacing-md)] flex justify-between items-center">
+      <div className="p-[var(--spacing-xs)] md:p-[var(--spacing-sm)] lg:px-[var(--spacing-xl)] lg:py-[var(--spacing-md)] flex justify-between items-center max-w-[1440px] mx-auto">
         <BrandLogo />
 
         <Navigation navItems={navItems} variant="default" showCart={true} />
