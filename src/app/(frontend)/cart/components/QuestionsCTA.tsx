@@ -1,9 +1,10 @@
+import { Section } from "@/components/Section";
 import { cn } from "@/utilities/ui";
 import Link from "next/link";
 
 export function QuestionsCTA() {
   return (
-    <section className="w-full bg-[var(--surface-section-alt)]">
+    <Section className="w-full bg-[var(--surface-section-alt)]">
       <div
         className={cn(
           "flex flex-col items-center gap-[var(--spacing-md)]",
@@ -32,6 +33,6 @@ export function QuestionsCTA() {
           CONTACT US
         </Link>
       </div>
-    </section>
+    </Section>
   );
 }

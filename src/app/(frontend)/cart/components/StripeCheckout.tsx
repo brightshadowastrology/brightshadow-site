@@ -1,12 +1,12 @@
 "use client";
 
-import { useCallback } from "react";
+import { type LineItem } from "@/lib/types";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
-import { type LineItem } from "@/lib/types";
 import { loadStripe } from "@stripe/stripe-js";
+import { useCallback } from "react";
 
 import { fetchClientSecret } from "@/app/actions/stripe";
 

@@ -1,24 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faXmark,
-  faMinus,
-  faPlus,
-  faPencil,
-} from "@fortawesome/free-solid-svg-icons";
+import BirthchartDataForm from "@/components/BirthchartDataForm";
+import { Modal } from "@/components/Modal";
 import {
   CartItem as CartItemType,
   NatalData,
   useCart,
 } from "@/context/CartContext";
-import { cn } from "@/utilities/ui";
-import { Modal } from "@/components/Modal";
-import BirthchartDataForm from "@/components/BirthchartDataForm";
-import { Time } from "@internationalized/date";
 import { MONTHS } from "@/lib/constants";
+import { cn } from "@/utilities/ui";
+import {
+  faMinus,
+  faPencil,
+  faPlus,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Time } from "@internationalized/date";
+import Image from "next/image";
+import { useState } from "react";
 
 function formatCurrency(amount: number): string {
   return new Intl.NumberFormat("en-US", {

@@ -39,7 +39,13 @@ const FAQsBlock: React.FC<FAQsBlockProps> = async ({ faqs, category }) => {
         "pb-[var(--gutter-size)] pt-[var(--spacing-xl)] px-[var(--gutter-size)]",
       )}
     >
-      <div className="flex flex-col gap-[var(--spacing-lg)] md:gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)] items-center w-full">
+      <div
+        className={cn(
+          "w-full max-w-[1440px] mx-auto",
+          "flex flex-col items-center",
+          "gap-[var(--spacing-lg)] md:gap-[var(--spacing-xl)] lg:gap-[var(--spacing-2xl)]",
+        )}
+      >
         <SectionLabel title="FAQs" />
 
         <AccordionRoot type="single" collapsible className="w-full">

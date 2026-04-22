@@ -8,6 +8,7 @@ import { type LineItem } from "@/lib/types";
 import { cn } from "@/utilities/ui";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Section } from "@/components/Section";
 
 export function CartSection() {
   const { items, removeItem, increment, decrement } = useCart();
@@ -22,7 +23,7 @@ export function CartSection() {
   }));
 
   return (
-    <section className="flex flex-col items-start justify-start min-h-[125vh]">
+    <Section className="flex flex-col items-start justify-start min-h-[125vh]">
       {/* Page header */}
       <div
         className={cn(
@@ -84,6 +85,6 @@ export function CartSection() {
           </div>
         </div>
       )}
-    </section>
+    </Section>
   );
 }

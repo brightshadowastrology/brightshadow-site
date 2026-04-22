@@ -7,6 +7,7 @@ import Divider from "@/blocks/DividerBlock/Component";
 import ServiceCard from "@/blocks/ServiceCardBlock/Component";
 import Products from "@/blocks/ProductsBlock/Component";
 import BannerBlock from "@/blocks/BannerBlock/Component";
+import { Section } from "@/components/Section";
 
 type BlockItem = {
   blockType: string;
@@ -89,53 +90,67 @@ function renderBlock(block: BlockItem, index: number) {
 
 const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
   return (
-    <section
+    <Section
       className={cn(
-        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--spacing-3xl)] md:pb-[var(--gutter-size)] bg-[var(--neutral-100)] grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
+        "bg-[var(--neutral-100)]",
+        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--spacing-3xl)] md:pb-[var(--gutter-size)] ",
         className,
       )}
     >
-      {columns &&
-        columns.length > 0 &&
-        columns.map((col, index) => {
-          const { size, blocks } = col;
-          const spanClass = colsSpanClasses[size ?? "oneThird"];
+      <div
+        className={cn(
+          "grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
+          "mx-auto max-w-[1440px]",
+        )}
+      >
+        {columns &&
+          columns.length > 0 &&
+          columns.map((col, index) => {
+            const { size, blocks } = col;
+            const spanClass = colsSpanClasses[size ?? "oneThird"];
 
-          return (
-            <div
-              key={index}
-              className={cn(spanClass, "gap-[var(--spacing-xl)] flex flex-col")}
-            >
-              {blocks &&
-                blocks.map((block, i) => {
-                  if (block.blockType === "sectionLabel" && size === "full") {
-                    return (
-                      <div
-                        className="w-full flex justify-center md:pb-[var(--spacing-lg)]"
-                        key={i}
-                      >
-                        {renderBlock(block, i)}
-                      </div>
-                    );
-                  }
+            return (
+              <div
+                key={index}
+                className={cn(
+                  spanClass,
+                  "gap-[var(--spacing-xl)] flex flex-col max-w-[1440px] mx-auto w-full",
+                )}
+              >
+                {blocks &&
+                  blocks.map((block, i) => {
+                    if (block.blockType === "sectionLabel" && size === "full") {
+                      return (
+                        <div
+                          className="w-full flex justify-center md:pb-[var(--spacing-lg)]"
+                          key={i}
+                        >
+                          {renderBlock(block, i)}
+                        </div>
+                      );
+                    }
 
-                  if (block.blockType === "richTextBlock" && size === "full") {
-                    return (
-                      <div
-                        className="w-full flex justify-center py-[var(--spacing-xl)] md:py-[var(--spacing-2xl)]"
-                        key={i}
-                      >
-                        {renderBlock(block, i)}
-                      </div>
-                    );
-                  }
+                    if (
+                      block.blockType === "richTextBlock" &&
+                      size === "full"
+                    ) {
+                      return (
+                        <div
+                          className="w-full flex justify-center py-[var(--spacing-xl)] md:py-[var(--spacing-2xl)]"
+                          key={i}
+                        >
+                          {renderBlock(block, i)}
+                        </div>
+                      );
+                    }
 
-                  return renderBlock(block, i);
-                })}
-            </div>
-          );
-        })}
-    </section>
+                    return renderBlock(block, i);
+                  })}
+              </div>
+            );
+          })}
+      </div>
+    </Section>
   );
 };
 

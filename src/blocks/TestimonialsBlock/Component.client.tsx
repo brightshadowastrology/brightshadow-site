@@ -35,7 +35,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   return (
     <Section className="flex flex-col">
-      <div className="relative w-full bg-[var(--surface-dark)] overflow-hidden">
+      <div className="relative w-full bg-[var(--surface-dark)] overflow-hidden px-[var(--gutter-size)] py-[var(--spacing-3xl)]">
         {/* Background texture */}
         <Image
           src={bgTexture}
@@ -46,7 +46,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
           className="object-cover opacity-10 pointer-events-none"
         />
 
-        <div className="relative z-10 flex items-center justify-between px-[var(--gutter-size)] py-[var(--spacing-3xl)]">
+        <div className="relative z-10 flex items-center justify-between max-w-[1440px] mx-auto">
           {/* Prev arrow */}
           <button
             onClick={prev}

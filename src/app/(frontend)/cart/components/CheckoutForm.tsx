@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import * as Form from "@radix-ui/react-form";
-import { useForm } from "react-hook-form";
+import Divider from "@/blocks/DividerBlock/Component";
 import { Button } from "@/components/Button";
 import Input from "@/components/Form/Input";
-import StripeCheckout from "./StripeCheckout";
 import { type LineItem } from "@/lib/types";
 import { cn } from "@/utilities/ui";
-import Divider from "@/blocks/DividerBlock/Component";
+import * as Form from "@radix-ui/react-form";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import StripeCheckout from "./StripeCheckout";
 
 interface EmailFormFields {
   email: string;
