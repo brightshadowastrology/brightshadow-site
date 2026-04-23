@@ -65,7 +65,7 @@ export function AccordionItem({
           <RichText
             data={children}
             enableGutter={false}
-            className="[&_p]:text-xl [&_p]:leading-normal"
+            className="[&_p]:text-xl [&_p]:text-[color:var(--neutral-600)] [&_p]:leading-normal"
           />
         </div>
       </Accordion.Content>
