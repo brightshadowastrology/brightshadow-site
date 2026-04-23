@@ -10,7 +10,7 @@ interface BrandLogoProps {
 
 export default function BrandLogo({
   className,
-  logoAlt = "Bright Shadow Studio",
+  logoAlt = "Bright Shadow Astrology",
   href = "/",
 }: BrandLogoProps) {
   return (
@@ -26,7 +26,7 @@ export default function BrandLogo({
         className="block shrink-0"
       />
       <span className="font-header font-normal text-type-lg leading-none tracking-[-0.9405px] whitespace-nowrap text-[color:var(--surface-action)]">
-        Bright Shadow Studio
+        Bright Shadow Astrology
       </span>
     </Link>
   );

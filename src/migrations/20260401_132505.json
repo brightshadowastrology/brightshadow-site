@@ -74,12 +74,8 @@
           "name": "users_sessions_parent_id_fk",
           "tableFrom": "users_sessions",
           "tableTo": "users",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -367,12 +363,8 @@
           "name": "services_deliverables_parent_id_fk",
           "tableFrom": "services_deliverables",
           "tableTo": "services",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -581,12 +573,8 @@
           "name": "products_stripe_prices_parent_id_fk",
           "tableFrom": "products_stripe_prices",
           "tableTo": "products",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1100,12 +1088,8 @@
           "name": "payload_locked_documents_rels_parent_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "payload_locked_documents",
-          "columnsFrom": [
-            "parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1113,12 +1097,8 @@
           "name": "payload_locked_documents_rels_users_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "users",
-          "columnsFrom": [
-            "users_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["users_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1126,12 +1106,8 @@
           "name": "payload_locked_documents_rels_testimonials_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "testimonials",
-          "columnsFrom": [
-            "testimonials_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["testimonials_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1139,12 +1115,8 @@
           "name": "payload_locked_documents_rels_services_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "services",
-          "columnsFrom": [
-            "services_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["services_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1152,12 +1124,8 @@
           "name": "payload_locked_documents_rels_products_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "products",
-          "columnsFrom": [
-            "products_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["products_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1165,12 +1133,8 @@
           "name": "payload_locked_documents_rels_faq_items_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "faq_items",
-          "columnsFrom": [
-            "faq_items_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["faq_items_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1374,12 +1338,8 @@
           "name": "payload_preferences_rels_parent_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "payload_preferences",
-          "columnsFrom": [
-            "parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1387,12 +1347,8 @@
           "name": "payload_preferences_rels_users_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "users",
-          "columnsFrom": [
-            "users_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["users_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1551,12 +1507,8 @@
           "name": "site_settings_nav_items_parent_id_fk",
           "tableFrom": "site_settings_nav_items",
           "tableTo": "site_settings",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1639,12 +1591,8 @@
           "name": "site_settings_footer_legal_links_parent_id_fk",
           "tableFrom": "site_settings_footer_legal_links",
           "tableTo": "site_settings",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1670,7 +1618,7 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": false,
-          "default": "'Bright Shadow Studio'"
+          "default": "'Bright Shadow Astrology'"
         },
         "meta_description": {
           "name": "meta_description",
@@ -1698,7 +1646,7 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": false,
-          "default": "'© 2025. Bright Shadow Studio. All Rights Reserved.'"
+          "default": "'© 2025. Bright Shadow Astrology. All Rights Reserved.'"
         },
         "updated_at": {
           "name": "updated_at",
@@ -1874,12 +1822,8 @@
           "name": "how_it_works_section_body_paragraphs_parent_id_fk",
           "tableFrom": "how_it_works_section_body_paragraphs",
           "tableTo": "how_it_works_section",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1912,7 +1856,7 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": false,
-          "default": "'Bright Shadow Studio is a space for meaning-making, where astrology, art, and inner work meet.'"
+          "default": "'Bright Shadow Astrology is a space for meaning-making, where astrology, art, and inner work meet.'"
         },
         "button_label": {
           "name": "button_label",
@@ -2015,12 +1959,8 @@
           "name": "if_youre_section_conditions_parent_id_fk",
           "tableFrom": "if_youre_section_conditions",
           "tableTo": "if_youre_section",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -2142,12 +2082,8 @@
           "name": "home_about_section_paragraphs_parent_id_fk",
           "tableFrom": "home_about_section_paragraphs",
           "tableTo": "home_about_section",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -2295,12 +2231,8 @@
           "name": "home_offerings_section_items_parent_id_fk",
           "tableFrom": "home_offerings_section_items",
           "tableTo": "home_offerings_section",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -2415,12 +2347,8 @@
           "name": "about_page_section_paragraphs_parent_id_fk",
           "tableFrom": "about_page_section_paragraphs",
           "tableTo": "about_page_section",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -2562,12 +2490,8 @@
           "name": "approach_section_cards_parent_id_fk",
           "tableFrom": "approach_section_cards",
           "tableTo": "approach_section",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -2930,18 +2854,12 @@
     "public.enum_services_page": {
       "name": "enum_services_page",
       "schema": "public",
-      "values": [
-        "home",
-        "services"
-      ]
+      "values": ["home", "services"]
     },
     "public.enum_faq_items_category": {
       "name": "enum_faq_items_category",
       "schema": "public",
-      "values": [
-        "general",
-        "shop"
-      ]
+      "values": ["general", "shop"]
     }
   },
   "schemas": {},

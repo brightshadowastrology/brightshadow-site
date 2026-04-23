@@ -27,8 +27,8 @@ export const generateMeta = async (args: {
   const ogImage = getImageURL(doc?.meta?.image);
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + " | Bright Shadow Studio"
-    : "Bright Shadow Studio";
+    ? doc?.meta?.title + " | Bright Shadow Astrology"
+    : "Bright Shadow Astrology";
 
   return {
     description: doc?.meta?.description,

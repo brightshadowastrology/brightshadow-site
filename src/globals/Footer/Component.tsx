@@ -27,7 +27,7 @@ export async function Footer() {
 
           <Image
             src={"/images/logo.svg"}
-            alt="Bright Shadow Studio"
+            alt="Bright Shadow Astrology"
             width={50}
             height={50}
             className="block shrink-0"

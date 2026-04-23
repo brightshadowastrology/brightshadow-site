@@ -9,8 +9,8 @@ const defaultOpenGraph: Metadata["openGraph"] = {
       url: `${getServerSideURL()}/website-template-OG.webp`,
     },
   ],
-  siteName: "Bright Shadow Studio",
-  title: "Bright Shadow Studio",
+  siteName: "Bright Shadow Astrology",
+  title: "Bright Shadow Astrology",
 };
 
 export const mergeOpenGraph = (

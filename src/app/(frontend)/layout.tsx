@@ -26,7 +26,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Bright Shadow Studio",
+  title: "Bright Shadow Astrology",
   description: "Astrology and therapeutic arts practices.",
   metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),

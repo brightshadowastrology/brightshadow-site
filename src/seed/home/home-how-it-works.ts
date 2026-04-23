@@ -24,7 +24,7 @@ export async function seedHomeHowItWorks(payload: Payload) {
     blockType: "splitContent" as const,
     eyebrow: "How It Works",
     intro:
-      "Bright Shadow Studio is a space for meaning-making, where astrology, art, and inner work meet.",
+      "Bright Shadow Astrology is a space for meaning-making, where astrology, art, and inner work meet.",
     bodyText: {
       root: {
         type: "root",

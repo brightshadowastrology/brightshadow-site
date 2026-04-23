@@ -17,8 +17,8 @@ import { getServerSideURL } from "@/utilities/getURL";
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title
-    ? `${doc.title} | Bright Shadow Studio`
-    : "Bright Shadow Studio";
+    ? `${doc.title} | Bright Shadow Astrology`
+    : "Bright Shadow Astrology";
 };
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {

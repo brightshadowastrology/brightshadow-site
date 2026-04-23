@@ -1,4 +1,4 @@
-import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
+import { MigrateUpArgs, MigrateDownArgs, sql } from "@payloadcms/db-postgres";
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
@@ -154,11 +154,11 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE "site_settings" (
   	"id" serial PRIMARY KEY NOT NULL,
-  	"site_title" varchar DEFAULT 'Bright Shadow Studio',
+  	"site_title" varchar DEFAULT 'Bright Shadow Astrology',
   	"meta_description" varchar DEFAULT 'Astrology and therapeutic arts practices.',
   	"navbar_cta_label" varchar DEFAULT 'BOOK AN APPOINTMENT',
   	"navbar_cta_href" varchar DEFAULT '/booking',
-  	"footer_copyright" varchar DEFAULT '© 2025. Bright Shadow Studio. All Rights Reserved.',
+  	"footer_copyright" varchar DEFAULT '© 2025. Bright Shadow Astrology. All Rights Reserved.',
   	"updated_at" timestamp(3) with time zone,
   	"created_at" timestamp(3) with time zone
   );
@@ -187,7 +187,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TABLE "how_it_works_section" (
   	"id" serial PRIMARY KEY NOT NULL,
   	"label" varchar DEFAULT 'How It Works',
-  	"heading" varchar DEFAULT 'Bright Shadow Studio is a space for meaning-making, where astrology, art, and inner work meet.',
+  	"heading" varchar DEFAULT 'Bright Shadow Astrology is a space for meaning-making, where astrology, art, and inner work meet.',
   	"button_label" varchar DEFAULT 'WORK WITH ME',
   	"button_href" varchar DEFAULT '/services',
   	"updated_at" timestamp(3) with time zone,
@@ -398,10 +398,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "about_page_section_paragraphs_order_idx" ON "about_page_section_paragraphs" USING btree ("_order");
   CREATE INDEX "about_page_section_paragraphs_parent_id_idx" ON "about_page_section_paragraphs" USING btree ("_parent_id");
   CREATE INDEX "approach_section_cards_order_idx" ON "approach_section_cards" USING btree ("_order");
-  CREATE INDEX "approach_section_cards_parent_id_idx" ON "approach_section_cards" USING btree ("_parent_id");`)
+  CREATE INDEX "approach_section_cards_parent_id_idx" ON "approach_section_cards" USING btree ("_parent_id");`);
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
+export async function down({
+  db,
+  payload,
+  req,
+}: MigrateDownArgs): Promise<void> {
   await db.execute(sql`
    DROP TABLE "users_sessions" CASCADE;
   DROP TABLE "users" CASCADE;
@@ -439,5 +443,5 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TABLE "shop_page_settings" CASCADE;
   DROP TABLE "blog_page_settings" CASCADE;
   DROP TYPE "public"."enum_services_page";
-  DROP TYPE "public"."enum_faq_items_category";`)
+  DROP TYPE "public"."enum_faq_items_category";`);
 }
