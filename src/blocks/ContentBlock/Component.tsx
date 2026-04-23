@@ -93,7 +93,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
     <Section
       className={cn(
         "bg-[var(--neutral-100)]",
-        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--spacing-3xl)] md:pb-[var(--gutter-size)] ",
+        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--spacing-3xl)]",
         className,
       )}
     >
@@ -136,7 +136,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
                     ) {
                       return (
                         <div
-                          className="w-full flex justify-center py-[var(--spacing-xl)] md:py-[var(--spacing-2xl)]"
+                          className="w-full flex justify-center py-[var(--spacing-lg)]"
                           key={i}
                         >
                           {renderBlock(block, i)}
