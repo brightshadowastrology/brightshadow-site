@@ -62,8 +62,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             </div>
 
             {/* Content — grid-stack keeps height fixed to the tallest slide */}
-            <div className="[display:grid]">
-              <div className="w-full flex justify-center"></div>
+            <div className="grid max-h-[60vh]">
               {testimonials.map((t, i) => (
                 <div
                   key={i}
@@ -78,7 +77,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     {t.quote}
                   </h2>
 
-                  <div className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full [&_p]:text-[color:var(--neutral-200)] [&_p]:mb-4">
+                  <div className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full [&_p]:text-[color:var(--neutral-200)] [&_p:last-child]:mb-0 [&_p]:mb-4">
                     {t.body && (
                       <RichText
                         data={t.body}
@@ -88,19 +87,19 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                       />
                     )}
                   </div>
-                  <p className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal space-y-[var(--spacing-xl)] w-full">
+                  <p className="text-[color:var(--neutral-200)] font-normal text-lg leading-normal w-full">
                     - {t.author}
                   </p>
                 </div>
               ))}
+            </div>
 
-              <div className="flex justify-center pt-[var(--spacing-lg)]">
-                <CarouselIndicator
-                  count={total}
-                  activeIndex={activeIndex}
-                  onDotClick={setActiveIndex}
-                />
-              </div>
+            <div className="flex justify-center pt-[var(--spacing-lg)]">
+              <CarouselIndicator
+                count={total}
+                activeIndex={activeIndex}
+                onDotClick={setActiveIndex}
+              />
             </div>
           </div>
 
