@@ -78,7 +78,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
               className={cn(
                 "flex flex-1 items-center justify-between",
                 "p-[var(--spacing-lg)] md:px-[var(--spacing-xl)]",
-                "min-h-[20vh] md:min-h-[10vh] cursor-pointer text-left",
+                "min-h-[20vh] md:min-h-[10vh] lg:min-h-[20vh] cursor-pointer text-left",
                 "group",
               )}
             >

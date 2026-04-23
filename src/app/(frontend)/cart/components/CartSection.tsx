@@ -61,7 +61,7 @@ export function CartSection() {
         /* Cart grid */
         <div
           className={cn(
-            "grid grid-cols-1 md:grid-cols-[40vw_1fr] gap-[var(--spacing-xl)]",
+            "grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-[var(--spacing-xl)]",
             "px-[var(--gutter-size)] pb-[var(--spacing-3xl)]",
             "max-w-[var(--container-max)] mx-auto w-full",
           )}
