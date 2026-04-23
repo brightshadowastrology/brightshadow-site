@@ -11,6 +11,7 @@ import { cn } from "@/utilities/ui";
 import BirthchartDataForm from "@/components/BirthchartDataForm";
 import { useCart } from "@/context/CartContext";
 import RichText from "@/components/RichText";
+import { PriceDisplay } from "@/components/PriceDisplay";
 
 const MONTH_LABELS: Record<string, string> = {
   "01": "January",
@@ -38,8 +39,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
 
   if (typeof product === "number") return null;
 
-  const price =
-    product.stripePrices[product.stripePrices.length - 1]?.unitAmount ?? 0;
+  const stripPrice = product.stripePrices[product.stripePrices.length - 1];
+  const price = stripPrice.unitAmount ?? 0;
+  const currency = stripPrice.currency.toUpperCase() ?? "USD";
 
   return (
     <div
@@ -94,14 +96,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
               </div>
 
               <div className="flex items-center gap-[var(--spacing-md)] shrink-0 ml-[var(--spacing-xl)]">
-                <div className="flex items-start leading-none">
-                  <span className="font-header text-[color:var(--primary-500)] text-[length:var(--type-lg)] mt-1">
-                    $
-                  </span>
-                  <span className="font-header text-[color:var(--primary-600)] text-[length:var(--type-price)] leading-none">
-                    {price.toFixed(0)}
-                  </span>
-                </div>
+                <PriceDisplay price={price} currency={currency} />
+
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   className={cn(
