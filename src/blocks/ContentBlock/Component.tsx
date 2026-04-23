@@ -93,7 +93,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
     <Section
       className={cn(
         "bg-[var(--neutral-100)]",
-        "px-[var(--gutter-size)] pt-[var(--gutter-size)] pb-[var(--spacing-3xl)]",
+        "px-[var(--gutter-size)] py-[var(--spacing-3xl)]",
         className,
       )}
     >
