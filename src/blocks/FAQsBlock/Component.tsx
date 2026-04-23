@@ -1,11 +1,11 @@
-import React from "react";
-import { getPayload } from "payload";
-import config from "@payload-config";
-import type { FaqItem } from "@/payload-types";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import AccordionItem, { AccordionRoot } from "@/components/AccordionItem";
-import { cn } from "@/utilities/ui";
 import { Section } from "@/components/Section";
+import type { FaqItem } from "@/payload-types";
+import { cn } from "@/utilities/ui";
+import config from "@payload-config";
+import { getPayload } from "payload";
+import React from "react";
 
 type FAQsBlockProps = {
   faqs?: (number | FaqItem)[] | null;
