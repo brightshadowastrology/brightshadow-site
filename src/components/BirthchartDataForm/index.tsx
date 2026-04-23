@@ -31,6 +31,7 @@ export type BirthchartDefaultValues = {
 type BirthchartDataFormProps = {
   onSubmit?: (data: BirthchartFormData) => Promise<void>;
   defaultValues?: BirthchartDefaultValues;
+  buttonText?: string;
 };
 
 const DAY_OPTIONS = Array.from({ length: 31 }, (_, i) => ({
@@ -47,6 +48,7 @@ const YEAR_OPTIONS = Array.from({ length: currentYear - 1899 }, (_, i) => ({
 export default function BirthchartDataForm({
   onSubmit,
   defaultValues,
+  buttonText = "Add to Cart",
 }: BirthchartDataFormProps): React.ReactNode {
   const today = new Date();
 
@@ -193,7 +195,7 @@ export default function BirthchartDataForm({
             type="submit"
             className="mt-[var(--spacing-xl)] w-full md:w-[300px]"
           >
-            Submit
+            {buttonText}
           </Button>
         </div>
       )}

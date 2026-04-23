@@ -243,6 +243,7 @@ export function CartItem({
           className="px-[var(--spacing-xl)] py-[var(--spacing-lg)]"
         >
           <BirthchartDataForm
+            buttonText="Update Info"
             defaultValues={formDefaults}
             onSubmit={async (data) => {
               const month =

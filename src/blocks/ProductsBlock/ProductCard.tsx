@@ -123,7 +123,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           >
             <div
               className={cn(
-                "relative overflow-hidden min-h-[50vh] md:min-h-[30vh]",
+                "relative overflow-hidden min-h-[50vh]",
                 "border-t border-[var(--border-divider)]",
                 "flex flex-col justify-between",
                 "px-[var(--spacing-xl)] pt-[var(--spacing-xl)] pb-[var(--spacing-2xl)]",
@@ -142,7 +142,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
                 }}
                 className="w-full md:w-[300px]"
               >
-                {`Add to Cart`}
+                {`Enter My Birth Info`}
               </Button>
 
               {/* Slide-up form panel — covers only the Accordion.Content area */}
