@@ -55,7 +55,17 @@ export default buildConfig({
       ],
     },
   },
-  collections: [Pages, Posts, Media, Categories, Users, Testimonials, Services, Products, FAQItems],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    Categories,
+    Users,
+    Testimonials,
+    Services,
+    Products,
+    FAQItems,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   db: postgresAdapter({

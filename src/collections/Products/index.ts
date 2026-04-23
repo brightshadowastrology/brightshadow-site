@@ -1,7 +1,11 @@
 import { defaultLexical } from "@/fields/defaultLexical";
 import type { CollectionConfig } from "payload";
-import { anyone } from "../access/anyone";
-import { authenticated } from "../access/authenticated";
+import { anyone } from "../../access/anyone";
+import { authenticated } from "../../access/authenticated";
+import {
+  revalidateProduct,
+  revalidateProductDelete,
+} from "./hooks/revalidateProducts";
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -14,6 +18,10 @@ export const Products: CollectionConfig = {
   admin: {
     useAsTitle: "name",
     defaultColumns: ["name", "stripeProductId", "order"],
+  },
+  hooks: {
+    afterChange: [revalidateProduct],
+    afterDelete: [revalidateProductDelete],
   },
   fields: [
     {
@@ -74,7 +82,8 @@ export const Products: CollectionConfig = {
       required: false,
       label: "Media (public path)",
       admin: {
-        description: "Path to an image in the /public folder, e.g. /images/my-image.jpg",
+        description:
+          "Path to an image in the /public folder, e.g. /images/my-image.jpg",
       },
     },
     {
