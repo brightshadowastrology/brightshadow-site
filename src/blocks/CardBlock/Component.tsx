@@ -43,7 +43,7 @@ export default function Card({
   const inner = (
     <>
       {variant === "with-image" && media && (
-        <div className="relative w-full min-h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[50px] rounded-br-[100px] shrink-0">
+        <div className="relative w-full min-h-[250px] overflow-hidden rounded-tr-[100px] rounded-bl-[40px] rounded-br-[100px] shrink-0">
           <Image
             fill
             src={media}

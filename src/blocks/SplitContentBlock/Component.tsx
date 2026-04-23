@@ -22,8 +22,8 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
       className={cn(
         "relative h-[50vh] lg:h-full shrink-0 overflow-hidden mt-[var(--spacing-xl)] md:mt-0",
         contentLeftSide
-          ? "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[0px] lg:rounded-tl-[200px] lg:rounded-bl-[50px] lg:rounded-br-[0px] xl:rounded-br-[100px] xl:rounded-tl-[200px]"
-          : "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[200px] lg:rounded-tl-[0px] lg:rounded-bl-[0px] lg:rounded-br-[50px] xl:rounded-tr-[0px] xl:rounded-tl-[200px]",
+          ? "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[0px] lg:rounded-tl-[200px] lg:rounded-bl-[0px] lg:rounded-br-[0px]"
+          : "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[200px] lg:rounded-tl-[0px] lg:rounded-bl-[0px] lg:rounded-br-[0px]",
       )}
     >
       {media && (
@@ -44,7 +44,6 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
         "h-full",
         "flex flex-col justify-between",
         "pt-[var(--spacing-xl)] pb-[var(--spacing-3xl)] md:pb-[var(--gutter-size)] px-[var(--gutter-size)]",
-        contentLeftSide ? "xl:pl-0" : "xl:pr-[var(--gutter-size)]",
       )}
     >
       <div className="flex justify-center lg:justify-start">
@@ -83,17 +82,13 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   return (
     <Section className={cn("bg-[var(--neutral-200)] h-auto", className)}>
       {contentLeftSide ? (
-        <div className="flex flex-col lg:flex-row max-w-[1440px] mx-auto w-full">
+        <div className="flex flex-col lg:flex-row">
           <div className="flex-1">{textContent}</div>
-          <div className="flex-1 hidden lg:block xl:my-[var(--spacing-2xl)]">
-            {imageContent}
-          </div>
+          <div className="flex-1 hidden lg:block">{imageContent}</div>
         </div>
       ) : (
-        <div className="flex flex-col lg:flex-row max-w-[1440px] mx-auto w-full">
-          <div className="flex-1 hidden lg:block xl:my-[var(--spacing-2xl)]">
-            {imageContent}
-          </div>
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex-1 hidden lg:block">{imageContent}</div>
           <div className="flex-1">{textContent}</div>
         </div>
       )}
