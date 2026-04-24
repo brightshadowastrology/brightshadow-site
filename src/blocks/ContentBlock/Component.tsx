@@ -99,7 +99,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
     >
       <div
         className={cn(
-          "grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)] lg:gap-[var(--spacing-md)]",
+          "grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)]",
           "mx-auto max-w-[1440px]",
         )}
       >
