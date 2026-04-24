@@ -55,7 +55,7 @@ export default function Card({
       )}
 
       <div className="flex flex-col gap-[var(--spacing-sm)] items-center justify-center w-full pt-[var(--spacing-lg)] pb-[var(--spacing-2xl)] px-[var(--spacing-xl)] lg:px-[var(--spacing-2xl)]">
-        <h3 className="font-normal leading-snug text-[color:var(--primary-600)] w-full">
+        <h3 className="font-normal leading-snug text-[color:var(--primary-600)] w-full min-h-[1em] italic">
           {title}
         </h3>
 
