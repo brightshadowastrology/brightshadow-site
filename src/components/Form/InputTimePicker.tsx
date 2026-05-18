@@ -53,7 +53,10 @@ export default function InputTimePicker({
       )}
 
       {mounted ? (
-        <AriaTimeField {...props}>
+        <AriaTimeField
+          {...props}
+          aria-label={typeof label === "string" ? label : undefined}
+        >
           <DateInput
             className={cn(
               "flex w-full rounded-[var(--radius-lg)] border border-[var(--border-divider)] font-body text-body text-[var(--text-body)] px-[var(--spacing-sm)] py-[var(--spacing-xs)] bg-white",

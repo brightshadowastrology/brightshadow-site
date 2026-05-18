@@ -52,17 +52,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   valueClassName,
 }) => {
   const resolvedPlaceholder = placeholder ?? "--";
-  const [mounted, setMounted] = useState(false);
-  const [internalValue, setInternalValue] = useState<string | null>(null);
+  const [internalValue, setInternalValue] = useState<string | null>(value);
 
-  useEffect(() => {
-    setMounted(true);
-    setInternalValue(value);
-  }, []);
-
-  useEffect(() => {
-    if (mounted) setInternalValue(value);
-  }, [value, mounted]);
+  // useEffect(() => {
+  //   setInternalValue(value);
+  // }, []);
 
   const handleValueChange = (newValue: string) => {
     const selectedOption = options.find((option) => option.value === newValue);
