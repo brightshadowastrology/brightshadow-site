@@ -8,6 +8,7 @@ import ServiceCard from "@/blocks/ServiceCardBlock/Component";
 import Products from "@/blocks/ProductsBlock/Component";
 import BannerBlock from "@/blocks/BannerBlock/Component";
 import { Section } from "@/components/Section";
+import { StaggerOnScroll } from "@/components/StaggerOnScroll";
 
 type BlockItem = {
   blockType: string;
@@ -92,12 +93,11 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
   return (
     <Section
       className={cn(
-        "bg-[var(--neutral-100)]",
-        "px-[var(--gutter-size)] py-[var(--spacing-3xl)]",
+        "bg-[var(--neutral-100)] p-[var(--gutter-size)]",
         className,
       )}
     >
-      <div
+      <StaggerOnScroll
         className={cn(
           "grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)]",
           "mx-auto max-w-[1440px]",
@@ -149,7 +149,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
               </div>
             );
           })}
-      </div>
+      </StaggerOnScroll>
     </Section>
   );
 };

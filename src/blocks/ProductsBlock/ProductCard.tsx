@@ -47,7 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
     <div
       className={cn(
         "w-full",
-        "rounded-tl-[var(--radius-2xl)] rounded-br-[var(--radius-2xl)]",
+        "rounded-tl-[var(--radius-2xl)] rounded-bl-[var(--radius-2xl)] rounded-br-[var(--radius-2xl)]",
         "[box-shadow:var(--shadow-card)]",
         className,
       )}
@@ -58,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         className={cn(
           "w-full",
           "bg-[var(--primary-100)]",
-          "rounded-tl-[var(--radius-xl)] rounded-br-[var(--radius-xl)]",
+          "rounded-tl-[var(--radius-xl)] rounded-bl-[var(--radius-xl)] rounded-br-[var(--radius-xl)]",
           "overflow-hidden",
         )}
       >

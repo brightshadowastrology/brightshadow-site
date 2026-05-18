@@ -11,6 +11,7 @@ interface SectionProps {
 export function Section({ children, className }: SectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -19,7 +20,9 @@ export function Section({ children, className }: SectionProps) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect();
+          setHasBeenVisible(true);
+        } else {
+          setVisible(false);
         }
       },
       { threshold: 0.1 },
@@ -32,7 +35,12 @@ export function Section({ children, className }: SectionProps) {
     <section className={cn("w-full overflow-hidden", className)}>
       <div
         ref={ref}
-        className={cn("w-full", "opacity-0", visible && "animate-fade-in")}
+        className={cn(
+          "w-full",
+          "opacity-0",
+          visible && "animate-fade-in",
+          !visible && hasBeenVisible && "animate-fade-out",
+        )}
       >
         {children}
       </div>

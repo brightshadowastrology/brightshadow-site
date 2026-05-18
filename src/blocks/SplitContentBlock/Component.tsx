@@ -20,7 +20,7 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   const imageContent = (
     <div
       className={cn(
-        "relative h-[50vh] lg:h-full shrink-0 overflow-hidden mt-[var(--spacing-xl)] md:mt-0",
+        "relative h-[50vh] lg:h-full shrink-0 overflow-hidden",
         contentLeftSide
           ? "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[0px] lg:rounded-tl-[200px] lg:rounded-bl-[0px] lg:rounded-br-[0px]"
           : "rounded-[var(--radius-lg)] lg:p-0 lg:rounded-tr-[200px] lg:rounded-tl-[0px] lg:rounded-bl-[0px] lg:rounded-br-[0px]",
@@ -80,7 +80,12 @@ const SplitContentBlock: React.FC<SplitContentBlockProps> = ({
   );
 
   return (
-    <Section className={cn("bg-[var(--neutral-200)] h-auto", className)}>
+    <Section
+      className={cn(
+        "bg-[var(--neutral-200)] h-auto overflow-visible",
+        className,
+      )}
+    >
       {contentLeftSide ? (
         <div className="flex flex-col lg:flex-row">
           <div className="flex-1">{textContent}</div>
