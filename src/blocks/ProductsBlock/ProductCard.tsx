@@ -65,7 +65,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         <Accordion.Item value="item">
           <Accordion.Header className="flex flex-col lg:flex-row items-stretch w-full">
             {product.media && (
-              <div className="relative w-full h-48 lg:h-auto lg:w-[20%] shrink-0 self-stretch overflow-hidden">
+              <div className="relative w-full h-48 lg:h-auto lg:w-[20%] shrink-0 self-stretch overflow-hidden rounded-tr-[20px]">
                 <Image
                   src={product.media}
                   fill

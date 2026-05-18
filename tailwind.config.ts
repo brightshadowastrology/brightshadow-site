@@ -94,6 +94,10 @@ const config: Config = {
           from: { opacity: "1" },
           to: { opacity: "0" },
         },
+        "rotate-360": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -103,6 +107,7 @@ const config: Config = {
         "fade-out-translate-down":
           "fade-out-translate-down 0.8s ease-out forwards",
         "fade-out": "fade-out 0.6s ease-out forwards",
+        "rotate-360": "rotate-360 2s linear infinite",
       },
     },
   },

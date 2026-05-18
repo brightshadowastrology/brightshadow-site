@@ -6,9 +6,10 @@ import { cn } from "@/utilities/ui";
 interface SectionProps {
   children: ReactNode;
   className?: string;
+  fadeIn?: boolean;
 }
 
-export function Section({ children, className }: SectionProps) {
+export function Section({ children, className, fadeIn = true }: SectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
@@ -37,9 +38,9 @@ export function Section({ children, className }: SectionProps) {
         ref={ref}
         className={cn(
           "w-full",
-          "opacity-0",
-          visible && "animate-fade-in",
-          !visible && hasBeenVisible && "animate-fade-out",
+          fadeIn && "opacity-0",
+          fadeIn && visible && "animate-fade-in",
+          fadeIn && !visible && hasBeenVisible && "animate-fade-out",
         )}
       >
         {children}

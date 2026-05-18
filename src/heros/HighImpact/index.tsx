@@ -1,29 +1,57 @@
 "use client";
 import React from "react";
 
-import { Media } from "@/components/Media";
 import type { Page } from "@/payload-types";
 
 import { CMSLink } from "@/components/Link";
-import Image from "next/image";
 import { Section } from "@/components/Section";
+import Image from "next/image";
 
+const clipPathImg = "/images/clip_path.svg";
 const subtractImg = "/images/subtract.svg";
 
 export const HighImpactHero: React.FC<Page["hero"]> = ({
   links,
-  media,
   headingBefore,
   headingAccent,
   headingAfter,
   bodyText,
 }) => {
   return (
-    <Section className="relative h-auto lg:h-[80vh] bg-[var(--surface-page)] px-[var(--gutter-size)] mt-[var(--spacing-3xl)]">
+    <Section
+      className="relative h-auto lg:h-[80vh] bg-[var(--surface-page)] px-[var(--gutter-size)] mt-[var(--spacing-3xl)] overflow-visible"
+      fadeIn={false}
+    >
+      <div
+        className="absolute z-10 top-[-100px] right-0 w-[40%] h-[120%] pointer-events-none"
+        aria-hidden
+      >
+        <svg width="0" height="0" className="absolute overflow-hidden">
+          <defs>
+            <clipPath id="astroClipPath" clipPathUnits="objectBoundingBox">
+              {/* <path
+                d="M0 0H467V695H200C89.543 695 0 605.457 0 495V0Z"
+                transform="scale(0.002141, 0.001439)"
+              /> */}
+
+              <path
+                d="M626.833 111H627V613H626.983V693H389.983C362.369 693 339.984 670.614 339.983 643V613H100C44.7717 613 0.000202066 568.228 0 513V211C0.000199553 155.772 44.7716 111 100 111H154.833V100C154.833 44.7716 199.605 1.28853e-06 254.833 0H626.833V111Z"
+                transform="scale(0.001595, 0.001443)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+        <div
+          style={{ clipPath: "url(#astroClipPath)" }}
+          className="relative h-full overflow-hidden bg-[var(--primary-950)]"
+        >
+          <div className="absolute w-[200%] h-[200%] left-[-50%] top-[-30%] bg-[url('/images/background_home.svg')] bg-repeat bg-[length:500px] [animation:rotate-360_240s_linear_infinite]" />
+        </div>
+      </div>
       <div className="max-w-[1440px] mx-auto">
         {/* Bottom beige  */}
         <div
-          className="absolute bottom-[-1px] left-0 w-full pointer-events-none"
+          className="absolute z-5 bottom-[-1px] left-0 w-full pointer-events-none"
           aria-hidden
         >
           <Image
@@ -34,8 +62,6 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
             unoptimized
             className="block w-full h-auto"
           />
-
-          {/* <Media fill resource={media} imgClassName={"object-cover"} /> */}
         </div>
 
         {/* Content */}
