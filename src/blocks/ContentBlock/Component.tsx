@@ -109,7 +109,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
           src={backgroundImage}
           alt=""
           fill
-          className="object-cover !h-auto"
+          className="object-cover"
           aria-hidden
         />
       )}
