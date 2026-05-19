@@ -695,6 +695,13 @@ export interface BannerBlock {
    * Optional CSS class for styling Intro Line 2
    */
   introLine2ClassName?: string | null;
+  /**
+   * Optional button displayed below the banner text
+   */
+  link?: {
+    label?: string | null;
+    url?: string | null;
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'banner';
@@ -1527,6 +1534,12 @@ export interface BannerBlockSelect<T extends boolean = true> {
   introLineVariant?: T;
   introLineClassName?: T;
   introLine2ClassName?: T;
+  link?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
   id?: T;
   blockName?: T;
 }

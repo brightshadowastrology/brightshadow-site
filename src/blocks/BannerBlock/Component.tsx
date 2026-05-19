@@ -1,4 +1,6 @@
 import { cn } from "@/utilities/ui";
+import { Button } from "@/components/Button";
+import Link from "next/link";
 import React from "react";
 
 interface BannerBlockProps {
@@ -7,6 +9,7 @@ interface BannerBlockProps {
   introLineVariant?: "default" | "large" | "small";
   introLineClassName?: string | null;
   introLine2ClassName?: string | null;
+  link?: { label?: string | null; url?: string | null } | null;
 }
 
 const BannerBlock: React.FC<BannerBlockProps> = ({
@@ -15,6 +18,7 @@ const BannerBlock: React.FC<BannerBlockProps> = ({
   introLineClassName,
   introLine2ClassName,
   introLineVariant = "default",
+  link,
 }) => {
   return (
     <div className="flex flex-col gap-[var(--spacing-md)] md:gap-[var(--spacing-lg)] pb-[var(--spacing-md)] md:pb-[var(--spacing-xl)] items-center text-center w-full md:w-3/4 mx-auto">
@@ -54,6 +58,11 @@ const BannerBlock: React.FC<BannerBlockProps> = ({
         >
           {introLine2}
         </p>
+      )}
+      {link?.url && link?.label && (
+        <Button asChild>
+          <Link href={link.url}>{link.label}</Link>
+        </Button>
       )}
     </div>
   );

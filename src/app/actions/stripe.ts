@@ -16,9 +16,7 @@ export async function fetchClientSecret(
     customer_email: customerEmail,
     submit_type: "pay",
     billing_address_collection: "auto",
-    shipping_address_collection: {
-      allowed_countries: ["US", "CA"],
-    },
+    locale: "auto",
     line_items: lineItems,
     mode: "payment",
     return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
@@ -34,4 +32,13 @@ export async function fetchStripeProducts() {
   });
 
   return products.data;
+}
+
+export async function getStripeSession(sessionId: string) {
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+  return {
+    status: session.status,
+    customer_email: session.customer_details?.email,
+  };
 }

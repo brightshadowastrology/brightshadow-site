@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 import { PayloadRedirects } from "@/components/PayloadRedirects";
 import configPromise from "@payload-config";
 import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
 import { draftMode } from "next/headers";
 import React, { cache } from "react";
+import { getStripeSession } from "@/app/actions/stripe";
 
 import { RenderBlocks } from "@/blocks/RenderBlocks";
 import { RenderHero } from "@/heros/RenderHero";
@@ -39,10 +41,16 @@ type Args = {
   params: Promise<{
     slug?: string;
   }>;
+  searchParams: Promise<Record<string, string>>;
 };
 
-export default async function Page({ params: paramsPromise }: Args) {
+export default async function Page({
+  params: paramsPromise,
+  searchParams,
+}: Args) {
   const { slug = "home" } = await paramsPromise;
+  const resolvedSearchParams = await searchParams;
+
   // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug);
   const url = "/" + decodedSlug;
@@ -54,6 +62,13 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   if (!page) {
     return <PayloadRedirects url={url} />;
+  }
+
+  if (resolvedSearchParams && decodedSlug === "return") {
+    const session_id = resolvedSearchParams.session_id;
+    if (!session_id) redirect("/");
+    const stripeSession = await getStripeSession(session_id);
+    if (stripeSession.status !== "complete") redirect("/");
   }
 
   const { hero, layout } = page;
