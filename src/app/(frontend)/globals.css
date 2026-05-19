@@ -81,6 +81,19 @@
   --brand-primary-900: #39392e;
   --brand-primary-950: #39392e; /* deepest — same as 900 per Figma */
 
+  /* — Secondary (pale lilac / dark eggplant) — */
+  --brand-secondary-50: #fafaf9;
+  --brand-secondary-100: #f5f5f4;
+  --brand-secondary-200: #e8e3e3;
+  --brand-secondary-300: #e8e3e3;
+  --brand-secondary-400: #ac9a9a;
+  --brand-secondary-500: #7d6867; /* mid */
+  --brand-secondary-600: #5b4d4a;
+  --brand-secondary-700: #473b39;
+  --brand-secondary-800: #382c2e;
+  --brand-secondary-900: #1e1615;
+  --brand-secondary-950: #1e1615; /* deepest — same as 900 per Figma */
+
   /* — Neutral (warm greige) — */
   --brand-neutral-50: #f9f7f3;
   --brand-neutral-100: #f0ece4;
@@ -134,6 +147,19 @@
   --primary-800: var(--brand-primary-800);
   --primary-900: var(--brand-primary-900);
   --primary-950: var(--brand-primary-950);
+
+  /* Secondary scale aliases */
+  --secondary-50: var(--brand-secondary-50);
+  --secondary-100: var(--brand-secondary-100);
+  --secondary-200: var(--brand-secondary-200);
+  --secondary-300: var(--brand-secondary-300);
+  --secondary-400: var(--brand-secondary-400);
+  --secondary-500: var(--brand-secondary-500);
+  --secondary-600: var(--brand-secondary-600);
+  --secondary-700: var(--brand-secondary-700);
+  --secondary-800: var(--brand-secondary-800);
+  --secondary-900: var(--brand-secondary-900);
+  --secondary-950: var(--brand-secondary-950);
 
   /* Neutral scale aliases */
   --neutral-50: var(--brand-neutral-50);
