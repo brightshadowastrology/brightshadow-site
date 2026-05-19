@@ -54,10 +54,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   const resolvedPlaceholder = placeholder ?? "--";
   const [internalValue, setInternalValue] = useState<string | null>(value);
 
-  // useEffect(() => {
-  //   setInternalValue(value);
-  // }, []);
-
   const handleValueChange = (newValue: string) => {
     const selectedOption = options.find((option) => option.value === newValue);
     if (selectedOption) {

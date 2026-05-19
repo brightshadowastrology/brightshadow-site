@@ -107,7 +107,7 @@ const config: Config = {
         "fade-out-translate-down":
           "fade-out-translate-down 0.8s ease-out forwards",
         "fade-out": "fade-out 0.6s ease-out forwards",
-        "rotate-360": "rotate-360 2s linear infinite",
+        "rotate-360": "rotate-360 240s linear infinite",
       },
     },
   },

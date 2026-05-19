@@ -60,7 +60,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
             style={{ clipPath: "url(#astroClipPath)" }}
             className="relative h-full overflow-hidden bg-[var(--primary-950)]"
           >
-            <div className="absolute w-[200%] h-[200%] left-[-50%] top-[-30%] bg-[url('/images/background_home.svg')] bg-repeat bg-[length:500px] [animation:rotate-360_240s_linear_infinite]" />
+            <div className="absolute w-[200%] h-[200%] left-[-50%] top-[-30%] bg-[url('/images/background_home.svg')] bg-repeat bg-[length:500px] animate-rotate-360" />
           </div>
         </div>
         {/* Content */}
