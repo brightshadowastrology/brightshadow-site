@@ -69,6 +69,16 @@ export const ContentBlock: Block = {
       },
     },
     {
+      name: "backgroundImage",
+      type: "text",
+      required: false,
+      label: "Background Image (public path)",
+      admin: {
+        description:
+          "Path to an image in the /public folder, e.g. /images/my-image.jpg",
+      },
+    },
+    {
       name: "className",
       type: "text",
       label: "Custom CSS Class (typically for background color)",

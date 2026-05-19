@@ -526,6 +526,10 @@ export interface ContentBlock {
         blockType: 'column';
       }[]
     | null;
+  /**
+   * Path to an image in the /public folder, e.g. /images/my-image.jpg
+   */
+  backgroundImage?: string | null;
   className?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -1455,6 +1459,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  backgroundImage?: T;
   className?: T;
   id?: T;
   blockName?: T;

@@ -1,5 +1,6 @@
 import { cn } from "@/utilities/ui";
 import React from "react";
+import Image from "next/image";
 import RichText from "@/components/RichText";
 import Card from "@/blocks/CardBlock/Component";
 import SectionLabel from "@/blocks/SectionLabelBlock/Component";
@@ -22,6 +23,7 @@ type Column = {
 
 type ContentBlockProps = {
   columns?: Column[] | null;
+  backgroundImage?: string | null;
   className?: string;
 };
 
@@ -89,18 +91,29 @@ function renderBlock(block: BlockItem, index: number) {
   }
 }
 
-const ContentBlock: React.FC<ContentBlockProps> = ({ columns, className }) => {
+const ContentBlock: React.FC<ContentBlockProps> = ({ columns, backgroundImage, className }) => {
   return (
     <Section
       className={cn(
         "bg-[var(--neutral-100)] p-[var(--gutter-size)]",
+        backgroundImage && "relative overflow-hidden",
         className,
       )}
     >
+      {backgroundImage && (
+        <Image
+          src={backgroundImage}
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden
+        />
+      )}
       <StaggerOnScroll
         className={cn(
           "grid grid-cols-4 lg:grid-cols-12 gap-[var(--spacing-lg)]",
           "mx-auto max-w-[1440px]",
+          backgroundImage && "relative z-10",
         )}
       >
         {columns &&
