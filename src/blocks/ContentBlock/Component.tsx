@@ -91,7 +91,11 @@ function renderBlock(block: BlockItem, index: number) {
   }
 }
 
-const ContentBlock: React.FC<ContentBlockProps> = ({ columns, backgroundImage, className }) => {
+const ContentBlock: React.FC<ContentBlockProps> = ({
+  columns,
+  backgroundImage,
+  className,
+}) => {
   return (
     <Section
       className={cn(
@@ -105,7 +109,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ columns, backgroundImage, c
           src={backgroundImage}
           alt=""
           fill
-          className="object-cover"
+          className="object-cover !h-auto"
           aria-hidden
         />
       )}
