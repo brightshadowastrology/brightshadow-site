@@ -28,6 +28,12 @@ export const FAQsBlock: Block = {
           "Filter FAQs by category. Leave empty to show all categories.",
       },
     },
+    {
+      name: "className",
+      type: "text",
+      required: false,
+      label: "Custom CSS Class (typically for background color)",
+    },
   ],
   labels: {
     plural: "FAQs Blocks",

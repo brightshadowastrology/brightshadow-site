@@ -10,9 +10,14 @@ import React from "react";
 type FAQsBlockProps = {
   faqs?: (number | FaqItem)[] | null;
   category?: string;
+  className?: string;
 };
 
-const FAQsBlock: React.FC<FAQsBlockProps> = async ({ faqs, category }) => {
+const FAQsBlock: React.FC<FAQsBlockProps> = async ({
+  faqs,
+  category,
+  className,
+}) => {
   let filteredFaqs: FaqItem[] = [];
 
   if (faqs && faqs.length > 0) {
@@ -37,6 +42,7 @@ const FAQsBlock: React.FC<FAQsBlockProps> = async ({ faqs, category }) => {
         "bg-[var(--neutral-100)]",
         "flex flex-col items-center justify-center",
         "pb-[var(--gutter-size)] pt-[var(--spacing-xl)] px-[var(--gutter-size)]",
+        className,
       )}
     >
       <div

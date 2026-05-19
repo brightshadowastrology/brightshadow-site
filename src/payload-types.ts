@@ -723,6 +723,7 @@ export interface FAQsBlock {
    * Filter FAQs by category. Leave empty to show all categories.
    */
   category?: ('general' | 'shop') | null;
+  className?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'faqs';
@@ -1555,6 +1556,7 @@ export interface BannerBlockSelect<T extends boolean = true> {
 export interface FAQsBlockSelect<T extends boolean = true> {
   faqs?: T;
   category?: T;
+  className?: T;
   id?: T;
   blockName?: T;
 }
