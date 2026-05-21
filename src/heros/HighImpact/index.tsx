@@ -64,7 +64,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
           </div>
         </div>
         {/* Content */}
-        <div className="relative z-10 flex flex-col gap-[var(--spacing-lg)] items-start w-full lg:max-w-[50%] pt-[var(--spacing-xl)] pb-[10vh] md:pb-0 lg:pt-[var(--gutter-size)] lg:ml-[5%]">
+        <div className="relative z-10 flex flex-col gap-[var(--spacing-lg)] items-start w-full lg:max-w-[50%] pt-[var(--spacing-xl)] pb-[10vh] md:pb-0 lg:pt-[var(--spacing-3xl)]">
           <h1 className="w-full font-normal text-display leading-tight text-[color:var(--primary-950)] whitespace-pre-wrap text-center lg:text-left">
             {headingBefore}
             <br />
