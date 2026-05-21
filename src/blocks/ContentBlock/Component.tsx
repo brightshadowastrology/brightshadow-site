@@ -106,14 +106,15 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
     >
       {backgroundImage && (
         <div
-          className="absolute inset-0 z-0 flex items-center justify-center"
+          className="absolute inset-0 z-0 flex items-center justify-center opacity-20"
           aria-hidden
         >
           <Image
             src={backgroundImage}
             alt=""
-            width={1920}
-            height={1920}
+            // width={1920}
+            // height={1920}
+            fill
             className="object-cover"
             aria-hidden
           />
