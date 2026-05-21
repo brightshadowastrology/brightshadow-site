@@ -25,7 +25,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
       <div className="max-w-[1440px] mx-auto">
         {/* Bottom beige  */}
         <div
-          className="absolute z-10 bottom-[-1px] left-0 w-full pointer-events-none"
+          className="absolute z-10 bottom-[-3px] left-0 w-full pointer-events-none"
           aria-hidden
         >
           <Image
@@ -34,6 +34,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
             width={1440}
             height={200}
             unoptimized
+            loading="eager"
             className="block w-full h-auto"
           />
         </div>
