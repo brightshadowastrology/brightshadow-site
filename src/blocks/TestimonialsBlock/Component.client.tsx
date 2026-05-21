@@ -62,7 +62,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             </div>
 
             {/* Content — grid-stack keeps height fixed to the tallest slide */}
-            <div className="grid max-h-[60vh]">
+            <div className="grid">
               {testimonials.map((t, i) => (
                 <div
                   key={i}
