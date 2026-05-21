@@ -10,7 +10,7 @@ const backgroundImage = "/images/cta_background.png";
 
 const CallToActionBlock: React.FC<CTABlockProps> = ({ cta, line1, line2 }) => {
   return (
-    <Section className="relative p-[var(--gutter-size)] bg-[var(--neutral-300)]">
+    <Section className="relative p-[var(--gutter-size)] bg-[var(--neutral-200)]">
       <Image
         src={backgroundImage}
         alt=""
