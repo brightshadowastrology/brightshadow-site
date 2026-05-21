@@ -106,7 +106,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
     >
       {backgroundImage && (
         <div
-          className="absolute inset-0 z-0 flex items-center justify-center opacity-20"
+          className="absolute inset-0 z-0 flex items-center justify-center"
           aria-hidden
         >
           <Image
