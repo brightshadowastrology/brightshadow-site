@@ -105,13 +105,19 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
       )}
     >
       {backgroundImage && (
-        <Image
-          src={backgroundImage}
-          alt=""
-          fill
-          className="object-cover"
+        <div
+          className="absolute inset-0 z-0 flex items-center justify-center"
           aria-hidden
-        />
+        >
+          <Image
+            src={backgroundImage}
+            alt=""
+            width={1920}
+            height={1920}
+            className="object-cover"
+            aria-hidden
+          />
+        </div>
       )}
       <StaggerOnScroll
         className={cn(
