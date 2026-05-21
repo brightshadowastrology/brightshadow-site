@@ -14,7 +14,7 @@ export async function Footer() {
   const legalItems = footerData?.legalItems || [];
 
   return (
-    <footer className={cn("bg-[var(--secondary-800)]", "w-full")}>
+    <footer className={cn("bg-[var(--surface-darkest)]", "w-full")}>
       <div
         className={cn(
           "w-full max-w-[1440px] mx-auto",
