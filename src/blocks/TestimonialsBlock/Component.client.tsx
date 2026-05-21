@@ -35,7 +35,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   return (
     <Section className="flex flex-col">
-      <div className="relative w-full bg-[var(--neutral-800)] overflow-hidden px-[var(--gutter-size)] py-[var(--spacing-3xl)]">
+      <div className="relative w-full bg-[var(--neutral-900)] overflow-hidden px-[var(--gutter-size)] py-[var(--spacing-3xl)]">
         {/* Background texture */}
         <Image
           src={bgTexture}
