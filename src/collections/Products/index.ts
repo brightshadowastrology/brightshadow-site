@@ -28,11 +28,13 @@ export const Products: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "kicker",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "stripeProductId",
@@ -53,6 +55,7 @@ export const Products: CollectionConfig = {
           name: "label",
           type: "text",
           required: true,
+          localized: true,
         },
         {
           name: "currency",
@@ -75,6 +78,7 @@ export const Products: CollectionConfig = {
       type: "richText",
       editor: defaultLexical,
       required: true,
+      localized: true,
     },
     {
       name: "media",

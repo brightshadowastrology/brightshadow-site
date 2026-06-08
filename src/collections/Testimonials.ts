@@ -20,12 +20,14 @@ export const Testimonials: CollectionConfig = {
       name: "quote",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "body",
       type: "richText",
       editor: defaultLexical,
       required: true,
+      localized: true,
     },
     {
       name: "author",

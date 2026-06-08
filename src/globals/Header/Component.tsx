@@ -1,13 +1,18 @@
 import { getCachedGlobal } from "@/utilities/getGlobals";
+import { getLocale } from "@/utilities/getLocale";
 
 import BrandLogo from "@/components/BrandLogo";
 import Navigation from "@/components/Navigation";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 import { CMSLink } from "@/components/Link";
 import type { Header } from "@/payload-types";
 
 export async function Header() {
-  const headerData = (await getCachedGlobal("header", 1)()) as Header;
+  const [headerData, locale] = await Promise.all([
+    getCachedGlobal("header", 1)() as Promise<Header>,
+    getLocale(),
+  ]);
 
   const navItems: typeof headerData.navItems = headerData?.navItems || [];
 
@@ -18,13 +23,17 @@ export async function Header() {
 
         <Navigation navItems={navItems} variant="default" showCart={true} />
 
-        {headerData.cta && (
-          <CMSLink
-            size="default"
-            {...headerData.cta}
-            className="hidden md:block"
-          />
-        )}
+        <div className="flex items-center gap-[var(--spacing-sm)]">
+          <LanguageSwitcher locale={locale} />
+
+          {headerData.cta && (
+            <CMSLink
+              size="default"
+              {...headerData.cta}
+              className="hidden md:block"
+            />
+          )}
+        </div>
       </div>
     </header>
   );

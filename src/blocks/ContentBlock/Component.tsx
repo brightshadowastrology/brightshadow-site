@@ -34,7 +34,7 @@ const colsSpanClasses: Record<string, string> = {
   twoThirds: "col-span-4 lg:col-span-8",
 };
 
-function renderBlock(block: BlockItem, index: number) {
+function renderBlock(block: BlockItem, index: number, className?: string) {
   switch (block.blockType) {
     case "sectionLabel":
       return (
@@ -49,6 +49,7 @@ function renderBlock(block: BlockItem, index: number) {
           key={index}
           data={block.content as Parameters<typeof RichText>[0]["data"]}
           enableGutter={false}
+          className={className}
         />
       );
     case "card":
@@ -149,7 +150,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
                           className="w-full flex justify-center md:pb-[var(--spacing-lg)]"
                           key={i}
                         >
-                          {renderBlock(block, i)}
+                          {renderBlock(block, i, className)}
                         </div>
                       );
                     }
@@ -163,7 +164,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
                           className="w-full flex justify-center py-[var(--spacing-lg)]"
                           key={i}
                         >
-                          {renderBlock(block, i)}
+                          {renderBlock(block, i, className)}
                         </div>
                       );
                     }

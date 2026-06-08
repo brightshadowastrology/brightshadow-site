@@ -30,6 +30,7 @@
     "@payloadcms/plugin-seo": "^3.83.0",
     "@payloadcms/richtext-lexical": "^3.83.0",
     "@payloadcms/storage-vercel-blob": "^3.83.0",
+    "@payloadcms/translations": "^3.85.0",
     "@payloadcms/ui": "^3.83.0",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-form": "^0.1.8",

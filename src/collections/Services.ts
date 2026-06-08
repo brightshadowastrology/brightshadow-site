@@ -20,6 +20,7 @@ export const Services: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "price",
@@ -30,12 +31,14 @@ export const Services: CollectionConfig = {
       name: "duration",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "description",
       type: "richText",
       editor: defaultLexical,
       required: true,
+      localized: true,
     },
     {
       name: "deliverables",
@@ -45,6 +48,7 @@ export const Services: CollectionConfig = {
           name: "text",
           type: "text",
           required: true,
+          localized: true,
         },
       ],
     },

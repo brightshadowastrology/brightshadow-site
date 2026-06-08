@@ -5,6 +5,8 @@ import path from "path";
 import { plugins } from "./plugins";
 import { fileURLToPath } from "url";
 import { defaultLexical } from "@/fields/defaultLexical";
+import { en } from "@payloadcms/translations/languages/en";
+import { fr } from "@payloadcms/translations/languages/fr";
 
 // Collections
 import { Categories } from "./collections/Categories";
@@ -86,5 +88,17 @@ export default buildConfig({
   },
   graphQL: {
     disable: true,
+  },
+  i18n: {
+    fallbackLanguage: "en",
+    supportedLanguages: { en, fr },
+  },
+  localization: {
+    locales: [
+      { label: "English", code: "en" },
+      { label: "French", code: "fr" },
+    ],
+    defaultLocale: "en",
+    fallback: true,
   },
 });

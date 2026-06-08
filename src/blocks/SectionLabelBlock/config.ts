@@ -6,6 +6,11 @@ export const sectionFields: Field[] = [
     type: "text",
     required: true,
   },
+  {
+    name: "variant",
+    type: "text",
+    required: false,
+  },
 ];
 
 export const SectionLabelBlock: Block = {

@@ -576,6 +576,25 @@
     padding: 0;
     font-size: inherit;
   }
+
+}
+
+.prose-white,
+.prose-white p,
+.prose-white span,
+.prose-white h1,
+.prose-white h2,
+.prose-white h3,
+.prose-white h4,
+.prose-white h5,
+.prose-white h6,
+.prose-white strong,
+.prose-white em,
+.prose-white li,
+.prose-white a,
+.prose-white blockquote,
+.prose-white code {
+  color: var(--primary-100);
 }
 
 /* ============================================================

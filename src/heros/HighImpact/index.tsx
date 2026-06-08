@@ -19,7 +19,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
 }) => {
   return (
     <Section
-      className="relative h-[100vh] lg:h-[80vh] bg-[var(--surface-page)] px-[var(--gutter-size)] mt-[var(--spacing-3xl)] overflow-hidden"
+      className="relative h-[100vh] lg:h-[90vh] bg-[var(--surface-page)] px-[var(--gutter-size)] overflow-hidden"
       fadeIn={false}
     >
       <div className="max-w-[1440px] mx-auto">
@@ -43,9 +43,9 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
         <div
           className={cn(
             "absolute z-5",
-            "right-[-10%] bottom-[-10%] w-[60vh] h-[60vh]",
+            "right-[-10%] bottom-[-20%] w-[60vh] h-[60vh]",
             "md:right[25%] md:bottom-[-20%] md:w-[80vh] md:h-[80vh]",
-            "lg:top-0 lg:right-[-10%] lg:w-[100vh] lg:h-[100vh]",
+            "lg:right-[-10%] lg:bottom-[-20%] lg:w-[100vh] lg:h-[100vh]",
             "pointer-events-none",
           )}
           aria-hidden
@@ -65,7 +65,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
           </div>
         </div>
         {/* Content */}
-        <div className="relative z-10 flex flex-col gap-[var(--spacing-lg)] items-start w-full lg:max-w-[50%] pt-[var(--spacing-xl)] pb-[10vh] md:pb-0 lg:pt-[var(--spacing-3xl)]">
+        <div className="relative z-10 flex flex-col gap-[var(--spacing-lg)] items-start w-full lg:max-w-[50%] mt-[var(--spacing-xl)] pb-[10vh] md:pb-0 lg:mt-[var(--gutter-size)]">
           <h1 className="w-full font-normal text-display leading-tight text-[color:var(--primary-950)] whitespace-pre-wrap text-center lg:text-left">
             {headingBefore}
             <br />

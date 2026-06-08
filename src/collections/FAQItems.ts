@@ -20,12 +20,14 @@ export const FAQItems: CollectionConfig = {
       name: "question",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "answer",
       type: "richText",
       editor: defaultLexical,
       required: true,
+      localized: true,
     },
     {
       name: "category",

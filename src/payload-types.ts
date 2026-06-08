@@ -114,7 +114,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'fr') | ('en' | 'fr')[];
   globals: {
     header: Header;
     footer: Footer;
@@ -123,7 +123,7 @@ export interface Config {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'fr';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -558,6 +558,7 @@ export interface CardBlock {
  */
 export interface SectionLabelBlock {
   title: string;
+  variant?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sectionLabel';
@@ -1484,6 +1485,7 @@ export interface CardBlockSelect<T extends boolean = true> {
  */
 export interface SectionLabelBlockSelect<T extends boolean = true> {
   title?: T;
+  variant?: T;
   id?: T;
   blockName?: T;
 }
