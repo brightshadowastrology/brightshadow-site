@@ -9,10 +9,8 @@ import { CMSLink } from "@/components/Link";
 import type { Header } from "@/payload-types";
 
 export async function Header() {
-  const [headerData, locale] = await Promise.all([
-    getCachedGlobal("header", 1)() as Promise<Header>,
-    getLocale(),
-  ]);
+  const locale = await getLocale();
+  const headerData = (await getCachedGlobal("header", 1, locale)()) as Header;
 
   const navItems: typeof headerData.navItems = headerData?.navItems || [];
 

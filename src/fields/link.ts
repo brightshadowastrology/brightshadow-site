@@ -112,6 +112,7 @@ export const link: LinkType = ({
         {
           name: "label",
           type: "text",
+          localized: true,
           admin: {
             width: "50%",
           },

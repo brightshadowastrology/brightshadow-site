@@ -26,6 +26,7 @@ export const hero: Field = {
     {
       name: "headingBefore",
       type: "text",
+      localized: true,
       label: "Heading (before accent)",
       admin: {
         condition: (_, { type } = {}) => type === "highImpact",
@@ -34,6 +35,7 @@ export const hero: Field = {
     {
       name: "headingAccent",
       type: "text",
+      localized: true,
       label: "Heading accent word",
       admin: {
         condition: (_, { type } = {}) => type === "highImpact",
@@ -43,6 +45,7 @@ export const hero: Field = {
     {
       name: "headingAfter",
       type: "text",
+      localized: true,
       label: "Heading (after accent)",
       admin: {
         condition: (_, { type } = {}) => type === "highImpact",
@@ -51,6 +54,7 @@ export const hero: Field = {
     {
       name: "bodyText",
       type: "textarea",
+      localized: true,
       label: "Body text",
       admin: {
         condition: (_, { type } = {}) => type === "highImpact",

@@ -44,6 +44,7 @@ export const Footer: GlobalConfig = {
     {
       name: "copyright",
       type: "text",
+      localized: true,
       admin: {
         description:
           "Copyright text to display in the footer (e.g. '© 2024 Your Company')",
