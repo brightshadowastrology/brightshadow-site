@@ -11,6 +11,7 @@ import { getStripeSession } from "@/app/actions/stripe";
 import { RenderBlocks } from "@/blocks/RenderBlocks";
 import { RenderHero } from "@/heros/RenderHero";
 import { generateMeta } from "@/utilities/generateMeta";
+import { getLocale } from "@/utilities/getLocale";
 import PageClient from "./page.client";
 
 export async function generateStaticParams() {
@@ -56,8 +57,11 @@ export default async function Page({
   const url = "/" + decodedSlug;
   let page: RequiredDataFromCollectionSlug<"pages"> | null;
 
+  const locale = await getLocale();
+
   page = await queryPageBySlug({
     slug: decodedSlug,
+    locale,
   });
 
   if (!page) {
@@ -97,14 +101,16 @@ export async function generateMetadata({
   const { slug = "home" } = await paramsPromise;
   // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug);
+  const locale = await getLocale();
   const page = await queryPageBySlug({
     slug: decodedSlug,
+    locale,
   });
 
   return generateMeta({ doc: page });
 }
 
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
+const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: "en" | "fr" }) => {
   const { isEnabled: draft } = await draftMode();
 
   const payload = await getPayload({ config: configPromise });
@@ -115,6 +121,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     limit: 1,
     pagination: false,
     overrideAccess: draft,
+    locale,
     where: {
       slug: {
         equals: slug,
