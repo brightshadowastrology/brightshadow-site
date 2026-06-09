@@ -2,6 +2,7 @@ import SectionLabel from "@/blocks/SectionLabelBlock/Component";
 import AccordionItem, { AccordionRoot } from "@/components/AccordionItem";
 import { Section } from "@/components/Section";
 import type { FaqItem } from "@/payload-types";
+import { getLocale } from "@/utilities/getLocale";
 import { cn } from "@/utilities/ui";
 import config from "@payload-config";
 import { getPayload } from "payload";
@@ -25,11 +26,15 @@ const FAQsBlock: React.FC<FAQsBlockProps> = async ({
       (f): f is FaqItem => typeof f !== "number" && f !== null,
     );
   } else {
-    const payload = await getPayload({ config });
+    const [payload, locale] = await Promise.all([
+      getPayload({ config }),
+      getLocale(),
+    ]);
     const result = await payload.find({
       collection: "faq-items",
       where: category ? { category: { equals: category } } : {},
       sort: "order",
+      locale,
     });
     filteredFaqs = result.docs;
   }

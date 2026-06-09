@@ -1,13 +1,18 @@
-import React from "react";
-import { getPayload } from "payload";
+import { getLocale } from "@/utilities/getLocale";
 import config from "@payload-config";
+import { getPayload } from "payload";
+import React from "react";
 import ProductCard from "./ProductCard";
 
 const Products: React.FC = async () => {
-  const payload = await getPayload({ config });
+  const [payload, locale] = await Promise.all([
+    getPayload({ config }),
+    getLocale(),
+  ]);
   const result = await payload.find({
     collection: "products",
     sort: "order",
+    locale,
   });
 
   const products = result.docs;

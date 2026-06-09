@@ -3,6 +3,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import type { Testimonial } from "@/payload-types";
 import { TestimonialsCarousel } from "./Component.client";
+import { getLocale } from "@/utilities/getLocale";
 
 type TestimonialsBlockProps = {
   testimonials?: (number | Testimonial)[] | null;
@@ -18,9 +19,13 @@ const TestimonialsBlock: React.FC<TestimonialsBlockProps> = async ({
       (t): t is Testimonial => typeof t !== "number" && t !== null,
     );
   } else {
-    const payload = await getPayload({ config });
+    const [payload, locale] = await Promise.all([
+      getPayload({ config }),
+      getLocale(),
+    ]);
     const result = await payload.find({
       collection: "testimonials",
+      locale,
       sort: "order",
       limit: 100,
     });
