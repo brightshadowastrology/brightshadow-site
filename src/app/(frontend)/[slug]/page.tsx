@@ -70,6 +70,8 @@ export default async function Page({
     return <PayloadRedirects url={url} />;
   }
 
+  let clearCart = false;
+
   if (resolvedSearchParams && decodedSlug === "return") {
     const session_id = resolvedSearchParams.session_id;
     if (!session_id) redirect("/");
@@ -87,11 +89,13 @@ export default async function Page({
     // Send email
     await payload.sendEmail({
       to: "brightshadowastrology@gmail.com",
-      subject: "This is a test email",
+      subject: "Report/Workbook Purchase",
       text: messageBody,
     });
 
     if (stripeSession.status !== "complete") redirect("/");
+
+    clearCart = true;
   }
 
   const { hero, layout } = page;
@@ -104,7 +108,7 @@ export default async function Page({
           : ""
       }
     >
-      <PageClient />
+      <PageClient clearCart={clearCart} />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 

@@ -1,9 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useReducer, useEffect } from "react";
+import { STORAGE_KEY } from "@/lib/constants";
 import type { Product } from "@/payload-types";
-
-const STORAGE_KEY = "bss_cart";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 
 export interface NatalData {
   date: string;

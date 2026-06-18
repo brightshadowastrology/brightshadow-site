@@ -12,3 +12,5 @@ export const MONTHS = [
   { label: "November", value: "11" },
   { label: "December", value: "12" },
 ];
+
+export const STORAGE_KEY = "bss_cart";

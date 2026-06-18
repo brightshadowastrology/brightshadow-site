@@ -83,7 +83,7 @@ export default buildConfig({
   editor: defaultLexical,
   email: resendAdapter({
     defaultFromAddress: "info@brightshadowastrology.ca",
-    defaultFromName: "Payload CMS",
+    defaultFromName: "Bright Shadow Astrology Payments",
     apiKey: process.env.RESEND_API_KEY || "",
   }),
   plugins,
