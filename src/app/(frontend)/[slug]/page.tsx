@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+import { getStripeSession } from "@/app/actions/stripe";
 import { PayloadRedirects } from "@/components/PayloadRedirects";
 import configPromise from "@payload-config";
-import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
 import { draftMode } from "next/headers";
-import React, { cache } from "react";
-import { getStripeSession } from "@/app/actions/stripe";
+import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
+import { cache } from "react";
 
 import { RenderBlocks } from "@/blocks/RenderBlocks";
 import { RenderHero } from "@/heros/RenderHero";
@@ -52,6 +52,8 @@ export default async function Page({
   const { slug = "home" } = await paramsPromise;
   const resolvedSearchParams = await searchParams;
 
+  const payload = await getPayload({ config: configPromise });
+
   // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug);
   const url = "/" + decodedSlug;
@@ -72,6 +74,23 @@ export default async function Page({
     const session_id = resolvedSearchParams.session_id;
     if (!session_id) redirect("/");
     const stripeSession = await getStripeSession(session_id);
+
+    const lineItemsText = (stripeSession.lineItems || [])
+      .map((item) => {
+        const amount = ((item.amount_total ?? 0) / 100).toFixed(2);
+        return `- ${item.description} x${item.quantity} (${item.currency?.toUpperCase()} ${amount})`;
+      })
+      .join("\n");
+
+    const messageBody = `You've just had a purchase\n\nCustomer email: ${stripeSession.customer_email}\n\nItems purchased:\n${lineItemsText}`;
+
+    // Send email
+    await payload.sendEmail({
+      to: "brightshadowastrology@gmail.com",
+      subject: "This is a test email",
+      text: messageBody,
+    });
+
     if (stripeSession.status !== "complete") redirect("/");
   }
 
@@ -110,24 +129,26 @@ export async function generateMetadata({
   return generateMeta({ doc: page });
 }
 
-const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: "en" | "fr" }) => {
-  const { isEnabled: draft } = await draftMode();
+const queryPageBySlug = cache(
+  async ({ slug, locale }: { slug: string; locale: "en" | "fr" }) => {
+    const { isEnabled: draft } = await draftMode();
 
-  const payload = await getPayload({ config: configPromise });
+    const payload = await getPayload({ config: configPromise });
 
-  const result = await payload.find({
-    collection: "pages",
-    draft,
-    limit: 1,
-    pagination: false,
-    overrideAccess: draft,
-    locale,
-    where: {
-      slug: {
-        equals: slug,
+    const result = await payload.find({
+      collection: "pages",
+      draft,
+      limit: 1,
+      pagination: false,
+      overrideAccess: draft,
+      locale,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  });
+    });
 
-  return result.docs?.[0] || null;
-});
+    return result.docs?.[0] || null;
+  },
+);

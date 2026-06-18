@@ -17,7 +17,7 @@ export async function fetchClientSecret(
     submit_type: "pay",
     billing_address_collection: "auto",
     locale: "auto",
-    line_items: lineItems,
+    line_items: lineItems.map(({ price, quantity }) => ({ price, quantity })),
     mode: "payment",
     return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
     automatic_tax: { enabled: false },
@@ -35,10 +35,13 @@ export async function fetchStripeProducts() {
 }
 
 export async function getStripeSession(sessionId: string) {
-  const session = await stripe.checkout.sessions.retrieve(sessionId);
+  const session = await stripe.checkout.sessions.retrieve(sessionId, {
+    expand: ["line_items"],
+  });
 
   return {
     status: session.status,
     customer_email: session.customer_details?.email,
+    lineItems: session.line_items?.data,
   };
 }

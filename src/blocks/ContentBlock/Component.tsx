@@ -100,7 +100,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
   return (
     <Section
       className={cn(
-        "bg-[var(--neutral-100)] p-[var(--gutter-size)]",
+        "min-h-screen bg-[var(--neutral-100)] p-[var(--gutter-size)]",
         backgroundImage && "relative overflow-hidden",
         className,
       )}

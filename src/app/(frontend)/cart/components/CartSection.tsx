@@ -18,6 +18,7 @@ export function CartSection() {
   const cartItems = hasMounted ? items : [];
 
   const lineItems: LineItem[] = cartItems.map((item) => ({
+    productName: item.name,
     price: item.stripePriceId,
     quantity: item.quantity,
   }));

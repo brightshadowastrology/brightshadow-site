@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import { defaultLexical } from "@/fields/defaultLexical";
 import { en } from "@payloadcms/translations/languages/en";
 import { fr } from "@payloadcms/translations/languages/fr";
+import { resendAdapter } from "@payloadcms/email-resend";
 
 // Collections
 import { Categories } from "./collections/Categories";
@@ -80,6 +81,11 @@ export default buildConfig({
   }),
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
+  email: resendAdapter({
+    defaultFromAddress: "info@brightshadowastrology.ca",
+    defaultFromName: "Payload CMS",
+    apiKey: process.env.RESEND_API_KEY || "",
+  }),
   plugins,
   secret: process.env.PAYLOAD_SECRET ?? "",
   sharp,
